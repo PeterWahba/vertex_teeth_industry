@@ -9,7 +9,6 @@ import 'package:vertex_teeth_industry/core/utils/text_string_app.dart';
 import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
 import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/home_screen.dart';
 import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/list_order_nav_botom_screen.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/profiles_screen/profile_screen.dart';
 
 import 'nav_botom_screen/profiles_nav_botom_scren.dart';
 import 'nav_botom_screen/walet_payment_nav_botom_scrn.dart';
@@ -26,20 +25,22 @@ class NavBottomScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //
-    final double heightQryM = MediaQuery.of(context).size.height;
+    // final double heightQryM = MediaQuery.of(context).size.height;
 
     //
     return Scaffold(
       //
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       bottomNavigationBar: SizedBox(
+        // color: Colors.amber,
         // height: heightQryM * 0.075,
-        height: 75.h,
+        height: 95.h,
         child: GetBuilder<NavBottomController>(builder: (_) {
           return BottomNavigationBar(
               //
               type: BottomNavigationBarType.fixed,
               currentIndex: _bottomController.currentIndex,
+              // backgroundColor: Colors.pink,
               elevation: 0.0,
               onTap: (value) {
                 //
@@ -124,16 +125,6 @@ class NavBottomScreen extends StatelessWidget {
               width: widthM.w,
               margin: EdgeInsets.only(bottom: 6.h),
               child: SvgPicture.asset(condition ? image1 : image2)),
-          // child: AnimatedCrossFade(
-          //   duration: const Duration(milliseconds: 50),
-
-          //   crossFadeState: condition
-          //       ? CrossFadeState.showFirst
-          //       : CrossFadeState.showSecond,
-          //   firstChild: SizedBox(
-          //       height: 24.h, width: 24.w, child: SvgPicture.asset(image1)),
-          //   secondChild: SizedBox(
-          //       height: 24.h, width: 24.w, child: SvgPicture.asset(image2)),
           // ),
         ),
         label: labelName);

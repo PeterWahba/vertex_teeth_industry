@@ -5,9 +5,23 @@ import 'package:get/get.dart';
 
 import 'core/pages/get_all_pages.dart';
 import 'core/theme/theme_app.dart';
+import 'core/utils/setting_sevices.dart';
 
-void main() {
+void main() async {
+  //
+  //
+  WidgetsFlutterBinding.ensureInitialized();
+  //
+  //
+  await initalServices();
   runApp(const MyApp());
+}
+
+// Setting
+// =======================
+
+Future initalServices() async {
+  await Get.putAsync(() => SettingGetServicesClass().init());
 }
 
 // ==========================

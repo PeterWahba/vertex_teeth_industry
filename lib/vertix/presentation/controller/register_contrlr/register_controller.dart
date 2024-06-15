@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:vertex_teeth_industry/vertix/domain/usecase/register_user_case.dart';
 
 import '../../../../core/error/methods.dart';
+import '../../../../core/utils/setting_sevices.dart';
+import '../../../../core/utils/string_shared_prefs.dart';
 
 class RegisterController extends GetxController
     with StateMixin<RegisterController> {
@@ -34,6 +36,12 @@ class RegisterController extends GetxController
     passwordTextController.clear();
   }
 
+  //
+  //
+  // Services
+
+  final SettingGetServicesClass servicesClass = Get.find();
+
   // Varaible
   // ==================================================
 
@@ -45,7 +53,7 @@ class RegisterController extends GetxController
 
   // Booler
 
-  bool _showPassword = false;
+  bool _showPassword = true;
 
   // Get Varaible
   // ==================================================
@@ -75,7 +83,10 @@ class RegisterController extends GetxController
     //
     change(state, status: RxStatus.loading());
     //
-    final reslt = await registerUseCase.call(userEmail: '', userPassWord: '');
+    final reslt = await registerUseCase.call(
+      userEmail: emailTextController.text.trim(),
+      userPassWord: passwordTextController.text.trim(),
+    );
     //
 
     //
@@ -88,14 +99,6 @@ class RegisterController extends GetxController
 
         change(state, status: RxStatus.error(message));
         //
-        print('\n');
-        print('====================================================');
-        print('\n');
-        print('Failure register is $message');
-        print('\n');
-        print('====================================================');
-        print('\n');
-        //
 
         // End Failure
       },
@@ -103,16 +106,27 @@ class RegisterController extends GetxController
         //
         //
 
-        print('\n');
-        print('====================================================');
-        print('\n');
-        print('Success register ');
-        print('\n');
-        print('====================================================');
-        print('\n');
+        //
+        change(state, status: RxStatus.success());
+
+        //
+        await servicesClass.sharedPrefs
+            .setString(NameKeySharedPreferns.userSid, userLoged.sidToken);
+
+        //
+        await servicesClass.sharedPrefs.setString(
+            NameKeySharedPreferns.doctorFullName, userLoged.doctorFullName);
+
+        //
+        await servicesClass.sharedPrefs
+            .setString(NameKeySharedPreferns.emailUser, userLoged.emailUser);
 
         //
 
+        await servicesClass.sharedPrefs.reload();
+
+        //
+        //
         //
         //
 

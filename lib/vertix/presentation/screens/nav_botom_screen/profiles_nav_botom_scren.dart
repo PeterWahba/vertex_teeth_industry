@@ -19,7 +19,7 @@ class ProfileNavBottomScreen extends StatelessWidget {
         body: GetBuilder<NavBottomController>(builder: (_) {
           //
           return AnimatedSwitcher(
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             transitionBuilder: (child, animation) {
               //
               return SlideTransition(

@@ -20,7 +20,7 @@ class ListOrderNavBotomScreen extends StatelessWidget {
         body: GetBuilder<NavBottomController>(builder: (_) {
           //
           return AnimatedSwitcher(
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             transitionBuilder: (child, animation) {
               //
               return SlideTransition(
@@ -43,22 +43,6 @@ class ListOrderNavBotomScreen extends StatelessWidget {
           );
         })
 
-        //  PageView(
-        //   physics: const BouncingScrollPhysics(),
-        //   //
-        //   controller: _listOrderNavBottomController.controllerPage,
-        //   //
-        //   children: [
-        //     //
-        //     ListOrderPageViewScreen(),
-        //     //
-        //     CreateNewRequestScreenOri(),
-        //     //
-        //     ProfileScreen()
-        //     //
-        //     // End Children Page View
-        //   ],
-        //   // End Page View
         // ),
         // End Scaffold
         );

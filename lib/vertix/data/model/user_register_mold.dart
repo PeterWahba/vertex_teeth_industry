@@ -3,8 +3,9 @@ import '../../domain/entities/user_register_entites.dart';
 class UserRegisterModel extends UserRegisterEntites {
   //
   const UserRegisterModel({
-    required super.doctorName,
-    required super.idToken,
+    required super.doctorFullName,
+    required super.sidToken,
+    required super.emailUser,
   });
 
   //idUser: json['idUser'],
@@ -12,11 +13,12 @@ class UserRegisterModel extends UserRegisterEntites {
   factory UserRegisterModel.fromJson({
     required String fullName,
     required Map<String, dynamic> json,
-    required List<String> listRoleString,
+    // required List<String> listRoleString,
   }) {
     return UserRegisterModel(
-      doctorName: json['sid'],
-      idToken: json['sid'],
+      doctorFullName: fullName,
+      sidToken: json['sid'],
+      emailUser: json['email'],
     );
   }
 

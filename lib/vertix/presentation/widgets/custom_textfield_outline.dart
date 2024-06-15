@@ -24,6 +24,7 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
     this.showPassWordText = false,
     this.isReadOnly,
     this.isEnabled,
+    this.onChangedM,
     this.onTapTextField,
     this.textDirectionC,
     this.sufixSVG,
@@ -58,6 +59,7 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
   final List<TextInputFormatter>? inputFormattersCustom;
   final String? sufixSVG;
   final void Function()? onTapTextField;
+  final void Function(String)? onChangedM;
   final String? fontFamilyC;
   final TextInputType? keyboardType;
   final TextDirection? textDirectionC;
@@ -81,6 +83,7 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
       height: hieghtTextField,
       width: widthField,
       child: TextFormField(
+        onChanged: onChangedM,
         focusNode: focusNodeC,
         onTap: onTapTextField,
         obscureText: showPassWordText,
@@ -89,10 +92,11 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
         readOnly: isReadOnly != null ? true : false,
         keyboardType: keyboardType,
         style: TextStyle(
-            fontFamily: fontFamilyC ?? AppFonts.almaraiRegular,
-            fontSize: 16.sp,
-            height: heightStyleText,
-            color: AppColors.textblackLight),
+          fontFamily: fontFamilyC ?? AppFonts.almaraiRegular,
+          fontSize: 16.sp,
+          height: heightStyleText,
+          color: AppColors.textblackLight,
+        ),
         initialValue: initText,
         onSaved: onSavedFunction,
         enabled: isEnabled,
@@ -117,8 +121,9 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
                       : null,
                 )
               : widgetPrefixIcon,
-          contentPadding: EdgeInsets.all(contentPaddingField),
-          // EdgeInsets.only(left: 0, top: 0, bottom: 0, right: 10.w),
+          contentPadding:
+              //  EdgeInsets.all(contentPaddingField),
+              EdgeInsets.only(left: 0, top: 0, bottom: 0, right: 10.w),
           suffixIcon: showSuffix
               ? InkWell(
                   radius: 15,

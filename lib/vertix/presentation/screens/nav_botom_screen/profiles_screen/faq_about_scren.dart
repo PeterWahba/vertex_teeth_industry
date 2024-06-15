@@ -5,36 +5,57 @@ import 'package:get/get.dart';
 import 'package:vertex_teeth_industry/core/utils/fonts_path_class.dart';
 import 'package:vertex_teeth_industry/core/utils/text_string_app.dart';
 import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/profile_usr_controlr.dart';
 
 import '../../../../../core/theme/colors_app.dart';
 import '../../../../../core/utils/images_path_class.dart';
+import '../../../widgets/error_state.dart';
+import '../../../widgets/shimmer/loading_faq_question.dart';
 
 class FAQaboutScreen extends StatelessWidget {
   FAQaboutScreen({super.key});
 
   //
   final NavBottomController _navBottomController = Get.find();
+  //
+  final ProfileUsrController _profileUsrController = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return
+        // SafeArea(
+        // child:
+        SizedBox(
       // color: Colors.red,
-      height: 851.h,
+      height: 831.h,
       child: ListView(
         shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
+        padding: EdgeInsets.zero,
+        physics: const BouncingScrollPhysics(),
         children: [
           //
           // Spacing
           // ===================================================================
-          SizedBox(
-            height: 44.h,
+          // SizedBox(
+          //   height: 20.h,
+          // ),
+
+          // // Spacing
+          // // ===================================================================
+          // SizedBox(
+          //     // height: 17.h,
+          //     ),
+          Container(
+            height: 30.h,
+            // width: 50,
+            // color: Colors.amber,
           ),
 
-          // Spacing
-          // ===================================================================
-          SizedBox(
-            height: 17.h,
+          //
+          Container(
+            height: 20.h,
+            // width: 50,
+            // color: Colors.red,
           ),
 
           //
@@ -81,69 +102,137 @@ class FAQaboutScreen extends StatelessWidget {
             ),
           ),
 
+          //  Build List FAQ Question
           Container(
-            height: 697.h,
+            height: 698.h,
             // color: Colors.amber,
-            child: ListView.builder(
-              padding: EdgeInsets.only(top: 17.h),
-              shrinkWrap: true,
-              physics: BouncingScrollPhysics(),
-              itemCount: 15,
-              itemBuilder: (context, index) {
+            padding: EdgeInsets.only(top: 17.h),
+            child:
                 //
-                return Container(
-                  height: 100.h,
-                  color: index % 2 == 0
-                      ? AppColors.whiteItemListOrderBackground
-                      : null,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      //
-                      Container(
-                        margin: EdgeInsets.only(right: 39.w, left: 22.w),
-                        child: Text(
-                          'كيف يمكنني ازالة المعلومات تتعلق بي',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 2,
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: Colors.black.withOpacity(0.87),
-                            fontFamily: AppFonts.almaraiBold,
+                _profileUsrController.obx((state) => buildMainWidgetFAQ(),
+
+                    // onErroe
+                    // ==============
+                    onError: (error) => Center(
+                          child: ErrorStateWidgetClass(
+                            errorText: error!,
+                            fontSizeError: 20.sp,
+                            colorTexterror: AppColors.redCancel,
+                            onTapInkWell: () {
+                              //
+                              _profileUsrController.onInit();
+                              //
+                            },
                           ),
                         ),
-                      ),
 
-                      //
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      //
-                      Container(
-                        margin: EdgeInsets.only(right: 39.w, left: 22.w),
-                        child: Text(
-                          'نموذج افتراضي لعرض معلومات للعميل فقط لهذا الهدف والاختبار وال خهسل سيبخت',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 3,
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: Colors.black.withOpacity(0.70),
-                            fontFamily: AppFonts.almaraiRegular,
-                          ),
-                        ),
-                      ),
+                    // onLoading
+                    // ========
+                    onLoading: ListView.builder(
+                        shrinkWrap: true,
+                        physics: const BouncingScrollPhysics(),
+                        itemCount: 7,
+                        itemBuilder: (_, index) {
+                          return LoadingFAQQuestionShimmerClass(
+                            greyColorShimmer: AppColors.greyShimmer,
+                            numberIndex: index,
+                          );
+                        })),
+            //
 
-                      //
-                      // End Children
-                    ],
-                  ),
-                );
-              },
-            ),
+            //
+            //  ListView.builder(
+
+            //   shrinkWrap: true,
+            //   physics: BouncingScrollPhysics(),
+            //   itemCount: 15,
+            //   itemBuilder: (context, index) {
+            //     //
+
+            //   },
+            // ),
           )
         ],
       ),
     );
+    // );
+  }
+
+  buildMainWidgetFAQ() {
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
+      shrinkWrap: true,
+      slivers: [
+        //
+        SliverList.builder(
+          //
+
+          //
+          itemCount: _profileUsrController.listFAQquestion.length,
+          //
+          itemBuilder: (context, index) {
+            //
+            final itemFAQ = _profileUsrController.listFAQquestion[index];
+            //
+
+            return Container(
+              // height: 100.h,
+              padding: EdgeInsets.symmetric(vertical: 10.h),
+              color: index % 2 == 0
+                  ? AppColors.whiteItemListOrderBackground
+                  : null,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  //
+                  Container(
+                    margin: EdgeInsets.only(right: 39.w, left: 22.w),
+                    child: Text(
+                      // 'كيف يمكنني ازالة المعلومات تتعلق بي',
+                      itemFAQ.question,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 20,
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        color: Colors.black.withOpacity(0.87),
+                        fontFamily: AppFonts.almaraiBold,
+                      ),
+                    ),
+                  ),
+
+                  //
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  //
+                  Container(
+                    margin: EdgeInsets.only(right: 39.w, left: 22.w),
+                    child: Text(
+                      // 'نموذج افتراضي لعرض معلومات للعميل فقط لهذا الهدف والاختبار وال خهسل سيبخت',
+                      itemFAQ.answer,
+                      overflow: TextOverflow.ellipsis,
+
+                      maxLines: 40,
+                      style: TextStyle(
+                        wordSpacing: 2.5,
+                        fontSize: 14.sp,
+                        color: Colors.black.withOpacity(0.70),
+                        fontFamily: AppFonts.almaraiRegular,
+                      ),
+                    ),
+                  ),
+
+                  //
+                  // End Children
+                ],
+              ),
+            );
+          },
+        ),
+      ],
+    );
+
+    // end Main Widget
   }
 }

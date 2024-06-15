@@ -43,7 +43,7 @@ class AppStringtext {
 
   // Profile Screen
   //
-  static const editPersonalAccountProfileScrn = 'تعديل الملف الشخصي';
+  static const cumulativeAmountProfileScrn = 'المببلغ التراكمي';
 
   //
   static const personalAccountProfileScrn = 'الحساب الشخصي';
@@ -80,7 +80,7 @@ class AppStringtext {
   //
   //
 
-  static const saveAddOrderPahseOneScrn = 'حفظ';
+  static const completeAddOrderPahseThisrd = 'إكمال طلب';
   //
   static const crateNewRequestPartOneAddOrderPahseOneScrn = 'إنشاء ';
 
@@ -107,6 +107,9 @@ class AppStringtext {
   //
 
   static const nextBtnAddOrderPahseOneScrn = 'التالي';
+  //
+
+  static const isFileDigitalAddOrderPahseOneScrn = 'هل الملف ديجيتال؟';
 
   //  Add Teeth Screen
   //

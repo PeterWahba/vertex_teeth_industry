@@ -79,7 +79,7 @@ class OnBoardScreen extends StatelessWidget {
           // Spacing
           // ----------------------------
 
-          Container(
+          SizedBox(
             // color: Colors.amber,
             height: 536.h,
             child: Directionality(
@@ -170,7 +170,7 @@ class OnBoardScreen extends StatelessWidget {
           Center(
             child: Directionality(
               textDirection: TextDirection.ltr,
-              child: Container(
+              child: SizedBox(
                 // color: Colors.amber,
                 height: 12.h,
                 width: 76.w,

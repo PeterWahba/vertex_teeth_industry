@@ -5,19 +5,28 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../core/theme/colors_app.dart';
 import '../../../core/utils/fonts_path_class.dart';
 import '../../../core/utils/images_path_class.dart';
+import '../../../core/utils/methods_utls.dart';
 
 class ItemOrderWidgetClass extends StatelessWidget {
   const ItemOrderWidgetClass(
       {super.key,
       required this.numberindex,
+      required this.isPaid,
+      required this.namePatien,
       required this.colorBox,
+      required this.idOrder,
       required this.stateText,
+      required this.totalMoney,
       required this.timeOrder,
       required this.colorState});
   //
   final int numberindex;
+  final int isPaid;
   final Color colorBox;
   final String stateText;
+  final double totalMoney;
+  final String namePatien;
+  final String idOrder;
   final String timeOrder;
   final Color colorState;
   //
@@ -57,10 +66,10 @@ class ItemOrderWidgetClass extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //
-                Container(
+                SizedBox(
                   height: 17.h,
                   child: buildTextListOrderItem(
-                    textM: 'ID: ORD-KR-04-24-00021',
+                    textM: idOrder,
                     fontSizeM: 16.0.sp,
                     colorM: Colors.black,
                   ),
@@ -70,10 +79,11 @@ class ItemOrderWidgetClass extends StatelessWidget {
                   height: 7.h,
                 ),
                 //
-                Container(
+                SizedBox(
                   height: 16.h,
                   child: buildTextListOrderItem(
-                    textM: 'الاسم: وليد خالد خليفة',
+                    textM: 'الاسم: $namePatien',
+                    widthText: 150.w,
                     fontSizeM: 14.0.sp,
                     colorM: Colors.black.withOpacity(0.75),
                   ),
@@ -104,26 +114,91 @@ class ItemOrderWidgetClass extends StatelessWidget {
                   ),
                 )
                 //
+
                 // End Children Column
               ],
             ),
           ),
+          //
+          isPaid == 0 ? Container() : const Spacer(),
+
+          isPaid == 0
+              ? Container()
+              : Column(
+                  children: [
+                    //
+                    const Spacer(),
+                    //
+                    //
+                    Container(
+                        height: 24.h,
+                        width: 48.w,
+                        decoration: BoxDecoration(
+                          color: AppColors.greenIsPaidColor,
+                          borderRadius: BorderRadius.circular(6.r),
+                        ),
+                        //
+                        child: Center(
+                          child: Text(
+                            'واصل',
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              fontFamily: AppFonts.almaraiBold,
+                              color: AppColors.almostWhiteDidntSaveBtn,
+                            ),
+                          ),
+                        )),
+                  ],
+                ),
 
           //
           const Spacer(),
           //
-          Container(
-            margin: EdgeInsets.only(left: 22.w, top: 22.h),
-            child: Text(
-              '$timeOrder m',
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontFamily: AppFonts.almaraiRegular,
-                color: Colors.black.withOpacity(0.75),
+          Column(
+            children: [
+              Container(
+                width: 70.w,
+                margin: EdgeInsets.only(left: 22.w, top: 22.h),
+                child: Text(
+                  // timeOrder + " " + '$numberindex' + ' item ',
+                  timeOrder,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontFamily: AppFonts.almaraiRegular,
+                    color: Colors.black.withOpacity(0.75),
+                  ),
+                ),
               ),
-            ),
-          )
+
+              //
+              const Spacer(),
+
+              //
+              Container(
+                height: 23.68.h,
+                width: 74.w,
+                margin: EdgeInsets.only(right: 8.w, left: 12.w, bottom: 5.h),
+                padding: EdgeInsets.symmetric(horizontal: 4.w),
+                decoration: BoxDecoration(
+                  color: AppColors.purpleMainColor,
+                  borderRadius: BorderRadius.circular(6.r),
+                ),
+                child: Center(
+                  child: Text(
+                    '${MethodsClassUTls.formatNumber(number: totalMoney)} د.ع',
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      fontFamily: AppFonts.almaraiBold,
+                      color: AppColors.almostWhiteDidntSaveBtn,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
 
           // End Children Row
         ],
@@ -132,12 +207,15 @@ class ItemOrderWidgetClass extends StatelessWidget {
   }
 
   //
-  buildTextListOrderItem(
-      {required String textM,
-      required double fontSizeM,
-      required Color colorM}) {
+  buildTextListOrderItem({
+    required String textM,
+    required double fontSizeM,
+    double? widthText,
+    required Color colorM,
+  }) {
     //
     return Container(
+      width: widthText,
       margin: EdgeInsets.only(right: 6.w),
       child: Text(
         textM,

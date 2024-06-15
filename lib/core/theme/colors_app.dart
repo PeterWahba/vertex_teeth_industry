@@ -53,6 +53,14 @@ class AppColors {
   //
   static const greyIdListOrderScrn = Color(0xFF9A9A9A);
   //
+  static Color greyInActiveColorBackground =
+      const Color(0xFF9A9A9A).withOpacity(0.2);
+  //
+  static const greyInActiveColorText = Color(0xFF9A9A9A);
+  //
+
+  //
+  static Color greyShimmer = const Color(0xFF91919F).withOpacity(0.5);
   //
 
   static const textblackLight = Color(0xFF1E232C);
@@ -67,10 +75,34 @@ class AppColors {
   static const skyColor = Color(0xFF81CBC2);
   //
 
+  static const orangeColor = Color(0xFFFFA500);
+  //
+
+  static const greenColor = Color(0xFF4CAF50);
+  //
+
+  static const greenIsPaidColor = Color(0xFF1AB700);
+  //
+
+  static const blueColor = Color(0xFF2196F3);
+  //
+
+  static const yellowColor = Color(0xFFFFEB3B);
+  //
+
+  static const greyStateColor = Color(0xFF9E9E9E);
+  //
+
   static const lightRed = Color(0xFFFF8787);
   //
 
   static const redCancel = Color(0xFFFD3A3A);
+  //
+
+  static const orangeWarning = Color(0xFFFFA500);
+  //
+
+  // static const redCancel = Color(0xFFFF0000);
   //
 
   static const lightPurpleEmpty = Color(0xFFB19FFF);

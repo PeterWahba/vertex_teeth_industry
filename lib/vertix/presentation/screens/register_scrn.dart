@@ -51,20 +51,22 @@ class RegisterScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15.r),
               ),
               child: IconButton(
-                  splashRadius: 35.r,
-                  color: AppColors.purpleMainColor,
-                  padding: EdgeInsets.zero,
-                  onPressed: () {
-                    //
-                    // Back
-                    Get.back();
+                splashRadius: 35.r,
+                color: AppColors.purpleMainColor,
+                padding: EdgeInsets.zero,
+                onPressed: () {
+                  //
+                  // Back
+                  Get.back();
 
-                    //
-                  },
-                  icon: SizedBox(
-                      height: 23.h,
-                      width: 23.w,
-                      child: SvgPicture.asset(AppImages.backArrow))),
+                  //
+                },
+                icon: SizedBox(
+                  height: 23.h,
+                  width: 23.w,
+                  child: SvgPicture.asset(AppImages.backArrow),
+                ),
+              ),
             ),
 
             // 33
@@ -230,34 +232,76 @@ class RegisterScreen extends StatelessWidget {
             ),
 
             //
+
+            // ==============================
+            // Show Error Message
+            //
+            GetBuilder<RegisterController>(
+              builder: (context) {
+                return Container(
+                  // color: Colors.amber,
+                  // height: _registerController.status.isError ? 60.h : 0.h,
+                  margin: EdgeInsets.only(
+                      bottom: _registerController.status.isError ? 25.h : 0.h),
+                  child: Center(
+                    child: AnimatedCrossFade(
+                      firstChild: Text(
+                        _registerController.status.errorMessage ?? '',
+                        style: TextStyle(
+                          fontFamily: AppFonts.almaraiBold,
+                          color: AppColors.redCancel,
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                      secondChild: Container(),
+                      duration: const Duration(milliseconds: 200),
+                      crossFadeState: _registerController.status.isError
+                          ? CrossFadeState.showFirst
+                          : CrossFadeState.showSecond,
+                    ),
+                  ),
+                );
+              },
+            ),
+
+            //
             GetBuilder<RegisterController>(builder: (_) {
               return ZoomTapAnimation(
                 child: InkWell(
-                  onTap: () {
-                    //
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                  onTap: _registerController.status.isLoading
+                      ? () {
+                          // if Loading do nothing
+                          //
+                        }
+                      : () async {
+                          //
 
-                    final check = _registerController.formRegister.currentState;
+                          final check =
+                              _registerController.formRegister.currentState;
 
-                    //
-                    // if (check != null) {
-                    //
-                    _registerController.registerLogInUser();
+                          //
+                          if (check != null) {
+                            if (check.validate()) {
+                              //
+                              //
+                              FocusScope.of(context).unfocus();
+                              //
 
-                    // if (check.validate()) {
-                    //
-                    //
-                    FocusScope.of(context).unfocus();
-                    //
-                    Get.toNamed(AllPagesName.navBotomScrn);
+                              //
+                              buildDialogPrivacyMethod();
+                              // await _registerController.registerLogInUser();
+                              //
 
-                    //
-                    // }
+                              //
+                            }
 
-                    // End Not Null
-                    // }
+                            // End Not Null
+                          }
 
-                    // End onTap
-                  },
+                          // End onTap
+                        },
 
                   //
                   child: Container(
@@ -293,5 +337,138 @@ class RegisterScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void buildDialogPrivacyMethod() {
+    //
+    //
+    Get.defaultDialog(
+        //
+        title: '',
+        content: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8.w),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //
+              ZoomTapAnimation(
+                child: InkWell(
+                  //
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  //
+                  onTap: () {
+                    //
+
+                    Get.toNamed(AllPagesName.privacyPolicyScrn);
+                    //
+                  },
+                  //
+                  child: Text.rich(
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontFamily: AppFonts.almaraiBold,
+                      color: AppColors.textblackLight,
+                      height: 1.5,
+                    ),
+                    const TextSpan(
+                      children: [
+                        TextSpan(text: 'في حالة الضغط على '),
+                        TextSpan(
+                          text: ' موافق ',
+                          style: TextStyle(color: AppColors.purpleMainColor),
+                        ),
+                        TextSpan(text: ' فإنك تقر بقرائتك '),
+                        TextSpan(
+                          text: ' لشروط الاستخدام و سياسة الخصوصية',
+                          style: TextStyle(color: AppColors.purpleMainColor),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+
+              //
+              SizedBox(
+                height: 20.h,
+              ),
+
+              //
+              GetBuilder<RegisterController>(
+                  //
+                  builder: (_) {
+                return InkWell(
+                  borderRadius: BorderRadius.circular(12.r),
+                  onTap: _registerController.status.isLoading
+                      ? () {}
+                      : () async {
+                          //
+                          await _registerController.registerLogInUser();
+
+                          //
+                          if (_registerController.status.isSuccess) {
+                            //
+                            // if State is success go to homeScrn
+                            if (_registerController.status.isSuccess) {
+                              Get.toNamed(AllPagesName.navBotomScrn);
+                              //
+                            }
+
+                            //
+                            //
+                            //
+                            /*
+                                                                                             Get.toNamed(
+                                                                                                AllPagesName.homeScrn,
+                                                                                                arguments: [
+                                                                                                  _logInController.userName,
+                                                                                                  _logInController.userSid,
+                                                                                                  _logInController.userAPiSecret,
+                                                                                                ],
+                                                                                              );
+                                                                                            */
+                          } else {
+                            //
+                            Get.back();
+                            //
+                          }
+                          //
+
+                          //
+                        },
+                  child: Container(
+                    height: 56.h,
+                    decoration: BoxDecoration(
+                      color: AppColors.purpleMainColor,
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                    child: Center(
+                      child: _registerController.status.isLoading
+                          ? const StaggeredDotsWaveAnimation(
+                              size: 25,
+                              color: AppColors.whiteItemListOrderBackground,
+                            )
+                          : Text(
+                              'موافق',
+                              style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: AppColors.whiteItemListOrderBackground,
+                                  fontFamily: AppFonts.almaraiExtraBold),
+                            ),
+                    ),
+                  ),
+                );
+              })
+
+              // End Children
+            ],
+          ),
+        )
+        //
+        );
+    //
+
+    // end method Dialog Privacy
   }
 }

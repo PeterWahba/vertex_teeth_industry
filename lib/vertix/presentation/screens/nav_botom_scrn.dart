@@ -7,11 +7,13 @@ import 'package:vertex_teeth_industry/core/utils/fonts_path_class.dart';
 import 'package:vertex_teeth_industry/core/utils/images_path_class.dart';
 import 'package:vertex_teeth_industry/core/utils/text_string_app.dart';
 import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/home_screen.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/home_nav_scrns/home_screen.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/home_original_nav_scrn.dart';
 import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/list_order_nav_botom_screen.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/payment_entry_nav_botom.dart';
 
 import 'nav_botom_screen/profiles_nav_botom_scren.dart';
-import 'nav_botom_screen/walet_payment_nav_botom_scrn.dart';
+import 'nav_botom_screen/paymentEntry/walet_payment_nav_botom_scrn.dart';
 
 class NavBottomScreen extends StatelessWidget {
   NavBottomScreen({super.key});
@@ -138,13 +140,13 @@ class NavBottomScreen extends StatelessWidget {
         return ProfileNavBottomScreen();
       //
       case 1:
-        return WalletPaymentNavBottomScreen();
+        return PaymentEntryNavBottomScreen();
       //
       case 2:
         return ListOrderNavBotomScreen();
       //
       case 3:
-        return HomeScreen();
+        return HomeOriginNavBotomScreen();
       //
 
       default:

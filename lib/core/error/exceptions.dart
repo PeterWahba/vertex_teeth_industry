@@ -24,3 +24,9 @@ class ImagesBannerAdsEmptyException implements Exception {}
 
 //
 class EmailOrPassWordWrongException implements Exception {}
+
+//
+class EmptyDetailspaymentEntryException implements Exception {}
+
+//
+class EmptyDetailsOrderVertexException implements Exception {}

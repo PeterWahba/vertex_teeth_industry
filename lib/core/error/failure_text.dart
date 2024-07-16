@@ -40,3 +40,13 @@ const String IMAGES_BANNER_ADS_EMPTY = 'لا يوجد صور';
 const String FAQ_QUESTION_EMPTY_MESSAGE = 'لا يوجد اسئلة حاليا';
 //
 
+//
+// ignore: constant_identifier_names
+const String DETAILS_PAYMENT_ENTRY_MESSAGE = 'لا يوجد تفاصيل لهذه العملية';
+//
+
+//
+// ignore: constant_identifier_names
+const String EMPTY_DETAILS_ORDER_VERTEX_MESSAGE = 'لا يوجد تفاصيل لهذا الطلب';
+//
+

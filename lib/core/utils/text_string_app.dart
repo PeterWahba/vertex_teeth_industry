@@ -4,6 +4,7 @@ class AppStringtext {
   //
 
   // On Board
+  // ===========================================================================
   //
   static const skip = 'تخطي';
 
@@ -12,6 +13,8 @@ class AppStringtext {
   static const special = 'متميز';
 
   // Register
+  // ===========================================================================
+  //
 
   //
   //
@@ -22,6 +25,8 @@ class AppStringtext {
   static const passwordTextHintRegister = 'أدخل الرمز السري';
 
   // Nav Botom
+  // ===========================================================================
+  //
 
   //
   //
@@ -42,8 +47,9 @@ class AppStringtext {
   //
 
   // Profile Screen
+  // ===========================================================================
   //
-  static const cumulativeAmountProfileScrn = 'المببلغ التراكمي';
+  static const cumulativeAmountProfileScrn = 'المبلغ التراكمي';
 
   //
   static const personalAccountProfileScrn = 'الحساب الشخصي';
@@ -66,7 +72,7 @@ class AppStringtext {
   //
 
   // List Order Screen
-  //
+  // ===========================================================================
   //
 
   static const addRequestListOrderScrn = 'إضافة طلب';
@@ -77,7 +83,7 @@ class AppStringtext {
   //
 
   // Add   Order PahseOne Screen
-  //
+  // ===========================================================================
   //
 
   static const completeAddOrderPahseThisrd = 'إكمال طلب';
@@ -96,6 +102,8 @@ class AppStringtext {
 
   static const patientNameAddOrderPahseOneScrn = 'إسم المريض';
   //
+  static const noteAddOrderPahseOneScrn = 'ملاحظات';
+  //
 
   static const dateAddOrderPahseOneScrn = 'التاريخ';
   //
@@ -109,10 +117,44 @@ class AppStringtext {
   static const nextBtnAddOrderPahseOneScrn = 'التالي';
   //
 
+  static const vita3DMasterOrderPahseOneScrn = 'Vita 3D Master';
+  //
+
+  static const vitaClassicalOrderPahseOneScrn = 'Vita Classical';
+  //
+
   static const isFileDigitalAddOrderPahseOneScrn = 'هل الملف ديجيتال؟';
 
-  //  Add Teeth Screen
+  //  Details Order Vertex Scrn
+  // ===========================================================================
+
+  static const informationDetailsOrderVertexScrn = 'معلومات ';
   //
+
+  static const askDetailsOrderVertexScrn = 'الطلب ';
+  //
+
+  static const totalMoneyDetailsOrderVertexScrn = 'مبلغ الكلي للطلب';
+  //
+
+  static const orderDateDetailsOrderVertexScrn = 'تاريخ الطلب';
+  //
+
+  static const btnRejectOrderDetailsOrderVertexScrn = 'رفض الطلب';
+  //
+
+  static const rejectReasonDetailsOrderVertexScrn = 'سبب الرفض';
+  //
+
+  static const hintTextRejectReasonDetailsOrderVertexScrn =
+      'يرجى كتابة سبب الرفض';
+  //
+
+  static const detailsTextDetailsOrderVertexScrn = 'تفاصيل ';
+  //
+
+  //  Add Teeth Screen
+  //============================================================================
 
   static const btnAddTeethScrn = 'إضافة الاسنان';
   //
@@ -124,6 +166,9 @@ class AppStringtext {
   //
 
   static const toothStateFieldAddTeethScrn = 'حالة السن';
+  //
+
+  static const nDShadeGuideFieldAddTeethScrn = 'ND Shade Guide';
   //
 
   static const divisionsAddTeethScrn = 'الأقسام';
@@ -148,6 +193,7 @@ class AppStringtext {
   //
 
   // Settings Screen
+  // ===========================================================================
 
   static const notificationSettingsScrn = 'الاشعارات';
   //
@@ -162,24 +208,30 @@ class AppStringtext {
 
   //
 
-  static List<StringTextFAQ> listTextFAQScrn = [
-    //
-    StringTextFAQ(
-      textTitle: 'كيف يمكنني إزالة معلومات تتعلق بي؟',
-      textSubTitle: '',
-    ),
-    //End List StringTextFAQ
-  ];
+  // Details Payment Entry Screen
+  // ===========================================================================
+  //
+
+  static const btnDownloadBillDetailsPaymentScrn = 'تنزيل الوصل';
+
+  // static List<StringTextFAQ> listTextFAQScrn = [
+  //   //
+  //   StringTextFAQ(
+  //     textTitle: 'كيف يمكنني إزالة معلومات تتعلق بي؟',
+  //     textSubTitle: '',
+  //   ),
+  //   //End List StringTextFAQ
+  // ];
 
   //
 
   //
 }
 
-class StringTextFAQ {
-  //
-  final String textTitle;
-  final String textSubTitle;
+// class StringTextFAQ {
+//   //
+//   final String textTitle;
+//   final String textSubTitle;
 
-  StringTextFAQ({required this.textTitle, required this.textSubTitle});
-}
+//   StringTextFAQ({required this.textTitle, required this.textSubTitle});
+// }

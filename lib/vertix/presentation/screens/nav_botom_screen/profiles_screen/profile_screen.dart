@@ -6,13 +6,13 @@ import 'package:vertex_teeth_industry/core/animation/dots_loading.dart';
 import 'package:vertex_teeth_industry/core/theme/colors_app.dart';
 import 'package:vertex_teeth_industry/core/utils/fonts_path_class.dart';
 import 'package:vertex_teeth_industry/core/utils/images_path_class.dart';
-import 'package:vertex_teeth_industry/core/utils/methods_utls.dart';
+import 'package:vertex_teeth_industry/core/functions/methods_utls.dart';
 import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/profile_usr_controlr.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../../../../../core/pages/pages_name.dart';
 import '../../../../../core/utils/text_string_app.dart';
-import '../../../../../core/widgets/methods_widgets.dart';
+import '../../../../../core/functions/methods_widgets.dart';
 import '../../../controller/nav_botom_controlr/nav_botom_controlr.dart';
 import '../../../widgets/division_list_tile.dart';
 
@@ -82,29 +82,34 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   //
                   Container(
-                      height: 142.h,
-                      width: 142.w,
-                      margin: EdgeInsets.only(top: 13.h),
-                      // decoration: const BoxDecoration(
-                      // shape: BoxShape.circle,
+                    height: 142.h,
+                    width: 142.w,
+                    margin: EdgeInsets.only(top: 13.h),
+                    padding: EdgeInsets.only(
+                        top: 10.h, bottom: 10.h, left: 10.w, right: 10.w),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: AppColors.textblackLight),
                       // color: Colors.amber,
                       // image: DecorationImage(
-                      //     image: AssetImage(AppImages.testImage),
-                      //     //
-                      //     ),
+                      //   image: AssetImage(AppImages.imageLoadingVertix),
+                      //   //
                       // ),
-                      child: const CircleAvatar(
-                        backgroundImage:
-                            AssetImage(AppImages.imageLoadingVertix),
-                      )
-                      // CircleAvatar(
-                      // child:
-                      //     Image.asset(
-                      //   AppImages.imageLoadingVertixCircle,
-                      //   // fit: BoxFit.fill,
-                      // ),
-                      // ),
-                      ),
+                    ),
+                    child: Image.asset(AppImages.imageLoadingVertix),
+                    // child: const CircleAvatar(
+                    //   backgroundImage:
+                    //       AssetImage(AppImages.imageLoadingVertix,
+                    //       ),
+                    // )
+                    // CircleAvatar(
+                    // child:
+                    //     Image.asset(
+                    //   AppImages.imageLoadingVertixCircle,
+                    //   // fit: BoxFit.fill,
+                    // ),
+                    // ),
+                  ),
 
                   // End Children
                 ],
@@ -174,19 +179,18 @@ class ProfileScreen extends StatelessWidget {
 
             Container(
               margin: EdgeInsets.symmetric(horizontal: 22.w),
+              // color: Colors.amber,
               child: InkWell(
-                onTap: _profileUsrController.status.isLoading ||
-                        _profileUsrController.status.isSuccess
-                    ? null
-                    : () {
-                        //
-                        _profileUsrController.onInit();
-                      },
+                onTap: () {
+                  //
+                  _profileUsrController.onInit();
+                },
 
                 //
+                borderRadius: BorderRadius.circular(8.r),
 
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
+                splashColor: AppColors.purpleMainColor,
+                highlightColor: AppColors.purpleMainColor.withOpacity(0.5),
                 //
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 2.w),
@@ -235,7 +239,7 @@ class ProfileScreen extends StatelessWidget {
                             //
                             //
                             onLoading: const StaggeredDotsWaveAnimation(
-                                size: 20, color: AppColors.purpleMainColor),
+                                size: 30, color: AppColors.purpleMainColor),
 
                             //
 

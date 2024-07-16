@@ -25,8 +25,10 @@ class HomePageController extends GetxController
     //
     await getImagesBannerAdsMethod();
     await getNameCustomerForSessionUser();
+
     //
     // change(state, status: RxStatus.error('Error'));
+    // change(state, status: RxStatus.loading());
     //
 
     //

@@ -4,7 +4,8 @@ class AppImages {
   static const imageLogoSVG = 'images/splash_logo_svg.svg';
   //
   //
-  static const imageLoadingVertix = 'images/verix_image_load.png';
+  static const imageLoadingVertix = 'images/vertex_logo.png';
+  // static const imageLoadingVertix = 'images/vertex_logo_svg.svg';
   //
   static const imageLoadingVertixAppIcon = 'images/vertix_icon_app.png';
   //
@@ -145,8 +146,10 @@ class AppImages {
   static const boxListOrderScrn = 'images/box_icon.svg';
   //
 
-  // Images Teeth
-  //
+  // White Images Teeth
+  // ===========================================================================
+  // ===========================================================================
+  // ===========================================================================
 
   static const teeth18 = 'images/teeth/18_white.svg';
   //
@@ -344,338 +347,908 @@ class AppImages {
   //
 
   //
-  // Orange Teeth
+  // Images Teeth  PFM Laser
+  // ===========================================================================
   //
 
-  static const teethOrange18 = 'images/teeth/18_orange.svg';
+  static const teethPFMLaser18 = 'images/teeth/18_pfm_laser.svg';
   //
 
-  static const teethOrange17 = 'images/teeth/17_orange.svg';
+  static const teethPFMLaser17 = 'images/teeth/17_pfm_laser.svg';
   //
 
-  static const teethOrange16 = 'images/teeth/16_orange.svg';
+  static const teethPFMLaser16 = 'images/teeth/16_pfm_laser.svg';
   //
 
-  static const teethOrange15 = 'images/teeth/15_orange.svg';
+  static const teethPFMLaser15 = 'images/teeth/15_pfm_laser.svg';
   //
 
-  static const teethOrange14 = 'images/teeth/14_orange.svg';
+  static const teethPFMLaser14 = 'images/teeth/14_pfm_laser.svg';
   //
 
-  static const teethOrange13 = 'images/teeth/13_orange.svg';
+  static const teethPFMLaser13 = 'images/teeth/13_pfm_laser.svg';
   //
 
-  static const teethOrange12 = 'images/teeth/12_orange.svg';
+  static const teethPFMLaser12 = 'images/teeth/12_pfm_laser.svg';
   //
 
-  static const teethOrange11 = 'images/teeth/11_orange.svg';
+  static const teethPFMLaser11 = 'images/teeth/11_pfm_laser.svg';
   //
 
-  static const teethOrange21 = 'images/teeth/21_orange.svg';
+  static const teethPFMLaser21 = 'images/teeth/21_pfm_laser.svg';
   //
 
-  static const teethOrange22 = 'images/teeth/22_orange.svg';
+  static const teethPFMLaser22 = 'images/teeth/22_pfm_laser.svg';
   //
 
-  static const teethOrange23 = 'images/teeth/23_orange.svg';
+  static const teethPFMLaser23 = 'images/teeth/23_pfm_laser.svg';
   //
 
-  static const teethOrange24 = 'images/teeth/24_orange.svg';
+  static const teethPFMLaser24 = 'images/teeth/24_pfm_laser.svg';
   //
 
-  static const teethOrange25 = 'images/teeth/25_orange.svg';
+  static const teethPFMLaser25 = 'images/teeth/25_pfm_laser.svg';
   //
 
-  static const teethOrange26 = 'images/teeth/26_orange.svg';
+  static const teethPFMLaser26 = 'images/teeth/26_pfm_laser.svg';
   //
 
-  static const teethOrange27 = 'images/teeth/27_orange.svg';
+  static const teethPFMLaser27 = 'images/teeth/27_pfm_laser.svg';
   //
 
-  static const teethOrange28 = 'images/teeth/28_orange.svg';
+  static const teethPFMLaser28 = 'images/teeth/28_pfm_laser.svg';
   //
 
-  static const teethOrange38 = 'images/teeth/38_orange.svg';
+  static const teethPFMLaser38 = 'images/teeth/38_pfm_laser.svg';
   //
 
-  static const teethOrange37 = 'images/teeth/37_orange.svg';
+  static const teethPFMLaser37 = 'images/teeth/37_pfm_laser.svg';
   //
 
-  static const teethOrange36 = 'images/teeth/36_orange.svg';
+  static const teethPFMLaser36 = 'images/teeth/36_pfm_laser.svg';
   //
 
-  static const teethOrange35 = 'images/teeth/35_orange.svg';
+  static const teethPFMLaser35 = 'images/teeth/35_pfm_laser.svg';
   //
 
-  static const teethOrange34 = 'images/teeth/34_orange.svg';
+  static const teethPFMLaser34 = 'images/teeth/34_pfm_laser.svg';
   //
 
-  static const teethOrange33 = 'images/teeth/33_orange.svg';
+  static const teethPFMLaser33 = 'images/teeth/33_pfm_laser.svg';
   //
 
-  static const teethOrange32 = 'images/teeth/32_orange.svg';
+  static const teethPFMLaser32 = 'images/teeth/32_pfm_laser.svg';
   //
 
-  static const teethOrange31 = 'images/teeth/31_orange.svg';
+  static const teethPFMLaser31 = 'images/teeth/31_pfm_laser.svg';
   //
 
-  static const teethOrange41 = 'images/teeth/41_orange.svg';
+  static const teethPFMLaser41 = 'images/teeth/41_pfm_laser.svg';
   //
 
-  static const teethOrange42 = 'images/teeth/42_orange.svg';
+  static const teethPFMLaser42 = 'images/teeth/42_pfm_laser.svg';
   //
 
-  static const teethOrange43 = 'images/teeth/43_orange.svg';
+  static const teethPFMLaser43 = 'images/teeth/43_pfm_laser.svg';
   //
 
-  static const teethOrange44 = 'images/teeth/44_orange.svg';
+  static const teethPFMLaser44 = 'images/teeth/44_pfm_laser.svg';
   //
 
-  static const teethOrange45 = 'images/teeth/45_orange.svg';
+  static const teethPFMLaser45 = 'images/teeth/45_pfm_laser.svg';
   //
 
-  static const teethOrange46 = 'images/teeth/46_orange.svg';
+  static const teethPFMLaser46 = 'images/teeth/46_pfm_laser.svg';
   //
 
-  static const teethOrange47 = 'images/teeth/47_orange.svg';
+  static const teethPFMLaser47 = 'images/teeth/47_pfm_laser.svg';
   //
 
-  static const teethOrange48 = 'images/teeth/48_orange.svg';
+  static const teethPFMLaser48 = 'images/teeth/48_pfm_laser.svg';
   //
 
+  //
   // Images Teeth
   //
 
-  static const teethRed18 = 'images/teeth/18_red.svg';
+  static const teethinlayAndOnlay18 = 'images/teeth/18_inlay_and_onlay.svg';
   //
 
-  static const teethRed17 = 'images/teeth/17_red.svg';
+  static const teethinlayAndOnlay17 = 'images/teeth/17_inlay_and_onlay.svg';
   //
 
-  static const teethRed16 = 'images/teeth/16_red.svg';
+  static const teethinlayAndOnlay16 = 'images/teeth/16_inlay_and_onlay.svg';
   //
 
-  static const teethRed15 = 'images/teeth/15_red.svg';
+  static const teethinlayAndOnlay15 = 'images/teeth/15_inlay_and_onlay.svg';
   //
 
-  static const teethRed14 = 'images/teeth/14_red.svg';
+  static const teethinlayAndOnlay14 = 'images/teeth/14_inlay_and_onlay.svg';
   //
 
-  static const teethRed13 = 'images/teeth/13_red.svg';
+  static const teethinlayAndOnlay13 = 'images/teeth/13_inlay_and_onlay.svg';
   //
 
-  static const teethRed12 = 'images/teeth/12_red.svg';
+  static const teethinlayAndOnlay12 = 'images/teeth/12_inlay_and_onlay.svg';
   //
 
-  static const teethRed11 = 'images/teeth/11_red.svg';
+  static const teethinlayAndOnlay11 = 'images/teeth/11_inlay_and_onlay.svg';
   //
 
-  static const teethRed21 = 'images/teeth/21_red.svg';
+  static const teethinlayAndOnlay21 = 'images/teeth/21_inlay_and_onlay.svg';
   //
 
-  static const teethRed22 = 'images/teeth/22_red.svg';
+  static const teethinlayAndOnlay22 = 'images/teeth/22_inlay_and_onlay.svg';
   //
 
-  static const teethRed23 = 'images/teeth/23_red.svg';
+  static const teethinlayAndOnlay23 = 'images/teeth/23_inlay_and_onlay.svg';
   //
 
-  static const teethRed24 = 'images/teeth/24_red.svg';
+  static const teethinlayAndOnlay24 = 'images/teeth/24_inlay_and_onlay.svg';
   //
 
-  static const teethRed25 = 'images/teeth/25_red.svg';
+  static const teethinlayAndOnlay25 = 'images/teeth/25_inlay_and_onlay.svg';
   //
 
-  static const teethRed26 = 'images/teeth/26_red.svg';
+  static const teethinlayAndOnlay26 = 'images/teeth/26_inlay_and_onlay.svg';
   //
 
-  static const teethRed27 = 'images/teeth/27_red.svg';
+  static const teethinlayAndOnlay27 = 'images/teeth/27_inlay_and_onlay.svg';
   //
 
-  static const teethRed28 = 'images/teeth/28_red.svg';
+  static const teethinlayAndOnlay28 = 'images/teeth/28_inlay_and_onlay.svg';
   //
 
-  static const teethRed38 = 'images/teeth/38_red.svg';
+  static const teethinlayAndOnlay38 = 'images/teeth/38_inlay_and_onlay.svg';
   //
 
-  static const teethRed37 = 'images/teeth/37_red.svg';
+  static const teethinlayAndOnlay37 = 'images/teeth/37_inlay_and_onlay.svg';
   //
 
-  static const teethRed36 = 'images/teeth/36_red.svg';
+  static const teethinlayAndOnlay36 = 'images/teeth/36_inlay_and_onlay.svg';
   //
 
-  static const teethRed35 = 'images/teeth/35_red.svg';
+  static const teethinlayAndOnlay35 = 'images/teeth/35_inlay_and_onlay.svg';
   //
 
-  static const teethRed34 = 'images/teeth/34_red.svg';
+  static const teethinlayAndOnlay34 = 'images/teeth/34_inlay_and_onlay.svg';
   //
 
-  static const teethRed33 = 'images/teeth/33_red.svg';
+  static const teethinlayAndOnlay33 = 'images/teeth/33_inlay_and_onlay.svg';
   //
 
-  static const teethRed32 = 'images/teeth/32_red.svg';
+  static const teethinlayAndOnlay32 = 'images/teeth/32_inlay_and_onlay.svg';
   //
 
-  static const teethRed31 = 'images/teeth/31_red.svg';
+  static const teethinlayAndOnlay31 = 'images/teeth/31_inlay_and_onlay.svg';
   //
 
-  static const teethRed41 = 'images/teeth/41_red.svg';
+  static const teethinlayAndOnlay41 = 'images/teeth/41_inlay_and_onlay.svg';
   //
 
-  static const teethRed42 = 'images/teeth/42_red.svg';
+  static const teethinlayAndOnlay42 = 'images/teeth/42_inlay_and_onlay.svg';
   //
 
-  static const teethRed43 = 'images/teeth/43_red.svg';
+  static const teethinlayAndOnlay43 = 'images/teeth/43_inlay_and_onlay.svg';
   //
 
-  static const teethRed44 = 'images/teeth/44_red.svg';
+  static const teethinlayAndOnlay44 = 'images/teeth/44_inlay_and_onlay.svg';
   //
 
-  static const teethRed45 = 'images/teeth/45_red.svg';
+  static const teethinlayAndOnlay45 = 'images/teeth/45_inlay_and_onlay.svg';
   //
 
-  static const teethRed46 = 'images/teeth/46_red.svg';
+  static const teethinlayAndOnlay46 = 'images/teeth/46_inlay_and_onlay.svg';
   //
 
-  static const teethRed47 = 'images/teeth/47_red.svg';
+  static const teethinlayAndOnlay47 = 'images/teeth/47_inlay_and_onlay.svg';
   //
 
-  static const teethRed48 = 'images/teeth/48_red.svg';
+  static const teethinlayAndOnlay48 = 'images/teeth/48_inlay_and_onlay.svg';
   //
 
-  // Selected Teeth
+  // ===========================================================================
+  // ZirconFacingEMax Images Teeth
+  //============================================================================
+  //============================================================================
+
+  static const teethZirconFacingEMax18 =
+      'images/teeth/18_zircon_facing_e_max.svg';
+  // ZirconFacingEMax
+
+  static const teethZirconFacingEMax17 =
+      'images/teeth/17_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax16 =
+      'images/teeth/16_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax15 =
+      'images/teeth/15_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax14 =
+      'images/teeth/14_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax13 =
+      'images/teeth/13_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax12 =
+      'images/teeth/12_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax11 =
+      'images/teeth/11_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax21 =
+      'images/teeth/21_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax22 =
+      'images/teeth/22_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax23 =
+      'images/teeth/23_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax24 =
+      'images/teeth/24_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax25 =
+      'images/teeth/25_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax26 =
+      'images/teeth/26_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax27 =
+      'images/teeth/27_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax28 =
+      'images/teeth/28_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax38 =
+      'images/teeth/38_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax37 =
+      'images/teeth/37_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax36 =
+      'images/teeth/36_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax35 =
+      'images/teeth/35_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax34 =
+      'images/teeth/34_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax33 =
+      'images/teeth/33_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax32 =
+      'images/teeth/32_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax31 =
+      'images/teeth/31_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax41 =
+      'images/teeth/41_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax42 =
+      'images/teeth/42_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax43 =
+      'images/teeth/43_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax44 =
+      'images/teeth/44_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax45 =
+      'images/teeth/45_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax46 =
+      'images/teeth/46_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax47 =
+      'images/teeth/47_zircon_facing_e_max.svg';
+  //
+
+  static const teethZirconFacingEMax48 =
+      'images/teeth/48_zircon_facing_e_max.svg';
+  //
+
+  // Zircon full anatomy Images Teeth
+  // ===========================================================================
+  // ===========================================================================
+  // ===========================================================================
+
+  static const teethZirconFullAnatomy18 =
+      'images/teeth/18_zircon_full_anatomy.svg';
+  // ZirconFullAnatomy
+
+  static const teethZirconFullAnatomy17 =
+      'images/teeth/17_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy16 =
+      'images/teeth/16_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy15 =
+      'images/teeth/15_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy14 =
+      'images/teeth/14_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy13 =
+      'images/teeth/13_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy12 =
+      'images/teeth/12_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy11 =
+      'images/teeth/11_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy21 =
+      'images/teeth/21_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy22 =
+      'images/teeth/22_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy23 =
+      'images/teeth/23_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy24 =
+      'images/teeth/24_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy25 =
+      'images/teeth/25_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy26 =
+      'images/teeth/26_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy27 =
+      'images/teeth/27_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy28 =
+      'images/teeth/28_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy38 =
+      'images/teeth/38_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy37 =
+      'images/teeth/37_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy36 =
+      'images/teeth/36_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy35 =
+      'images/teeth/35_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy34 =
+      'images/teeth/34_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy33 =
+      'images/teeth/33_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy32 =
+      'images/teeth/32_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy31 =
+      'images/teeth/31_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy41 =
+      'images/teeth/41_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy42 =
+      'images/teeth/42_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy43 =
+      'images/teeth/43_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy44 =
+      'images/teeth/44_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy45 =
+      'images/teeth/45_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy46 =
+      'images/teeth/46_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy47 =
+      'images/teeth/47_zircon_full_anatomy.svg';
+  //
+
+  static const teethZirconFullAnatomy48 =
+      'images/teeth/48_zircon_full_anatomy.svg';
+  //
+
+  // Zircon layered Images Teeth
+  // ===========================================================================
+  // ===========================================================================
+  // ===========================================================================
+
+  static const teethZirconLayered18 = 'images/teeth/18_zircon_layered.svg';
+  // ZirconLayered
+
+  static const teethZirconLayered17 = 'images/teeth/17_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered16 = 'images/teeth/16_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered15 = 'images/teeth/15_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered14 = 'images/teeth/14_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered13 = 'images/teeth/13_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered12 = 'images/teeth/12_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered11 = 'images/teeth/11_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered21 = 'images/teeth/21_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered22 = 'images/teeth/22_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered23 = 'images/teeth/23_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered24 = 'images/teeth/24_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered25 = 'images/teeth/25_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered26 = 'images/teeth/26_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered27 = 'images/teeth/27_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered28 = 'images/teeth/28_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered38 = 'images/teeth/38_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered37 = 'images/teeth/37_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered36 = 'images/teeth/36_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered35 = 'images/teeth/35_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered34 = 'images/teeth/34_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered33 = 'images/teeth/33_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered32 = 'images/teeth/32_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered31 = 'images/teeth/31_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered41 = 'images/teeth/41_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered42 = 'images/teeth/42_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered43 = 'images/teeth/43_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered44 = 'images/teeth/44_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered45 = 'images/teeth/45_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered46 = 'images/teeth/46_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered47 = 'images/teeth/47_zircon_layered.svg';
+  //
+
+  static const teethZirconLayered48 = 'images/teeth/48_zircon_layered.svg';
+  //
+
+  // Zircon prettau anterior Images Teeth
+  // ===========================================================================
+  // ===========================================================================
+  // ===========================================================================
+
+  static const teethZirconPrettauAnterior18 =
+      'images/teeth/18_zircon_prettau_anterior.svg';
+  // ZirconPrettauAnterior
+
+  static const teethZirconPrettauAnterior17 =
+      'images/teeth/17_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior16 =
+      'images/teeth/16_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior15 =
+      'images/teeth/15_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior14 =
+      'images/teeth/14_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior13 =
+      'images/teeth/13_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior12 =
+      'images/teeth/12_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior11 =
+      'images/teeth/11_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior21 =
+      'images/teeth/21_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior22 =
+      'images/teeth/22_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior23 =
+      'images/teeth/23_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior24 =
+      'images/teeth/24_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior25 =
+      'images/teeth/25_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior26 =
+      'images/teeth/26_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior27 =
+      'images/teeth/27_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior28 =
+      'images/teeth/28_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior38 =
+      'images/teeth/38_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior37 =
+      'images/teeth/37_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior36 =
+      'images/teeth/36_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior35 =
+      'images/teeth/35_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior34 =
+      'images/teeth/34_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior33 =
+      'images/teeth/33_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior32 =
+      'images/teeth/32_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior31 =
+      'images/teeth/31_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior41 =
+      'images/teeth/41_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior42 =
+      'images/teeth/42_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior43 =
+      'images/teeth/43_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior44 =
+      'images/teeth/44_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior45 =
+      'images/teeth/45_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior46 =
+      'images/teeth/46_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior47 =
+      'images/teeth/47_zircon_prettau_anterior.svg';
+  //
+
+  static const teethZirconPrettauAnterior48 =
+      'images/teeth/48_zircon_prettau_anterior.svg';
+  //
+
+  // e_max press Images Teeth
+  // ===========================================================================
+  // ===========================================================================
+  // ===========================================================================
+
+  static const teethEMaxPress18 = 'images/teeth/21_e_max_press.svg';
+  // EMaxPress
+
+  static const teethEMaxPress17 = 'images/teeth/17_e_max_press.svg';
+  //
+
+  static const teethEMaxPress16 = 'images/teeth/16_e_max_press.svg';
+  //
+
+  static const teethEMaxPress15 = 'images/teeth/15_e_max_press.svg';
+  //
+
+  static const teethEMaxPress14 = 'images/teeth/14_e_max_press.svg';
+  //
+
+  static const teethEMaxPress13 = 'images/teeth/13_e_max_press.svg';
+  //
+
+  static const teethEMaxPress12 = 'images/teeth/12_e_max_press.svg';
+  //
+
+  static const teethEMaxPress11 = 'images/teeth/11_e_max_press.svg';
+  //
+
+  static const teethEMaxPress21 = 'images/teeth/21_e_max_press.svg';
+  //
+
+  static const teethEMaxPress22 = 'images/teeth/22_e_max_press.svg';
+  //
+
+  static const teethEMaxPress23 = 'images/teeth/23_e_max_press.svg';
+  //
+
+  static const teethEMaxPress24 = 'images/teeth/24_e_max_press.svg';
+  //
+
+  static const teethEMaxPress25 = 'images/teeth/25_e_max_press.svg';
+  //
+
+  static const teethEMaxPress26 = 'images/teeth/26_e_max_press.svg';
+  //
+
+  static const teethEMaxPress27 = 'images/teeth/27_e_max_press.svg';
+  //
+
+  static const teethEMaxPress28 = 'images/teeth/28_e_max_press.svg';
+  //
+
+  static const teethEMaxPress38 = 'images/teeth/38_e_max_press.svg';
+  //
+
+  static const teethEMaxPress37 = 'images/teeth/37_e_max_press.svg';
+  //
+
+  static const teethEMaxPress36 = 'images/teeth/36_e_max_press.svg';
+  //
+
+  static const teethEMaxPress35 = 'images/teeth/35_e_max_press.svg';
+  //
+
+  static const teethEMaxPress34 = 'images/teeth/34_e_max_press.svg';
+  //
+
+  static const teethEMaxPress33 = 'images/teeth/33_e_max_press.svg';
+  //
+
+  static const teethEMaxPress32 = 'images/teeth/32_e_max_press.svg';
+  //
+
+  static const teethEMaxPress31 = 'images/teeth/31_e_max_press.svg';
+  //
+
+  static const teethEMaxPress41 = 'images/teeth/41_e_max_press.svg';
+  //
+
+  static const teethEMaxPress42 = 'images/teeth/42_e_max_press.svg';
+  //
+
+  static const teethEMaxPress43 = 'images/teeth/43_e_max_press.svg';
+  //
+
+  static const teethEMaxPress44 = 'images/teeth/44_e_max_press.svg';
+  //
+
+  static const teethEMaxPress45 = 'images/teeth/45_e_max_press.svg';
+  //
+
+  static const teethEMaxPress46 = 'images/teeth/46_e_max_press.svg';
+  //
+
+  static const teethEMaxPress47 = 'images/teeth/47_e_max_press.svg';
+  //
+
+  static const teethEMaxPress48 = 'images/teeth/48_e_max_press.svg';
+  //
 
   //
+
+  // E_max suprem Images Teeth
+  // ===========================================================================
+  // ===========================================================================
+  // ===========================================================================
+
+  static const teethEMaxSuprem18 = 'images/teeth/21_e_max_suprem.svg';
+  //  EMaxSuprem
+
+  static const teethEMaxSuprem17 = 'images/teeth/17_e_max_suprem.svg';
   //
 
+  static const teethEMaxSuprem16 = 'images/teeth/16_e_max_suprem.svg';
   //
-  // Teeth Orange
 
-  // static const teethOrange1 = 'images/orange1.svg';
+  static const teethEMaxSuprem15 = 'images/teeth/15_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem14 = 'images/teeth/14_e_max_suprem.svg';
+  //
 
-  // static const teethOrange2 = 'images/orange2.svg';
+  static const teethEMaxSuprem13 = 'images/teeth/13_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem12 = 'images/teeth/12_e_max_suprem.svg';
+  //
 
-  // static const teethOrange3 = 'images/orange3.svg';
+  static const teethEMaxSuprem11 = 'images/teeth/11_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem21 = 'images/teeth/21_e_max_suprem.svg';
+  //
 
-  // static const teethOrange4 = 'images/orange4.svg';
+  static const teethEMaxSuprem22 = 'images/teeth/22_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem23 = 'images/teeth/23_e_max_suprem.svg';
+  //
 
-  // static const teethOrange5 = 'images/orange5.svg';
+  static const teethEMaxSuprem24 = 'images/teeth/24_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem25 = 'images/teeth/25_e_max_suprem.svg';
+  //
 
-  // static const teethOrange6 = 'images/orange6.svg';
+  static const teethEMaxSuprem26 = 'images/teeth/26_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem27 = 'images/teeth/27_e_max_suprem.svg';
+  //
 
-  // static const teethOrange7 = 'images/orange7.svg';
+  static const teethEMaxSuprem28 = 'images/teeth/28_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem38 = 'images/teeth/38_e_max_suprem.svg';
+  //
 
-  // static const teethOrange8 = 'images/orange8.svg';
+  static const teethEMaxSuprem37 = 'images/teeth/37_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem36 = 'images/teeth/36_e_max_suprem.svg';
+  //
 
-  // static const teethOrange9 = 'images/orange9.svg';
+  static const teethEMaxSuprem35 = 'images/teeth/35_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem34 = 'images/teeth/34_e_max_suprem.svg';
+  //
 
-  // static const teethOrange10 = 'images/orange10.svg';
+  static const teethEMaxSuprem33 = 'images/teeth/33_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem32 = 'images/teeth/32_e_max_suprem.svg';
+  //
 
-  // static const teethOrange11 = 'images/orange11.svg';
+  static const teethEMaxSuprem31 = 'images/teeth/31_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem41 = 'images/teeth/41_e_max_suprem.svg';
+  //
 
-  // static const teethOrange12 = 'images/orange12.svg';
+  static const teethEMaxSuprem42 = 'images/teeth/42_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem43 = 'images/teeth/43_e_max_suprem.svg';
+  //
 
-  // static const teethOrange13 = 'images/orange13.svg';
+  static const teethEMaxSuprem44 = 'images/teeth/44_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem45 = 'images/teeth/45_e_max_suprem.svg';
+  //
 
-  // static const teethOrange14 = 'images/orange14.svg';
+  static const teethEMaxSuprem46 = 'images/teeth/46_e_max_suprem.svg';
+  //
 
-  // //
+  static const teethEMaxSuprem47 = 'images/teeth/47_e_max_suprem.svg';
+  //
 
-  // static const teethOrange15 = 'images/orange15.svg';
-
-  // //
-
-  // static const teethOrange16 = 'images/orange16.svg';
-
-  // //
-
-  // static const teethOrange17 = 'images/orange17.svg';
-
-  // //
-
-  // static const teethOrange18 = 'images/orange18.svg';
-
-  // //
-
-  // static const teethOrange19 = 'images/orange19.svg';
-
-  // //
-
-  // static const teethOrange20 = 'images/orange20.svg';
-
-  // //
-
-  // static const teethOrange21 = 'images/orange21.svg';
-
-  // //
-
-  // static const teethOrange22 = 'images/orange22.svg';
-
-  // //
-
-  // static const teethOrange23 = 'images/orange23.svg';
-
-  // //
-
-  // static const teethOrange24 = 'images/orange24.svg';
-
-  // //
-
-  // static const teethOrange25 = 'images/orange25.svg';
-
-  // //
-
-  // static const teethOrange26 = 'images/orange26.svg';
-
-  // //
-
-  // static const teethOrange27 = 'images/orange27.svg';
-
-  // //
-
-  // static const teethOrange28 = 'images/orange28.svg';
-
-  // //
-
-  // static const teethOrange29 = 'images/orange29.svg';
-
-  // //
-
-  // static const teethOrange30 = 'images/orange30.svg';
-
-  // //
-
-  // static const teethOrange31 = 'images/orange31.svg';
-
-  // //
-
-  // static const teethOrange32 = 'images/orange32.svg';
-
+  static const teethEMaxSuprem48 = 'images/teeth/48_e_max_suprem.svg';
   //
 
   //

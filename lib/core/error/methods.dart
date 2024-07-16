@@ -37,6 +37,12 @@ String mapFailureToMessage(Failure failure) {
     case FAQQuestionEmptyFailure:
       return FAQ_QUESTION_EMPTY_MESSAGE;
     //
+    case EmptyDetailspaymentEntryFailure:
+      return DETAILS_PAYMENT_ENTRY_MESSAGE;
+    //
+    case EmptyDetailsOrderVertexFailure:
+      return EMPTY_DETAILS_ORDER_VERTEX_MESSAGE;
+    //
     //
 
     default:

@@ -63,3 +63,15 @@ class FAQQuestionEmptyFailure extends Failure {
   @override
   List<Object?> get props => [];
 }
+
+//
+class EmptyDetailspaymentEntryFailure extends Failure {
+  @override
+  List<Object?> get props => [];
+}
+
+//
+class EmptyDetailsOrderVertexFailure extends Failure {
+  @override
+  List<Object?> get props => [];
+}

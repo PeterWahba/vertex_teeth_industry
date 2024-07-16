@@ -10,7 +10,7 @@ import 'package:vertex_teeth_industry/core/utils/text_string_app.dart';
 import 'package:vertex_teeth_industry/onBoarding/controller/on_board_controllr.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
-import '../../core/widgets/material_btn_class.dart';
+import '../../core/functions/material_btn_class.dart';
 import '../widgets/page_on_board_class.dart';
 
 class OnBoardScreen extends StatelessWidget {

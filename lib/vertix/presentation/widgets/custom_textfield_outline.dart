@@ -108,6 +108,7 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
 
         cursorColor: AppColors.purpleMainColor,
         decoration: InputDecoration(
+          // enabled: isReadOnly == null ? true : false,
           prefixIcon: prefixText != null
               ? Padding(
                   padding: EdgeInsets.only(top: 15.h, left: 10.w, right: 10.w),
@@ -169,7 +170,10 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
                   const BorderSide(color: AppColors.greyStrokTextField)),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
-            borderSide: const BorderSide(color: AppColors.purpleMainColor),
+            borderSide: BorderSide(
+                color: isReadOnly == null
+                    ? AppColors.purpleMainColor
+                    : AppColors.greyTextHint),
           ),
         ),
       ),

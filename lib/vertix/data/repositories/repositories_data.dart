@@ -3,6 +3,8 @@ import 'package:dartz/dartz.dart';
 import 'package:vertex_teeth_industry/core/error/failures.dart';
 import 'package:vertex_teeth_industry/vertix/data/model/add_order_vertix_model.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/add_order_vertix_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/details_order_vertex_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/details_payment_entry_entities.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/faq_question_entities.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/order_vertix_entities.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/payment_entry_user_entities.dart';
@@ -113,8 +115,11 @@ class RepositoriesDataImp implements RepositoriesDomain {
       //
 
       AddOrderVertixModel addOrderVertixModel = AddOrderVertixModel(
+        vita3DMaster: addOrderVertixEntites.vita3DMaster,
+        vitaClassical: addOrderVertixEntites.vitaClassical,
         dentistName: addOrderVertixEntites.dentistName,
         dateTime: addOrderVertixEntites.dateTime,
+        noteOrder: addOrderVertixEntites.noteOrder,
         age: addOrderVertixEntites.age,
         patientName: addOrderVertixEntites.patientName,
         gender: addOrderVertixEntites.gender,
@@ -335,6 +340,86 @@ class RepositoriesDataImp implements RepositoriesDomain {
     }
 
     //  End Get FAQ Question Method
+  }
+
+  @override
+  Future<Either<Failure, DetailesPaymentEntryEntities>> getDetailsPaymentEntry(
+      {required String sidToekn, required String idNamePayment}) async {
+    //
+
+    //
+
+    if (!await netWorkInfo.isConnected) {
+      //
+
+      return left(OffLineFailer());
+    }
+
+    try {
+      final reslt = await eRPnextDataSource.getDetailsPaymentEntryDataSource(
+        sidToken: sidToekn,
+        idNamePayment: idNamePayment,
+      );
+      //
+      return right(reslt);
+    } on UnKnownException {
+      //
+
+      return left(UnKnownFailre());
+      //
+    } on EmptyDetailspaymentEntryException {
+      //
+
+      return left(EmptyDetailspaymentEntryFailure());
+      //
+    } on ServerException {
+      //
+
+      return left(ServerFailre());
+      //
+    }
+
+    //  End Get  Details Payment Entry Method
+  }
+
+  @override
+  Future<Either<Failure, DetailsOrderVertexEntities>> getDetailsOrderVertex(
+      {required String sidToekn, required String idOrder}) async {
+    //
+
+    //
+
+    if (!await netWorkInfo.isConnected) {
+      //
+
+      return left(OffLineFailer());
+    }
+
+    try {
+      final reslt = await eRPnextDataSource.getDetailsOrderVertexDataSourse(
+        sidToken: sidToekn,
+        idOrder: idOrder,
+      );
+      //
+      return right(reslt);
+    } on UnKnownException {
+      //
+
+      return left(UnKnownFailre());
+      //
+    } on EmptyDetailsOrderVertexException {
+      //
+
+      return left(EmptyDetailsOrderVertexFailure());
+      //
+    } on ServerException {
+      //
+
+      return left(ServerFailre());
+      //
+    }
+
+    //  End Get  Details  Order Vertex Method
   }
 
   //

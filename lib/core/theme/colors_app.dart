@@ -1,16 +1,57 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  // Colors Details Order Vertx
+  // F08080
+  //
+  static const pfmLaser = Color(0xFFF08080);
+
+  //
+  // static const temporary = Color(0xFFEBFF00);
+  static const temporary = Color(0xFF00FF00);
+  // وخلي لونه
+// #00FF00
+  //
+  static const inlayAndonlay = Color(0xFF7FFFD4);
+
+  //
+  static const zirconfacingEmax = Color(0xFFFFD700);
+
+  //
+  static const zirconLayered = Color(0xFFFFFF00);
+
+  //
+  static const zirconFullAnatomy = Color(0xFFADD8E6);
+
+  //
+  static const zirconPrettauAnterior = Color(0xFFD2B48C);
+
+  //
+  static const eMaxPress = Color(0xFFDCDCDC);
+
+  //
+  static const eMaxSuprem = Color(0xFF00FFFF);
+
+  //
+
+  //
+  //  End Section Colors Details Order Vertex
+  // ===========================================================================
+
   //
   //Text
   //
   static const backGroundAndTextWhite = Color(0xFFFFFFFF);
+  //
+  static const silverColor = Color(0xFFC0C0C0);
   //
   static const almostWhiteDidntSaveBtn = Color(0xFFFFEDED);
   //
   static const whiteItemListOrderBackground = Color(0xFFF9F9F9);
   //
   static const greyBotomSheet = Color(0xFFB9C0C9);
+  //
+  static const greyTeethDetailsOrder = Color(0xFFD9D9D9);
   //
   static const greyFieldBotomSheet = Color(0xFFC2C2C2);
   //
@@ -31,6 +72,9 @@ class AppColors {
   //
 
   static const colorRed = Color(0xFFFD3C4A);
+  //
+
+  static const redRejectOrder = Color(0xFFE42A47);
   //
 
   static const greyTextHint = Color(0xFF8391A1);

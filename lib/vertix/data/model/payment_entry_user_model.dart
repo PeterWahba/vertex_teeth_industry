@@ -6,6 +6,7 @@ class PaymentEntryUserModel extends PaymentEnteryUserEntities {
     required super.idPayment,
     required super.paidAmountMoneyTotal,
     required super.timeCreation,
+    required super.isOffer,
     required super.partyNameUser,
   });
   //
@@ -16,6 +17,7 @@ class PaymentEntryUserModel extends PaymentEnteryUserEntities {
   }) {
     return PaymentEntryUserModel(
       idPayment: json['name'],
+      isOffer: json['custom_is_offer'],
       paidAmountMoneyTotal: json['paid_amount'],
       timeCreation: json['creation'],
       partyNameUser: json['party'],

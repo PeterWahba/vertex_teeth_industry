@@ -9,7 +9,7 @@ import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_c
 import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/profile_usr_controlr.dart';
 
 import '../../../../../core/pages/pages_name.dart';
-import '../../../../../core/widgets/methods_widgets.dart';
+import '../../../../../core/functions/methods_widgets.dart';
 import '../../../widgets/division_list_tile.dart';
 
 class SettingsScreen extends StatelessWidget {

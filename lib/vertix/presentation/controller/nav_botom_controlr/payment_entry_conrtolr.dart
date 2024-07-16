@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:vertex_teeth_industry/core/error/methods.dart';
 import 'package:vertex_teeth_industry/core/utils/string_shared_prefs.dart';
 import 'package:vertex_teeth_industry/vertix/domain/usecase/get_payment_entry_case.dart';
@@ -32,6 +33,16 @@ class PaymentEntryUserController extends GetxController
   //
   //  Lists
   List<PaymentEnteryUserEntities> _listPaymentEntry = [];
+  //
+  List<PaymentEnteryUserEntities> _listPaymentEntryWhole = [];
+  //
+  //
+
+  // Date Time
+  final DateTime _dateTimeNow = DateTime.now();
+  //
+  DateTime _currentDateScrn = DateTime.now();
+  //
 
   // Get variable
   // ===========================================================================
@@ -40,11 +51,64 @@ class PaymentEntryUserController extends GetxController
   // Get Variable
   //
   List<PaymentEnteryUserEntities> get listPaymentEntry => _listPaymentEntry;
+
+  // Get DateTime
+  //
+  DateTime get dateTimeNow => _dateTimeNow;
+  //
+  DateTime get currentDateScrn => _currentDateScrn;
+  //
   // Method
   // ===========================================================================
   //
   // Methods deals with Screen
   // ===========================================================================
+
+  filterPaymentOrderAccordintToDate(DateTime? chosenDate) {
+    //
+    if (chosenDate != null) {
+      //
+      _currentDateScrn = chosenDate;
+      //
+      String dateForCompare = DateFormat('yyyy-MM-dd').format(chosenDate);
+
+      //
+
+      //
+      _listPaymentEntry = _listPaymentEntryWhole;
+
+      //
+      List<PaymentEnteryUserEntities> listPaymentOfDat = [];
+
+      //
+      for (PaymentEnteryUserEntities paymentEnteryUserEntities
+          in _listPaymentEntry) {
+        //
+
+        if (paymentEnteryUserEntities.timeCreation.split(' ')[0] ==
+            dateForCompare) {
+          //
+          listPaymentOfDat.add(paymentEnteryUserEntities);
+          //
+        }
+
+        //  End For
+      }
+      //
+      _listPaymentEntry = listPaymentOfDat;
+      //
+      update();
+
+      //
+      // if(listPaymentOfDat.isEmpty)
+
+      //
+
+      //
+
+      // end IG
+    }
+  }
   //
   // Method deals with backend
   // ===========================================================================
@@ -79,6 +143,9 @@ class PaymentEntryUserController extends GetxController
       (success) {
         // handle success
         _listPaymentEntry = success;
+        //
+        _listPaymentEntryWhole = success;
+        //
 
         //
         change(state, status: RxStatus.success());

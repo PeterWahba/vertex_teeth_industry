@@ -8,7 +8,10 @@ class AddOrderVertixModel extends AddOrderVertixEntities {
   const AddOrderVertixModel({
     required super.age,
     required super.dentistName,
+    required super.noteOrder,
     required super.dateTime,
+    required super.vita3DMaster,
+    required super.vitaClassical,
     required super.patientName,
     required super.gender,
     required super.isDigital,
@@ -29,7 +32,12 @@ class AddOrderVertixModel extends AddOrderVertixEntities {
         {
       'dentist_name': dentistName,
       // 'dentist_name': "Test API",
+
       'patient_name': patientName,
+      'vita_3d_master': vita3DMaster,
+      'vita_classical': vitaClassical,
+
+      'note': noteOrder,
       'gender': gender,
       'age': age,
       'date': dateTime,

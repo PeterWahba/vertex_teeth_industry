@@ -3,15 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:vertex_teeth_industry/vertix/presentation/controller/list_order_controller/create_new_request_controlr.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/list_order_controller/details_order_vertex_controlr.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../../../../../core/theme/colors_app.dart';
 import '../../../../../core/utils/fonts_path_class.dart';
 import '../../../../../core/utils/images_path_class.dart';
-import '../../../../../core/utils/methods_utls.dart';
+import '../../../../../core/functions/methods_utls.dart';
 import '../../../../../core/utils/text_string_app.dart';
-import '../../../../../core/widgets/methods_widgets.dart';
+import '../../../../../core/functions/methods_widgets.dart';
 import '../../../controller/nav_botom_controlr/nav_botom_controlr.dart';
+import '../../../widgets/custom_textfield_outline.dart';
 import '../../../widgets/error_state.dart';
 import '../../../widgets/item_order_widget.dart';
 import '../../../widgets/shimmer/loading_shimmer.dart';
@@ -24,6 +26,8 @@ class ListOrderPageViewScreen extends StatelessWidget {
   final NavBottomController _navBottomController = Get.find();
   //
   final CreateNewRequestController _createNewRequestController = Get.find();
+  //
+  final DetailsOrderVertexController _detailsOrderVertexController = Get.find();
   //
   //
 
@@ -138,13 +142,33 @@ class ListOrderPageViewScreen extends StatelessWidget {
           ),
 
           //
-          //  TextField
+          //  TextField Search Field
+          // ==============================================
+          // ==============================================
+          // ==============================================
           Container(
             height: 56.h,
             // width: 50,
             // color: Colors.green,
             margin: EdgeInsets.symmetric(horizontal: 22.w),
-            child: buildTextField(),
+            child: CustomTextfieldOutLineProduct(
+              onChangedM: (value) {
+                //   //
+                _createNewRequestController.searchInsideListOrderVertixOriginal(
+                    letterIdName: value, stateOrder: null);
+                //
+              },
+              hintText: AppStringtext.hintTextSearchHomeScrn,
+              showPrefix: false,
+              showSuffix: false,
+              colorHintText: AppColors.greyTextHint,
+              widgetPrefixIcon: Container(
+                margin: EdgeInsets.only(top: 18.h, bottom: 18.h, right: 16.w),
+                height: 20.h,
+                width: 20.w,
+                child: SvgPicture.asset(AppImages.searchHomeScren),
+              ),
+            ),
           ),
 
           //
@@ -207,7 +231,7 @@ class ListOrderPageViewScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: _createNewRequestController.stateOrderDivision ==
                                 index
-                            ? MethodsWidgetClass.colorItemListOrder(
+                            ? MethodsClassUTls.colorItemListOrder(
                                 stateOrder.stateArabic)
                             : Colors.transparent,
                         border: Border.all(
@@ -290,22 +314,39 @@ class ListOrderPageViewScreen extends StatelessWidget {
                                   .listOrderVertixEntities[index];
 
                               //
-                              return ItemOrderWidgetClass(
-                                numberindex: index,
-                                isPaid: itemOrder.isPaid,
-                                totalMoney: itemOrder.totalAmount,
-                                idOrder: itemOrder.idOrder,
-                                namePatien: itemOrder.patientName,
-                                timeOrder: MethodsClassUTls.convertToTimeAgo(
-                                    itemOrder.postingTime),
-                                stateText: _createNewRequestController
-                                    .translateStateOrderToArabic(
-                                        itemOrder.orderState),
-                                colorBox: MethodsWidgetClass.colorItemListOrder(
-                                    itemOrder.orderState),
-                                colorState:
-                                    MethodsWidgetClass.colorItemListOrder(
-                                        itemOrder.orderState),
+                              return InkWell(
+                                //
+                                onTap: () async {
+                                  //  should call the Method that get Details of Order
+                                  //
+                                  _detailsOrderVertexController
+                                      .getDetailsOrderVertexMethod(
+                                          itemOrder.idOrder);
+                                  _navBottomController
+                                      .changeCurrnentIndexListOrderScreen(3);
+                                },
+
+                                //
+                                splashColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                //
+                                child: ItemOrderWidgetClass(
+                                  numberindex: index,
+                                  isPaid: itemOrder.isPaid,
+                                  totalMoney: itemOrder.totalAmount,
+                                  idOrder: itemOrder.idOrder,
+                                  namePatien: itemOrder.patientName,
+                                  timeOrder: MethodsClassUTls.convertToTimeAgo(
+                                      itemOrder.postingTime),
+                                  stateText: MethodsClassUTls
+                                      .translateStateOrderToArabic(
+                                          itemOrder.orderState),
+                                  colorBox: MethodsClassUTls.colorItemListOrder(
+                                      itemOrder.orderState),
+                                  colorState:
+                                      MethodsClassUTls.colorItemListOrder(
+                                          itemOrder.orderState),
+                                ),
                               );
 
                               // End ItemBuilder
@@ -360,80 +401,5 @@ class ListOrderPageViewScreen extends StatelessWidget {
       ),
       // ),
     );
-  }
-
-  Widget buildTextField() {
-    //
-    return TextFormField(
-      //
-      onChanged: (value) {
-        //
-        _createNewRequestController.searchInsideListOrderVertixOriginal(
-            letterIdName: value, stateOrder: null);
-        //
-      },
-
-      //
-      style: TextStyle(
-        fontFamily: AppFonts.almaraiRegular,
-        fontSize: 16.sp,
-        height: 1.15,
-        // color: AppColors.greyTextHint,
-      ),
-      decoration: InputDecoration(
-        contentPadding: const EdgeInsets.all(0),
-        // EdgeInsets.only(left: 0, top: 0, bottom: 0, right: 10.w),
-
-        //
-        prefixIcon: Container(
-          // color: Colors.amber,
-          margin: EdgeInsets.only(top: 16.h, bottom: 18.h, right: 18.w),
-          height: 20.h,
-          width: 20.w,
-          child: SvgPicture.asset(AppImages.searchHomeScren),
-        ),
-
-        //
-
-        //
-        hintText: AppStringtext.hintTextSearchHomeScrn,
-
-        hintStyle: TextStyle(
-            fontFamily: AppFonts.almaraiRegular,
-            fontSize: 16.sp,
-            height: 1.15,
-            color: AppColors.greyTextHint),
-        //
-        errorBorder: OutlineInputBorder(
-          // gapPadding: 56,
-
-          borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
-          borderSide: const BorderSide(color: AppColors.colorRed),
-        ),
-        errorStyle: const TextStyle(fontFamily: AppFonts.almaraiRegular),
-        border: OutlineInputBorder(
-          // gapPadding: 56,
-          borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
-          borderSide:
-              const BorderSide(color: AppColors.greyStrokListOrderTextField),
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
-          borderSide:
-              const BorderSide(color: AppColors.greyStrokListOrderTextField),
-        ),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
-            borderSide:
-                const BorderSide(color: AppColors.greyStrokListOrderTextField)),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
-          borderSide: const BorderSide(color: AppColors.purpleMainColor),
-        ),
-      ),
-      //
-    );
-    //
-    // End Method
   }
 }

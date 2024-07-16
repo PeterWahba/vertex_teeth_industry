@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:vertex_teeth_industry/core/functions/methods_utls.dart';
 import 'package:vertex_teeth_industry/core/utils/images_path_class.dart';
 import 'package:vertex_teeth_industry/vertix/presentation/controller/list_order_controller/create_new_request_controlr.dart';
 import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
@@ -11,7 +12,7 @@ import '../../../../../core/animation/dots_loading.dart';
 import '../../../../../core/theme/colors_app.dart';
 import '../../../../../core/utils/fonts_path_class.dart';
 import '../../../../../core/utils/text_string_app.dart';
-import '../../../../../core/widgets/methods_widgets.dart';
+import '../../../../../core/functions/methods_widgets.dart';
 import '../../../widgets/custom_textfield_outline.dart';
 
 class AddedTeeethsScreen extends StatelessWidget {
@@ -81,7 +82,12 @@ class AddedTeeethsScreen extends StatelessWidget {
                         : () async {
                             //
                             // _navBottomController.changeCurrnentIndexListOrderScreen(1);
-
+                            //
+                            print('\n');
+                            print('\n');
+                            print('Add Order Screen 1');
+                            print('\n');
+                            print('\n');
                             //
                             Get.dialog(
                               barrierDismissible: false,
@@ -93,10 +99,23 @@ class AddedTeeethsScreen extends StatelessWidget {
                               ),
                             );
 
+                            //
+                            print('\n');
+                            print('\n');
+                            print('Add Order Screen 2');
+                            print('\n');
+                            print('\n');
+
                             await _createNewRequestController
                                 .addOrderVertixMethod();
 
                             //
+
+                            print('\n');
+                            print('\n');
+                            print('Add Order Screen 2');
+                            print('\n');
+                            print('\n');
 
                             //
                             if (!_createNewRequestController.status.isLoading) {
@@ -322,16 +341,22 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  1
                 methodPositionedSvgTeeth(
                   numberImage: '18',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('18')
-                          ? AppImages.teethGreen18
-                          : returnImage(
-                              numbrimage: '18',
-                              toothImageWhite: AppImages.teeth18,
-                              toothImageGreen: AppImages.teethGreen18,
-                              toothImageOrange: AppImages.teethOrange18,
-                              toothImageRed: AppImages.teethRed18,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('18')
+                      ? AppImages.teethGreen18
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '18',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
+                  //  returnImage(
+                  //     numbrimage: '18',
+                  //     toothImageWhite: AppImages.teeth18,
+                  //     toothImageGreen: AppImages.teethGreen18,
+                  //     toothImageOrange: AppImages.teethOrange18,
+                  //     toothImageRed: AppImages.teethRed18,
+                  //   ),
                   hieghtImage: 46.33,
                   widthImage: 44.4,
                   topPosition: 234.3,
@@ -344,16 +369,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  2
                 methodPositionedSvgTeeth(
                   numberImage: '17',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('17')
-                          ? AppImages.teethGreen17
-                          : returnImage(
-                              numbrimage: '17',
-                              toothImageWhite: AppImages.teeth17,
-                              toothImageGreen: AppImages.teethGreen17,
-                              toothImageOrange: AppImages.teethOrange17,
-                              toothImageRed: AppImages.teethRed17,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('17')
+                      ? AppImages.teethGreen17
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '17',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 45.04,
                   widthImage: 42.55,
                   topPosition: 193.06,
@@ -366,16 +390,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  3
                 methodPositionedSvgTeeth(
                   numberImage: '16',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('16')
-                          ? AppImages.teethGreen16
-                          : returnImage(
-                              numbrimage: '16',
-                              toothImageWhite: AppImages.teeth16,
-                              toothImageGreen: AppImages.teethGreen16,
-                              toothImageOrange: AppImages.teethOrange16,
-                              toothImageRed: AppImages.teethRed16,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('16')
+                      ? AppImages.teethGreen16
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '16',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 51.13,
                   widthImage: 48.26,
                   topPosition: 149.4,
@@ -388,16 +411,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  4
                 methodPositionedSvgTeeth(
                   numberImage: '15',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('15')
-                          ? AppImages.teethGreen15
-                          : returnImage(
-                              numbrimage: '15',
-                              toothImageWhite: AppImages.teeth15,
-                              toothImageGreen: AppImages.teethGreen15,
-                              toothImageOrange: AppImages.teethOrange15,
-                              toothImageRed: AppImages.teethRed15,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('15')
+                      ? AppImages.teethGreen15
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '15',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 41.6,
                   widthImage: 47.89,
                   topPosition: 116.93,
@@ -410,16 +432,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  5
                 methodPositionedSvgTeeth(
                   numberImage: '14',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('14')
-                          ? AppImages.teethGreen14
-                          : returnImage(
-                              numbrimage: '14',
-                              toothImageWhite: AppImages.teeth14,
-                              toothImageGreen: AppImages.teethGreen14,
-                              toothImageOrange: AppImages.teethOrange14,
-                              toothImageRed: AppImages.teethRed14,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('14')
+                      ? AppImages.teethGreen14
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '14',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 41,
                   widthImage: 45.35,
                   topPosition: 88.47,
@@ -432,16 +453,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  6
                 methodPositionedSvgTeeth(
                   numberImage: '13',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('13')
-                          ? AppImages.teethGreen13
-                          : returnImage(
-                              numbrimage: '13',
-                              toothImageWhite: AppImages.teeth13,
-                              toothImageGreen: AppImages.teethGreen13,
-                              toothImageOrange: AppImages.teethOrange13,
-                              toothImageRed: AppImages.teethRed13,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('13')
+                      ? AppImages.teethGreen13
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '13',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 36.2,
                   widthImage: 31.09,
                   topPosition: 63.14,
@@ -454,16 +474,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  7
                 methodPositionedSvgTeeth(
                   numberImage: '12',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('12')
-                          ? AppImages.teethGreen12
-                          : returnImage(
-                              numbrimage: '12',
-                              toothImageWhite: AppImages.teeth12,
-                              toothImageGreen: AppImages.teethGreen12,
-                              toothImageOrange: AppImages.teethOrange12,
-                              toothImageRed: AppImages.teethRed12,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('12')
+                      ? AppImages.teethGreen12
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '12',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 34.04,
                   widthImage: 29.7,
                   topPosition: 41.18,
@@ -476,16 +495,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  8
                 methodPositionedSvgTeeth(
                   numberImage: '11',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('11')
-                          ? AppImages.teethGreen11
-                          : returnImage(
-                              numbrimage: '11',
-                              toothImageWhite: AppImages.teeth11,
-                              toothImageGreen: AppImages.teethGreen11,
-                              toothImageOrange: AppImages.teethOrange11,
-                              toothImageRed: AppImages.teethRed11,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('11')
+                      ? AppImages.teethGreen11
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '11',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 52.56,
                   widthImage: 52.37,
                   topPosition: 16.36,
@@ -498,16 +516,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  9
                 methodPositionedSvgTeeth(
                   numberImage: '21',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('21')
-                          ? AppImages.teethGreen21
-                          : returnImage(
-                              numbrimage: '21',
-                              toothImageWhite: AppImages.teeth21,
-                              toothImageGreen: AppImages.teethGreen21,
-                              toothImageOrange: AppImages.teethOrange21,
-                              toothImageRed: AppImages.teethRed21,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('21')
+                      ? AppImages.teethGreen21
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '21',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 52.92,
                   widthImage: 52.73,
                   topPosition: 16,
@@ -520,16 +537,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  10
                 methodPositionedSvgTeeth(
                   numberImage: '22',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('22')
-                          ? AppImages.teethGreen22
-                          : returnImage(
-                              numbrimage: '22',
-                              toothImageWhite: AppImages.teeth22,
-                              toothImageGreen: AppImages.teethGreen22,
-                              toothImageOrange: AppImages.teethOrange22,
-                              toothImageRed: AppImages.teethRed22,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('22')
+                      ? AppImages.teethGreen22
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '22',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 34.39,
                   widthImage: 29.6,
                   topPosition: 40.02,
@@ -542,16 +558,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  11
                 methodPositionedSvgTeeth(
                   numberImage: '23',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('23')
-                          ? AppImages.teethGreen23
-                          : returnImage(
-                              numbrimage: '23',
-                              toothImageWhite: AppImages.teeth23,
-                              toothImageGreen: AppImages.teethGreen23,
-                              toothImageOrange: AppImages.teethOrange23,
-                              toothImageRed: AppImages.teethRed23,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('23')
+                      ? AppImages.teethGreen23
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '23',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 36.58,
                   widthImage: 31.04,
                   topPosition: 64.28,
@@ -564,16 +579,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  12
                 methodPositionedSvgTeeth(
                   numberImage: '24',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('24')
-                          ? AppImages.teethGreen24
-                          : returnImage(
-                              numbrimage: '24',
-                              toothImageWhite: AppImages.teeth24,
-                              toothImageGreen: AppImages.teethGreen24,
-                              toothImageOrange: AppImages.teethOrange24,
-                              toothImageRed: AppImages.teethRed24,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('24')
+                      ? AppImages.teethGreen24
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '24',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 41,
                   widthImage: 45.35,
                   topPosition: 88.47,
@@ -586,16 +600,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  13
                 methodPositionedSvgTeeth(
                   numberImage: '25',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('25')
-                          ? AppImages.teethGreen25
-                          : returnImage(
-                              numbrimage: '25',
-                              toothImageWhite: AppImages.teeth25,
-                              toothImageGreen: AppImages.teethGreen25,
-                              toothImageOrange: AppImages.teethOrange25,
-                              toothImageRed: AppImages.teethRed25,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('25')
+                      ? AppImages.teethGreen25
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '25',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 42.03,
                   widthImage: 48.25,
                   topPosition: 116.5,
@@ -608,16 +621,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  14
                 methodPositionedSvgTeeth(
                   numberImage: '26',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('26')
-                          ? AppImages.teethGreen26
-                          : returnImage(
-                              numbrimage: '26',
-                              toothImageWhite: AppImages.teeth26,
-                              toothImageGreen: AppImages.teethGreen26,
-                              toothImageOrange: AppImages.teethOrange26,
-                              toothImageRed: AppImages.teethRed26,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('26')
+                      ? AppImages.teethGreen26
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '26',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 51.25,
                   widthImage: 49.33,
                   topPosition: 149.29,
@@ -630,16 +642,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  15
                 methodPositionedSvgTeeth(
                   numberImage: '27',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('27')
-                          ? AppImages.teethGreen27
-                          : returnImage(
-                              numbrimage: '27',
-                              toothImageWhite: AppImages.teeth27,
-                              toothImageGreen: AppImages.teethGreen27,
-                              toothImageOrange: AppImages.teethOrange27,
-                              toothImageRed: AppImages.teethRed27,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('27')
+                      ? AppImages.teethGreen27
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '27',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 45.04,
                   widthImage: 42.55,
                   topPosition: 193.06,
@@ -652,16 +663,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  16
                 methodPositionedSvgTeeth(
                   numberImage: '28',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('28')
-                          ? AppImages.teethGreen28
-                          : returnImage(
-                              numbrimage: '28',
-                              toothImageWhite: AppImages.teeth28,
-                              toothImageGreen: AppImages.teethGreen28,
-                              toothImageOrange: AppImages.teethOrange28,
-                              toothImageRed: AppImages.teethRed28,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('28')
+                      ? AppImages.teethGreen28
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '28',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 46.33,
                   widthImage: 44.4,
                   topPosition: 233.54,
@@ -682,16 +692,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  17
                 methodPositionedSvgTeeth(
                   numberImage: '38',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('38')
-                          ? AppImages.teethGreen38
-                          : returnImage(
-                              numbrimage: '38',
-                              toothImageWhite: AppImages.teeth38,
-                              toothImageGreen: AppImages.teethGreen38,
-                              toothImageOrange: AppImages.teethOrange38,
-                              toothImageRed: AppImages.teethRed38,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('38')
+                      ? AppImages.teethGreen38
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '38',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 46.09,
                   widthImage: 47.42,
                   topPosition: 296.55,
@@ -704,16 +713,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  18
                 methodPositionedSvgTeeth(
                   numberImage: '37',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('37')
-                          ? AppImages.teethGreen37
-                          : returnImage(
-                              numbrimage: '37',
-                              toothImageWhite: AppImages.teeth37,
-                              toothImageGreen: AppImages.teethGreen37,
-                              toothImageOrange: AppImages.teethOrange37,
-                              toothImageRed: AppImages.teethRed37,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('37')
+                      ? AppImages.teethGreen37
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '37',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 46.32,
                   widthImage: 46.47,
                   topPosition: 341.09,
@@ -726,16 +734,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  19
                 methodPositionedSvgTeeth(
                   numberImage: '36',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('36')
-                          ? AppImages.teethGreen36
-                          : returnImage(
-                              numbrimage: '36',
-                              toothImageWhite: AppImages.teeth36,
-                              toothImageGreen: AppImages.teethGreen36,
-                              toothImageOrange: AppImages.teethOrange36,
-                              toothImageRed: AppImages.teethRed36,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('36')
+                      ? AppImages.teethGreen36
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '36',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 52.08,
                   widthImage: 50.44,
                   topPosition: 382.93,
@@ -748,16 +755,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  20
                 methodPositionedSvgTeeth(
                   numberImage: '35',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('35')
-                          ? AppImages.teethGreen35
-                          : returnImage(
-                              numbrimage: '35',
-                              toothImageWhite: AppImages.teeth35,
-                              toothImageGreen: AppImages.teethGreen35,
-                              toothImageOrange: AppImages.teethOrange35,
-                              toothImageRed: AppImages.teethRed35,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('35')
+                      ? AppImages.teethGreen35
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '35',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 46.34,
                   widthImage: 49.35,
                   topPosition: 426.42,
@@ -770,16 +776,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  21
                 methodPositionedSvgTeeth(
                   numberImage: '34',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('34')
-                          ? AppImages.teethGreen34
-                          : returnImage(
-                              numbrimage: '34',
-                              toothImageWhite: AppImages.teeth34,
-                              toothImageGreen: AppImages.teethGreen34,
-                              toothImageOrange: AppImages.teethOrange34,
-                              toothImageRed: AppImages.teethRed34,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('34')
+                      ? AppImages.teethGreen34
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '34',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 32.66,
                   widthImage: 32.88,
                   topPosition: 464.21,
@@ -792,16 +797,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  22
                 methodPositionedSvgTeeth(
                   numberImage: '33',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('33')
-                          ? AppImages.teethGreen33
-                          : returnImage(
-                              numbrimage: '33',
-                              toothImageWhite: AppImages.teeth33,
-                              toothImageGreen: AppImages.teethGreen33,
-                              toothImageOrange: AppImages.teethOrange33,
-                              toothImageRed: AppImages.teethRed33,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('33')
+                      ? AppImages.teethGreen33
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '33',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 43.56,
                   widthImage: 41.55,
                   topPosition: 483.8,
@@ -814,16 +818,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  23
                 methodPositionedSvgTeeth(
                   numberImage: '32',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('32')
-                          ? AppImages.teethGreen32
-                          : returnImage(
-                              numbrimage: '32',
-                              toothImageWhite: AppImages.teeth32,
-                              toothImageGreen: AppImages.teethGreen32,
-                              toothImageOrange: AppImages.teethOrange32,
-                              toothImageRed: AppImages.teethRed32,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('32')
+                      ? AppImages.teethGreen32
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '32',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 35.43,
                   widthImage: 25.47,
                   topPosition: 505.97,
@@ -836,16 +839,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  24
                 methodPositionedSvgTeeth(
                   numberImage: '31',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('31')
-                          ? AppImages.teethGreen31
-                          : returnImage(
-                              numbrimage: '31',
-                              toothImageWhite: AppImages.teeth31,
-                              toothImageGreen: AppImages.teethGreen31,
-                              toothImageOrange: AppImages.teethOrange31,
-                              toothImageRed: AppImages.teethRed31,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('31')
+                      ? AppImages.teethGreen31
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '31',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 33.78,
                   widthImage: 25.78,
                   topPosition: 513.53,
@@ -858,16 +860,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  25
                 methodPositionedSvgTeeth(
                   numberImage: '41',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('41')
-                          ? AppImages.teethGreen41
-                          : returnImage(
-                              numbrimage: '41',
-                              toothImageWhite: AppImages.teeth41,
-                              toothImageGreen: AppImages.teethGreen41,
-                              toothImageOrange: AppImages.teethOrange41,
-                              toothImageRed: AppImages.teethRed41,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('41')
+                      ? AppImages.teethGreen41
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '41',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 33.78,
                   widthImage: 25.78,
                   topPosition: 513.53,
@@ -880,16 +881,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  26
                 methodPositionedSvgTeeth(
                   numberImage: '42',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('42')
-                          ? AppImages.teethGreen42
-                          : returnImage(
-                              numbrimage: '42',
-                              toothImageWhite: AppImages.teeth42,
-                              toothImageGreen: AppImages.teethGreen42,
-                              toothImageOrange: AppImages.teethOrange42,
-                              toothImageRed: AppImages.teethRed42,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('42')
+                      ? AppImages.teethGreen42
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '42',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 35.43,
                   widthImage: 25.31,
                   topPosition: 505.97,
@@ -902,16 +902,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  27
                 methodPositionedSvgTeeth(
                   numberImage: '43',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('43')
-                          ? AppImages.teethGreen43
-                          : returnImage(
-                              numbrimage: '43',
-                              toothImageWhite: AppImages.teeth43,
-                              toothImageGreen: AppImages.teethGreen43,
-                              toothImageOrange: AppImages.teethOrange43,
-                              toothImageRed: AppImages.teethRed43,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('43')
+                      ? AppImages.teethGreen43
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '43',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 42.79,
                   widthImage: 40.03,
                   topPosition: 483.21,
@@ -924,16 +923,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  28
                 methodPositionedSvgTeeth(
                   numberImage: '44',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('44')
-                          ? AppImages.teethGreen44
-                          : returnImage(
-                              numbrimage: '44',
-                              toothImageWhite: AppImages.teeth44,
-                              toothImageGreen: AppImages.teethGreen44,
-                              toothImageOrange: AppImages.teethOrange44,
-                              toothImageRed: AppImages.teethRed44,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('44')
+                      ? AppImages.teethGreen44
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '44',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 31.02,
                   widthImage: 32.27,
                   topPosition: 466.93,
@@ -946,16 +944,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  29
                 methodPositionedSvgTeeth(
                   numberImage: '45',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('45')
-                          ? AppImages.teethGreen45
-                          : returnImage(
-                              numbrimage: '45',
-                              toothImageWhite: AppImages.teeth45,
-                              toothImageGreen: AppImages.teethGreen45,
-                              toothImageOrange: AppImages.teethOrange45,
-                              toothImageRed: AppImages.teethRed45,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('45')
+                      ? AppImages.teethGreen45
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '45',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 45.18,
                   widthImage: 48.68,
                   topPosition: 429.37,
@@ -968,16 +965,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  30
                 methodPositionedSvgTeeth(
                   numberImage: '46',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('46')
-                          ? AppImages.teethGreen46
-                          : returnImage(
-                              numbrimage: '46',
-                              toothImageWhite: AppImages.teeth46,
-                              toothImageGreen: AppImages.teethGreen46,
-                              toothImageOrange: AppImages.teethOrange46,
-                              toothImageRed: AppImages.teethRed46,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('46')
+                      ? AppImages.teethGreen46
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '46',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 52.08,
                   widthImage: 50.44,
                   topPosition: 384.48,
@@ -990,16 +986,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  31
                 methodPositionedSvgTeeth(
                   numberImage: '47',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('47')
-                          ? AppImages.teethGreen47
-                          : returnImage(
-                              numbrimage: '47',
-                              toothImageWhite: AppImages.teeth47,
-                              toothImageGreen: AppImages.teethGreen47,
-                              toothImageOrange: AppImages.teethOrange47,
-                              toothImageRed: AppImages.teethRed47,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('47')
+                      ? AppImages.teethGreen47
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '47',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 45.93,
                   widthImage: 45.45,
                   topPosition: 341.92,
@@ -1012,16 +1007,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //  32
                 methodPositionedSvgTeeth(
                   numberImage: '48',
-                  imageSvg:
-                      _createNewRequestController.isToothSelectedMethod('48')
-                          ? AppImages.teethGreen48
-                          : returnImage(
-                              numbrimage: '48',
-                              toothImageWhite: AppImages.teeth48,
-                              toothImageGreen: AppImages.teethGreen48,
-                              toothImageOrange: AppImages.teethOrange48,
-                              toothImageRed: AppImages.teethRed48,
-                            ),
+                  imageSvg: _createNewRequestController
+                          .isToothSelectedMethod('48')
+                      ? AppImages.teethGreen48
+                      : _createNewRequestController
+                          .changeImageToothAccordingToProductType(
+                          numberTooth: '48',
+                          functionToothimageOrColor:
+                              MethodsClassUTls.imageToothAccordingToTypeProduct,
+                        ),
                   hieghtImage: 46.09,
                   widthImage: 47.42,
                   topPosition: 295,
@@ -1251,8 +1245,11 @@ class AddedTeeethsScreen extends StatelessWidget {
               botomPading: 11.h,
               textFieldControlrMethod:
                   _createNewRequestController.toothDescriptionController,
+              focusNodeTextField:
+                  _createNewRequestController.toothDescriptionFocusNode,
               maxLinesTextField: 9,
             ),
+
             //
 
             GetBuilder<CreateNewRequestController>(builder: (_) {
@@ -1260,6 +1257,8 @@ class AddedTeeethsScreen extends StatelessWidget {
               return buildTextAndFieldTextFormField(
                 onTapMethod: () {
                   //
+                  _createNewRequestController.toothDescriptionFocusNode
+                      .unfocus();
                   //  it Should show dialog to select type product
                   //
                   buidlDialogChoseItem(
@@ -1286,6 +1285,9 @@ class AddedTeeethsScreen extends StatelessWidget {
                   //
                   onTapMethod: () {
                     //
+                    _createNewRequestController.toothDescriptionFocusNode
+                        .unfocus();
+                    //
                     // it show dialog to chose tooth status
                     //
                     buidlDialogChoseItem(
@@ -1304,6 +1306,40 @@ class AddedTeeethsScreen extends StatelessWidget {
                   isReadOnly: '',
                   initText: _createNewRequestController.toothStatusTextScrn,
                   titleField: AppStringtext.toothStateFieldAddTeethScrn,
+                  botomPading: 21.h,
+                  maxLinesTextField: 3);
+            }),
+            //
+
+            //
+            GetBuilder<CreateNewRequestController>(builder: (_) {
+              return buildTextAndFieldTextFormField(
+                  //
+                  onTapMethod: () {
+                    //
+                    _createNewRequestController.toothDescriptionFocusNode
+                        .unfocus();
+                    //
+                    // it show dialog to chose tooth status
+                    //
+                    buidlDialogChoseItem(
+                      heightDialog: 180,
+                      isLarge: '',
+                      titleDialog: AppStringtext.nDShadeGuideFieldAddTeethScrn,
+                      typeMethod: AppStringtext.nDShadeGuideFieldAddTeethScrn,
+                      textToCompare:
+                          _createNewRequestController.ndShadeGuideText ?? '',
+                      listString: _createNewRequestController.listNDShadeGuide,
+                    );
+
+                    //
+                  },
+                  // heightField: 185.h,
+                  isReadOnly: '',
+                  isChosed: '',
+                  alignment: Alignment.centerLeft,
+                  initText: _createNewRequestController.ndShadeGuideText,
+                  titleField: AppStringtext.nDShadeGuideFieldAddTeethScrn,
                   botomPading: 21.h,
                   maxLinesTextField: 3);
             }),
@@ -1345,10 +1381,17 @@ class AddedTeeethsScreen extends StatelessWidget {
                       buildItemBottomSgeetDivisions(
                         widthItem: 107.84,
                         widthItemText: 81.45,
+                        // isActive: _createNewRequestController
+                        //     .isDepartmentToothActive('PFM laser'),
                         isSelected: _createNewRequestController.pfmLaser,
                         changingMethod: () {
+                          //
+                          String value = 'PFM laser';
                           _createNewRequestController
-                              .changeValuesDivsionTeeth('PFM laser');
+                              .changeValuesDivsionTeeth(value);
+                          //
+                          // _createNewRequestController
+                          //     .changeSelectedTypeProductMethod(value);
                         },
                         textItem: 'PFM laser',
                         spaceBetweenCheckAndText: 10.33,
@@ -1358,9 +1401,15 @@ class AddedTeeethsScreen extends StatelessWidget {
                       //
                       buildItemBottomSgeetDivisions(
                         isSelected: _createNewRequestController.tempoary,
+                        // isActive: true,
                         changingMethod: () {
+                          //
+                          String value = 'Temporary';
                           _createNewRequestController
-                              .changeValuesDivsionTeeth('Temporary');
+                              .changeValuesDivsionTeeth(value);
+                          //
+                          // _createNewRequestController
+                          //     .changeSelectedTypeProductMethod(value);
                         },
                         widthItem: 113.58,
                         widthItemText: 87.19,
@@ -1374,10 +1423,19 @@ class AddedTeeethsScreen extends StatelessWidget {
                       //
                       buildItemBottomSgeetDivisions(
                         isSelected: _createNewRequestController.inlayAndOnlay,
+                        // isActive: _createNewRequestController
+                        //     .isDepartmentToothActive('Inlay&onlay'),
                         changingMethod: () {
                           //
+                          String value = 'Inlay&onlay';
+                          //
                           _createNewRequestController
-                              .changeValuesDivsionTeeth('Inlay&onlay');
+                              .changeValuesDivsionTeeth(value);
+
+                          //
+                          // _createNewRequestController
+                          //     .changeSelectedTypeProductMethod(value);
+
                           //
                         },
                         widthItem: 120.46,
@@ -1392,10 +1450,19 @@ class AddedTeeethsScreen extends StatelessWidget {
                       //
                       buildItemBottomSgeetDivisions(
                         isSelected: _createNewRequestController.eMaxPress,
+                        // isActive: _createNewRequestController
+                        //     .isDepartmentToothActive('e-max press'),
                         changingMethod: () {
                           //
+                          String value = 'e-max press';
+                          //
                           _createNewRequestController
-                              .changeValuesDivsionTeeth('e-max press');
+                              .changeValuesDivsionTeeth(value);
+                          //
+                          //
+                          // _createNewRequestController
+                          //     .changeSelectedTypeProductMethod(value);
+
                           //
                         },
                         widthItem: 113.58,
@@ -1412,9 +1479,17 @@ class AddedTeeethsScreen extends StatelessWidget {
                       buildItemBottomSgeetDivisions(
                         isSelected:
                             _createNewRequestController.zicronFullAnatomy,
+                        // isActive: _createNewRequestController
+                        //     .isDepartmentToothActive('Zircon full anatomy'),
                         changingMethod: () {
+                          //
+                          String value = 'Zircon full anatomy';
                           _createNewRequestController
-                              .changeValuesDivsionTeeth('Zircon full anatomy');
+                              .changeValuesDivsionTeeth(value);
+
+                          //
+                          // _createNewRequestController
+                          //     .changeSelectedTypeProductMethod(value);
                         },
                         widthItem: 113.58,
                         widthItemText: 87.19,
@@ -1427,10 +1502,18 @@ class AddedTeeethsScreen extends StatelessWidget {
                       //
                       buildItemBottomSgeetDivisions(
                         isSelected: _createNewRequestController.zicronLayered,
+                        // isActive: _createNewRequestController
+                        //     .isDepartmentToothActive('Zircon layered'),
                         changingMethod: () {
                           //
+                          String value = 'Zircon layered';
+                          //
                           _createNewRequestController
-                              .changeValuesDivsionTeeth('Zircon layered');
+                              .changeValuesDivsionTeeth(value);
+
+                          //
+                          // _createNewRequestController
+                          //     .changeSelectedTypeProductMethod(value);
                           //
                         },
                         widthItem: 120.46,
@@ -1446,10 +1529,18 @@ class AddedTeeethsScreen extends StatelessWidget {
                       buildItemBottomSgeetDivisions(
                         isSelected:
                             _createNewRequestController.zicronFacingEMax,
+                        // isActive: _createNewRequestController
+                        //     .isDepartmentToothActive('Zircon facing e-max'),
                         changingMethod: () {
                           //
+                          String value = 'Zircon facing e-max';
+                          //
                           _createNewRequestController
-                              .changeValuesDivsionTeeth('Zircon facing e-max');
+                              .changeValuesDivsionTeeth(value);
+                          //
+                          //
+                          // _createNewRequestController
+                          //     .changeSelectedTypeProductMethod(value);
                           //
                         },
                         widthItem: 107.84,
@@ -1467,10 +1558,19 @@ class AddedTeeethsScreen extends StatelessWidget {
                       buildItemBottomSgeetDivisions(
                         isSelected:
                             _createNewRequestController.zicronPrettauAnterior,
+                        // isActive: _createNewRequestController
+                        //     .isDepartmentToothActive('Zircon prettau anterior'),
                         changingMethod: () {
                           //
-                          _createNewRequestController.changeValuesDivsionTeeth(
-                              'Zircon prettau anterior');
+                          String value = 'Zircon prettau anterior';
+                          //
+                          _createNewRequestController
+                              .changeValuesDivsionTeeth(value);
+
+                          //
+                          //
+                          // _createNewRequestController
+                          //     .changeSelectedTypeProductMethod(value);
                           //
                         },
                         widthItem: 107.84,
@@ -1484,17 +1584,25 @@ class AddedTeeethsScreen extends StatelessWidget {
                       //
                       buildItemBottomSgeetDivisions(
                         isSelected: _createNewRequestController.eMaxSuprem,
+                        // isActive: _createNewRequestController
+                        //     .isDepartmentToothActive('e-max suprem'),
                         changingMethod: () {
                           //
+                          String value = 'e-max suprem';
+                          //
                           _createNewRequestController
-                              .changeValuesDivsionTeeth('e-max suprem');
+                              .changeValuesDivsionTeeth(value);
+                          //
+                          //
+                          // _createNewRequestController
+                          //     .changeSelectedTypeProductMethod(value);
                           //
                         },
                         widthItem: 120.46,
                         widthItemText: 94.07,
                         textItem: 'e-max suprem',
                         spaceBetweenCheckAndText: 10.33,
-                        marginRight: 16.16,
+                        // marginRight: 16.16,
                         marginTop: 30,
                       ),
 
@@ -1575,6 +1683,10 @@ class AddedTeeethsScreen extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+
+            SizedBox(
+              height: 50.h,
             )
 
             //
@@ -1591,9 +1703,12 @@ class AddedTeeethsScreen extends StatelessWidget {
     required String titleField,
     required int maxLinesTextField,
     String? isReadOnly,
+    String? isChosed,
     String? initText,
+    AlignmentGeometry alignment = Alignment.centerRight,
     void Function()? onTapMethod,
     TextEditingController? textFieldControlrMethod,
+    FocusNode? focusNodeTextField,
     // required double heightField,
     double botomPading = 15,
   }) {
@@ -1605,14 +1720,30 @@ class AddedTeeethsScreen extends StatelessWidget {
         children: [
           //
           //
-          SizedBox(
-            height: 20.h,
-            child: Text(
-              titleField,
-              style: TextStyle(
-                  fontSize: 16.sp,
-                  fontFamily: AppFonts.almaraiRegular,
-                  color: Colors.black),
+          Align(
+            alignment: alignment,
+            //
+            child: SizedBox(
+              height: 20.h,
+              child: Text.rich(
+                TextSpan(
+                  style: TextStyle(
+                      fontSize: 16.sp,
+                      fontFamily: AppFonts.almaraiRegular,
+                      color: const Color.fromRGBO(0, 0, 0, 1)),
+                  children: [
+                    //
+                    isChosed == null
+                        ? const TextSpan()
+                        : const TextSpan(
+                            text: '  *  ',
+                            style: TextStyle(color: AppColors.redCancel)),
+                    TextSpan(
+                      text: titleField,
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
 
@@ -1660,6 +1791,7 @@ class AddedTeeethsScreen extends StatelessWidget {
                     minLines: 1,
                     maxLines: maxLinesTextField,
                     textFieldControlr: textFieldControlrMethod,
+                    focusNodeC: focusNodeTextField,
                     showPrefix: false,
                     showSuffix: false,
                     contentPaddingField: 5,
@@ -1676,6 +1808,7 @@ class AddedTeeethsScreen extends StatelessWidget {
     required double widthItem,
     required double widthItemText,
     required int isSelected,
+    // required bool isActive,
     required void Function() changingMethod,
     required double spaceBetweenCheckAndText,
     double marginRight = 0,
@@ -1703,19 +1836,24 @@ class AddedTeeethsScreen extends StatelessWidget {
                 //   child:
                 GetBuilder<CreateNewRequestController>(builder: (_) {
               return Checkbox(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(2.r),
-                ),
-                value: isSelected == 1 ? true : false,
-                onChanged: (value) {
-                  //
-                  //
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(2.r),
+                  ),
+                  value: isSelected == 1 ? true : false,
+                  splashRadius: 30.r,
+                  onChanged:
+                      //  isActive
+                      //     ?
+                      (value) {
+                    //
+                    //
 
-                  //
-                  changingMethod();
-                  //
-                },
-              );
+                    //
+                    changingMethod();
+                    //
+                  }
+                  // : null,
+                  );
             }),
             // ),
           ),
@@ -1749,7 +1887,8 @@ class AddedTeeethsScreen extends StatelessWidget {
     required String titleDialog,
     required String textToCompare,
     required String typeMethod,
-    double? heightDialog,
+    double heightDialog = 170,
+    String? isLarge,
     required List<String> listString,
   }) {
     //
@@ -1766,7 +1905,7 @@ class AddedTeeethsScreen extends StatelessWidget {
         //
         content: SizedBox(
           // color: Colors.red,
-          height: heightDialog != null ? heightDialog.h : 170.h,
+          height: heightDialog.h,
           width: 350.w,
           child: Column(
             children: [
@@ -1775,86 +1914,98 @@ class AddedTeeethsScreen extends StatelessWidget {
                 height: 10.h,
               ),
               // Divider
-              const Divider(
-                height: 0,
-                color: AppColors.textblackLight,
-              ),
+              isLarge != null
+                  ? Container()
+                  : const Divider(
+                      height: 0,
+                      color: AppColors.textblackLight,
+                    ),
 
               // ---------
 
               GetBuilder<CreateNewRequestController>(builder: (_) {
-                return ListView.builder(
-                    shrinkWrap: true,
-                    physics: const BouncingScrollPhysics(),
-                    itemCount: listString.length,
-                    itemBuilder: (context, index) {
-                      //
-                      final item = listString[index];
-                      //
-                      return InkWell(
-                        onTap: () {
-                          //
-                          //
-                          if (typeMethod ==
-                              AppStringtext.toothStateFieldAddTeethScrn) {
+                return SizedBox(
+                  height: heightDialog.h - 10.h,
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: listString.length,
+                      itemBuilder: (context, index) {
+                        //
+                        final item = listString[index];
+                        //
+                        return InkWell(
+                          onTap: () {
                             //
+                            //
+                            if (typeMethod ==
+                                AppStringtext.toothStateFieldAddTeethScrn) {
+                              //
 
-                            _createNewRequestController
-                                .choseToothStateMethod(item);
-                            //
-                          } else if (typeMethod ==
-                              AppStringtext.typeProductFieldAddTeethScrn) {
-                            //
-                            _createNewRequestController
-                                .choseTpeProductMethod(item);
+                              _createNewRequestController
+                                  .choseToothStateMethod(item);
+                              //
+                            } else if (typeMethod ==
+                                AppStringtext.typeProductFieldAddTeethScrn) {
+                              //
+                              _createNewRequestController
+                                  .choseTpeProductMethod(item);
 
+                              //
+                            } else if (typeMethod ==
+                                AppStringtext.nDShadeGuideFieldAddTeethScrn) {
+                              //
+                              _createNewRequestController
+                                  .changeNDShadeGuideText(item);
+
+                              //
+                            }
+                            // Back
+                            Get.back();
                             //
-                          }
-                          // Back
-                          Get.back();
-                          //
-                          // Change Payment Text
-                        },
-                        child: Container(
-                          // height: 100,
-                          color: textToCompare == item
-                              ? AppColors.purpleMainColor
-                              : null,
-                          // padding: EdgeInsets.only(bottom: 12.h),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              // Text
-                              // Space
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              Text(
-                                item,
-                                style: TextStyle(
-                                  fontSize: 16.sp,
-                                  color: textToCompare == item
-                                      ? AppColors.backGroundAndTextWhite
-                                      : AppColors.textblackLight,
-                                  fontFamily: AppFonts.almaraiRegular,
-                                  height: 1.15,
+                            // Change Payment Text
+                          },
+                          child: Container(
+                            // height: 100,
+                            color: textToCompare == item
+                                ? AppColors.purpleMainColor
+                                : null,
+                            // padding: EdgeInsets.only(bottom: 12.h),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                // Text
+                                // Space
+                                SizedBox(
+                                  height: 10.h,
                                 ),
-                              ),
-                              // Space
-                              SizedBox(
-                                height: 10.h,
-                              ),
+                                Text(
+                                  item,
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    color: textToCompare == item
+                                        ? AppColors.backGroundAndTextWhite
+                                        : AppColors.textblackLight,
+                                    fontFamily: AppFonts.almaraiRegular,
+                                    height: 1.15,
+                                  ),
+                                ),
+                                // Space
+                                SizedBox(
+                                  height: 10.h,
+                                ),
 
-                              // Divider
-                              const Divider(
-                                height: 0,
-                                color: AppColors.greyCreateNewRequesText,
-                              ),
-                            ],
+                                // Divider
+                                const Divider(
+                                  height: 0,
+                                  color: AppColors.greyCreateNewRequesText,
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    });
+                        );
+                      }),
+                );
               }),
             ],
           ),
@@ -2031,7 +2182,7 @@ class AddedTeeethsScreen extends StatelessWidget {
             ),
             //
             Container(
-              margin: EdgeInsets.symmetric(vertical: 10.h),
+              padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.w),
               child: Text(
                 bodyMessage,
                 maxLines: 5,

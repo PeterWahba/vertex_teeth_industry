@@ -14,11 +14,13 @@ class PaymentEnteryUserEntities extends Equatable {
   final double paidAmountMoneyTotal;
   final String timeCreation;
   final String partyNameUser;
+  final int isOffer;
 
   const PaymentEnteryUserEntities({
     required this.idPayment,
     required this.paidAmountMoneyTotal,
     required this.timeCreation,
+    required this.isOffer,
     required this.partyNameUser,
   });
   @override
@@ -27,6 +29,7 @@ class PaymentEnteryUserEntities extends Equatable {
         paidAmountMoneyTotal,
         timeCreation,
         partyNameUser,
+        isOffer,
       ];
 
   // Enad Class

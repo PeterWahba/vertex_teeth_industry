@@ -2,10 +2,14 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:vertex_teeth_industry/vertix/data/model/add_order_vertix_model.dart';
+import 'package:vertex_teeth_industry/vertix/data/model/details_order_vertex/details_order_vertex_model.dart';
+import 'package:vertex_teeth_industry/vertix/data/model/details_payment_entry_model.dart';
 import 'package:vertex_teeth_industry/vertix/data/model/faq_question_model.dart';
 import 'package:vertex_teeth_industry/vertix/data/model/order_vertix_model.dart';
 import 'package:vertex_teeth_industry/vertix/data/model/payment_entry_user_model.dart';
 import 'package:vertex_teeth_industry/vertix/data/model/tooth_history_log_model.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/details_order_vertex_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/details_payment_entry_entities.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/faq_question_entities.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/order_vertix_entities.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/payment_entry_user_entities.dart';
@@ -24,6 +28,12 @@ abstract class ERPnextDataSource {
 
   Future<List<OrderVertixEntities>> getAllVertixOrder(
       {required String sidToken});
+
+  //
+  Future<DetailsOrderVertexEntities> getDetailsOrderVertexDataSourse({
+    required String sidToken,
+    required String idOrder,
+  });
 
   //
 
@@ -50,11 +60,17 @@ abstract class ERPnextDataSource {
   Future<double> getTotalMoneyUnpaidOfUser({
     required String sidToekn,
   });
+  //
+  Future<DetailesPaymentEntryEntities> getDetailsPaymentEntryDataSource({
+    required String sidToken,
+    required String idNamePayment,
+  });
 
   // End Abstract Class
 }
 
-const baseURL = 'https://vertex.frappe.cloud';
+// const baseURL = 'https://vertex.frappe.cloud';
+const baseURL = 'https://vertex.micronext.net';
 
 class ERPnextDataSourceImple implements ERPnextDataSource {
   //
@@ -70,9 +86,10 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
     String url =
         // 'https://vertex.frappe.cloud?User=api@micronext.net&Pass=90807060';
         // usr =api@micronext.net
+        // usr =api@micronext.net
         // pwd =90807060
 
-        // https://vertex.frappe.cloud/api/method/vertex_app.api.login?usr=api@micronext.net&pwd=90807060
+        // https://vertex.micronext.net/api/method/vertex_app.api.login?usr=admin@vertex.com&pwd=90807060
 
         //
         '$baseURL/api/method/vertex_app.api.login?usr=$userEmail&pwd=$userPassWord';
@@ -84,13 +101,31 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
       //
       final extrctedData = json.decode(response.body);
 
-      // final fullName = extrctedData['full_name'];
-
       userRegisterEntites = UserRegisterModel.fromJson(
         fullName: extrctedData['full_name'],
         json: extrctedData['message'],
         // listRoleString: listRoleString,
       );
+
+      /*
+      {message: {success_key: 1, message: Logged in, sid: 85f71f2ee2cf217cbc2a6394b320b6d02905072c0ed0959b91d964fe, 
+      api_key: 7caaa6b225b1b25, api_secret: 7e8dbd5afef3921, username: admin,
+       email: admin@vertex.com, role: [{role: Purchase User},
+       {role: Delivery Manager}, 
+      {role: Dashboard Manager}, {role: Agriculture Manager}, 
+      {role: Item Manager}, {role: Accounts Manager}, {role: Projects Manager},
+       {role: Prepared Report User}, {role: Fleet Manager}, {role: Workspace Manager}, 
+      {role: Agriculture User}, {role: Maintenance User},
+       {role: Sales Manager}, 
+      {role: Newsletter Manager}, {role: Maintenance Manager},
+       {role: Script Manager},
+       {role: Manufacturing Manager}, {role: Manufacturing User},
+        {role: Stock User}, {role: Academics User}, {role: Website Manager},
+         {role: Purchase Master Manager}, {role: Knowledge Base Contributor}, 
+         {role: Stock Manager}, {role: Sales User}, {role: Delivery User}, 
+         {role: Knowledge Base Editor}, {role: Sales Master Manager},
+         {role: HR Manager}, {role: <…>
+      */
 
       return Future.value(userRegisterEntites);
     } else if (response.statusCode == 500) {
@@ -117,6 +152,7 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
 
     String url =
         '$baseURL/api/method/vertex_app.vertex_app.doctype.vertex_order.vertex_order.get_vertex_orders?sid=$sidToken';
+    // '$baseURL/api/method/vertex_app.vertex_app.doctype.vertex_order.vertex_order.get_vertex_orders?sid=$sidToken';
 
     //
     List<OrderVertixEntities> listOrderVertixEntities = [];
@@ -168,9 +204,14 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
       //
     } else if (response.statusCode == 500) {
       //
+      //
       throw ServerException();
       //
     } else {
+      //
+      //
+      /*
+      flutter: The Error is UnKnown  the error is {"session_expired":1,"exception":"frappe.exceptions.PermissionError: <details><summary>You are not permitted to access this resource.</summary>Function <strong>vertex_app.vertex_app.doctype.vertex_order.vertex_order.get_vertex_orders</strong> is not whitelisted.</details>","exc_type":"PermissionError","exc":"[\"Traceback (most recent call last):\\n  File \\\"apps/frappe/frappe/app.py\\\", line 114, in application\\n    response = frappe.api.handle(request)\\n  File \\\"apps/frappe/frappe/api/__init__.py\\\", line 49, in handle\\n    data = endpoint(**arguments)\\n  File \\\"apps/frappe/frappe/api/v1.py\\\", line 36, in handle_rpc_call\\n    return frappe.handler.handle()\\n  File \\\"apps/frappe/frappe/handler.py\\\", line 49, in handle\\n    data = execute_cmd(cmd)\\n  File \\\"apps/frappe/frappe/handler.py\\\", line 82, in execute_cmd\\n    is_whitelisted(method)\\n  File \\\"apps/frappe/frappe/__init__.py\\\", line 900, in is_whitelisted\\n    thro<…>*/
       //
       throw UnKnownException();
     }
@@ -187,6 +228,7 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
       {required String sidToekn,
       required AddOrderVertixModel addOrderVertixModel}) async {
     //
+    //
     List<ToothHistoryLogModel> listToothHistoryModel = [];
 
     listToothHistoryModel =
@@ -194,7 +236,8 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
       //
       ToothHistoryLogModel toothHistoryLogModel = ToothHistoryLogModel(
         teethGroupNamesString: item.teethGroupNamesString,
-        teethGroupNames: item.teethGroupNames,
+        ndShadeGuide: item.ndShadeGuide,
+        // teethGroupNames: item.teethGroupNames,
         toothDescription: item.toothDescription,
         toothStatus: item.toothStatus,
         productType: item.productType,
@@ -210,20 +253,27 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
       );
       return toothHistoryLogModel;
     }).toList();
+
+    //
+    //
     //
 
     //
     //
     String url =
-        // '$baseURL/api/method/vertex_app.vertex_app.doctype.vertex_order.vertex_order.insert_vertex_order?sid=$sidToekn';
-        'https://vertex.frappe.cloud/api/resource/Vertex%20Order?sid=$sidToekn';
+        'https://vertex.micronext.net/api/resource/Vertex%20Order?sid=$sidToekn';
 
+    //
     //
 
     final jsonData = addOrderVertixModel.toJson(
         listToothHistoryLogModel: listToothHistoryModel);
     //
+    //
+    //
     final jsonEncodedData = json.encode(jsonData);
+    //
+    //
     //
     final res = await http.post(Uri.parse(url), body: jsonEncodedData);
 
@@ -236,9 +286,12 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
     } else if (res.statusCode == 500) {
       //
       //
+
+      //
       throw ServerException();
       //
     } else {
+      //
       //
 
       //
@@ -564,6 +617,142 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
       throw UnKnownException();
     }
     // End Method Get All  FAQ Question Method
+  }
+
+  @override
+  Future<DetailesPaymentEntryEntities> getDetailsPaymentEntryDataSource(
+      {required String sidToken, required String idNamePayment}) async {
+    //
+    baseURL;
+    String url =
+        // '$baseURL/api/method/vertex_app.vertex_app.doctype.vertex_app_faq.vertex_app_faq.get_vertex_app_faq?sid=$sidToken';
+        '$baseURL/api/method/vertex_app.overrides.payment_entry.get_payment_entry_detail?sid=$sidToken&payment_entry=$idNamePayment';
+
+    //
+    // List<DetailesPaymentEntryEntities> listDetailsPaymentEntry = [];
+    //
+    var response = await http.get(Uri.parse(url));
+
+    //
+    if (response.statusCode == 200) {
+      //
+      final extractedData = json.decode(response.body);
+
+      //
+      if (extractedData != null) {
+        //
+        //
+
+        final listExracted = extractedData['message'];
+
+        if (listExracted != null) {
+          //
+          // listExracted.forEach((value) {
+          //
+          final reslt = DetailsPaymentEntryModel.fromJson(json: listExracted);
+          // End For Ech
+          // });
+          //
+
+          //
+
+          //
+          return Future.value(reslt);
+        } else {
+          //
+          //  if list Details Payment Entry is Empty
+          throw EmptyDetailspaymentEntryException();
+          //
+        }
+        //
+
+        //
+      } else {
+        //
+        //  it should throw NoData Exception
+        //
+        throw EmptyDetailspaymentEntryException();
+      }
+      //
+    } else if (response.statusCode == 500) {
+      //
+      throw ServerException();
+      //
+    } else {
+      //
+      throw UnKnownException();
+    }
+    // End Method Get Details Payment Entry  Method
+  }
+
+  @override
+  Future<DetailsOrderVertexEntities> getDetailsOrderVertexDataSourse(
+      {required String sidToken, required String idOrder}) async {
+    //
+    baseURL;
+    String url =
+        '$baseURL/api/method/vertex_app.vertex_app.doctype.vertex_order.vertex_order.get_vertex_order?sid=$sidToken&order=$idOrder';
+    //
+    // List<DetailesPaymentEntryEntities> listDetailsPaymentEntry = [];
+    //
+    var response = await http.get(Uri.parse(url));
+
+    //
+    if (response.statusCode == 200) {
+      //
+      final extractedData = json.decode(response.body);
+
+      //
+      if (extractedData != null) {
+        //
+        //
+
+        final listExracted = extractedData['message'];
+        //
+        print('\n');
+        print('\n');
+        print('Details Order Vertex is $listExracted');
+        print('\n');
+        print('\n');
+
+        if (listExracted != null) {
+          //
+          // listExracted.forEach((value) {
+          //
+          final reslt = DetailsOrderVertexModel.fromJson(json: listExracted);
+          // End For Ech
+          // });
+          //
+
+          //
+
+          //
+          return Future.value(reslt);
+        } else {
+          //
+          //  if    Details  Order Vertex is Empty
+          throw EmptyDetailsOrderVertexException();
+          //
+        }
+        //
+
+        //
+      } else {
+        //
+        //  it should throw NoData Exception
+        //
+        throw EmptyDetailsOrderVertexException();
+      }
+      //
+    } else if (response.statusCode == 500) {
+      //
+      throw ServerException();
+      //
+    } else {
+      //
+      throw UnKnownException();
+    }
+    // End Method Get Details Order Vertex  Method
   }
   // End Class DataSource
 }

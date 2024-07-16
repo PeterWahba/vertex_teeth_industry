@@ -33,10 +33,14 @@ class CreateNewRequestController extends GetxController
     //
     super.onInit();
     //
+    //
+    servicesClass.sharedPrefs.reload();
+    //
 
     //
     formNewRequest = GlobalKey();
     patientNameController = TextEditingController();
+    noteController = TextEditingController();
     ageController = TextEditingController();
     //
     //  Add Teeth Scrn
@@ -62,16 +66,20 @@ class CreateNewRequestController extends GetxController
 
   //
   @override
-  void onClose() {
+  void dispose() {
+    super.dispose();
     //
-    super.onClose();
     //
-    patientNameController.clear();
-    ageController.clear();
-    //
-    // Add Teeth
-    toothDescriptionController.clear();
+    patientNameController.dispose();
+    noteController.dispose();
+    ageController.dispose();
+    patientFocusNode.dispose();
+    noteFocusNode.dispose();
+    ageFocusNode.dispose();
+    toothDescriptionFocusNode.dispose();
+    toothDescriptionController.dispose();
   }
+
   //
   // Services
 
@@ -81,7 +89,14 @@ class CreateNewRequestController extends GetxController
   // Form & TExtEditing Controller
   late GlobalKey<FormState> formNewRequest;
   late TextEditingController patientNameController;
+  late TextEditingController noteController;
   late TextEditingController ageController;
+  //
+  // Focus Node
+  final FocusNode patientFocusNode = FocusNode();
+  final FocusNode noteFocusNode = FocusNode();
+  final FocusNode ageFocusNode = FocusNode();
+  final FocusNode toothDescriptionFocusNode = FocusNode();
   //
   // Add Teeth
   late TextEditingController toothDescriptionController;
@@ -112,45 +127,57 @@ class CreateNewRequestController extends GetxController
   //
 
   final List<StateOrderFilterClass> _listSateOrder = [
+    /*
+    [Mobile] shows vertex order status (Rejected - Registered and approved 
+    - Pending approval - Delivered)
+    */
     //
     StateOrderFilterClass(stateArabic: 'الكل', stateEnglish: 'All'),
     //
-    StateOrderFilterClass(
-        stateArabic: 'الانتهاء من التسليم', stateEnglish: "Finished Delivered"),
-    //
-    StateOrderFilterClass(stateArabic: 'في الطريق', stateEnglish: "On The Way"),
-
-    //
-    StateOrderFilterClass(stateArabic: 'مرفوض', stateEnglish: 'Case Rejected'),
-    //
-    StateOrderFilterClass(
-        stateArabic: 'حالة الانتهاء والتعبئة والتغليف',
-        stateEnglish: "Case finished and Packaging"),
-
-    //
-    StateOrderFilterClass(
-        stateArabic: 'جاهز للتغليف', stateEnglish: "Ready for Packaging"),
-
-    //
-    StateOrderFilterClass(
-        stateArabic: 'قيد الإنتاج', stateEnglish: "In Production"),
     //
     StateOrderFilterClass(
         stateArabic: 'تم الموافقة', stateEnglish: "Registered and Approved"),
 
     //
+    StateOrderFilterClass(stateArabic: 'مرفوض', stateEnglish: 'Case Rejected'),
+
+    //
     StateOrderFilterClass(
         stateArabic: 'معلق الطلب', stateEnglish: "Pending approval"),
     //
-    StateOrderFilterClass(stateArabic: 'تاجيل', stateEnglish: "Postponed"),
-    //
     StateOrderFilterClass(
-        stateArabic: 'إعادة التأجيل', stateEnglish: "Re-Postponed"),
+        stateArabic: 'الانتهاء من التسليم', stateEnglish: "Finished Delivered"),
     //
-    StateOrderFilterClass(
-        stateArabic: 'طبعة جديدة ', stateEnglish: "Remake Case"),
+
     //
-    StateOrderFilterClass(stateArabic: 'تم الالغاء', stateEnglish: "Cancelled"),
+
+    // StateOrderFilterClass(stateArabic: 'في الطريق', stateEnglish: "On The Way"),
+
+    // //
+
+    // StateOrderFilterClass(
+    //     stateArabic: 'حالة الانتهاء والتعبئة والتغليف',
+    //     stateEnglish: "Case finished and Packaging"),
+
+    // //
+    // StateOrderFilterClass(
+    //     stateArabic: 'جاهز للتغليف', stateEnglish: "Ready for Packaging"),
+
+    // //
+    // StateOrderFilterClass(
+    //     stateArabic: 'قيد الإنتاج', stateEnglish: "In Production"),
+
+    // //
+
+    // StateOrderFilterClass(stateArabic: 'تاجيل', stateEnglish: "Postponed"),
+    // //
+    // StateOrderFilterClass(
+    //     stateArabic: 'إعادة التأجيل', stateEnglish: "Re-Postponed"),
+    // //
+    // StateOrderFilterClass(
+    //     stateArabic: 'طبعة جديدة ', stateEnglish: "Remake Case"),
+    // //
+    // StateOrderFilterClass(stateArabic: 'تم الالغاء', stateEnglish: "Cancelled"),
 
     //
 
@@ -182,6 +209,81 @@ class CreateNewRequestController extends GetxController
     'Zircon facing e-max',
     'Zircon prettau anterior',
     'e-max suprem',
+  ];
+
+  //
+  final List<String> _listNDShadeGuide = [
+    'افراغ الحقل',
+    'Nd1',
+    'Nd2',
+    'Nd3',
+    'Nd4',
+    'Nd5',
+    'Nd6',
+    'Nd7',
+    'Nd8',
+    'Nd9',
+  ];
+
+  //
+  final List<String> _listVitaClassical = [
+    //
+    'افراغ الحقل',
+    'A1',
+    'A2',
+    'A3',
+    'A3.5',
+    'A4',
+    'B1',
+    'B2'
+        'B3',
+    'B4',
+    'C1',
+    'C2',
+    'C3',
+    'C4',
+    'D2',
+    'D3',
+    'D4',
+    'Bl0',
+    'Bl1',
+    'Bl2',
+    'Bl3',
+    'Bl4',
+  ];
+
+  final List<String> _listVita3DMaster = [
+    'افراغ الحقل',
+    '0m1',
+    '0m2',
+    '0m3',
+    '1m1',
+    '1m2',
+    '1m3',
+    '2l1.5',
+    '2l2.5',
+    '2m1',
+    '2m2',
+    '2m3',
+    '2r1.5',
+    '2r2.5',
+    '3l1.5',
+    '3l2.5',
+    '3m1',
+    '3m2',
+    '3m3',
+    '3r1.5',
+    '3r2.5',
+    '4l1.5',
+    '4l2.5',
+    '4m1',
+    '4m2',
+    '4m3',
+    '4r1.5',
+    '4r2.5',
+    '5m1',
+    '5m2',
+    '5m3',
   ];
 
   List<String> _teethGroupNamesList = [];
@@ -222,6 +324,20 @@ class CreateNewRequestController extends GetxController
 
   //
   String _productTypeText = '';
+  //
+
+  String _selectedtypeProduct = '';
+
+  //
+  String? _vitaClassicalText;
+
+  //
+  String? _vita3DMasterText;
+
+  //
+  String? _ndShadeGuideText;
+
+  //
 
   //
 
@@ -266,6 +382,8 @@ class CreateNewRequestController extends GetxController
 
   int _eMaxSuprem = 0;
   //
+  int x = 0;
+  //
 
   //
   //  Get Varaible
@@ -290,6 +408,18 @@ class CreateNewRequestController extends GetxController
   //-------------------------------------
 
   List<String> get toothStatusListScrn => _toothStatusListScrn;
+
+  //
+
+  List<String> get listVitaClassical => _listVitaClassical;
+
+  //
+
+  List<String> get listVita3DMaster => _listVita3DMaster;
+
+  //
+
+  List<String> get listNDShadeGuide => _listNDShadeGuide;
 
   //
 
@@ -325,6 +455,18 @@ class CreateNewRequestController extends GetxController
   //
 
   String get errorMessageBotomSheet => _errorMessageBotomSheet;
+
+  //
+
+  String? get vita3DMasterText => _vita3DMasterText;
+
+  //
+
+  String? get vitaClassicalText => _vitaClassicalText;
+
+  //
+
+  String? get ndShadeGuideText => _ndShadeGuideText;
 
   //
   // Get Intger
@@ -372,6 +514,138 @@ class CreateNewRequestController extends GetxController
   // ===========================================================================
 
   //
+  // Change Image Color According to ProductType
+  //
+  changeImageToothAccordingToProductType(
+      {required String numberTooth,
+      required Function(
+              {required String numberTooth,
+              required String typeProductToChoseColor})
+          functionToothimageOrColor}) {
+    //
+    //
+    print('\n');
+    print('\n');
+    print(
+        'The Teeth _listToothHistoryLog Length  is ${_listToothHistoryLogEntitiesControlr.length}');
+    print('\n');
+    print('\n');
+
+    for (ToothHistoryLogEntities toothHistoryLogEntities
+        in _listToothHistoryLogEntitiesControlr) {
+      //
+      List<String> listToothGroup =
+          toothHistoryLogEntities.teethGroupNamesString.split(',');
+      //
+      print('\n');
+      print('\n');
+      print(
+          'The Tooth is $numberTooth The Teeth Group Name is $listToothGroup');
+      print('\n');
+      print('\n');
+      //
+      //
+      //
+      for (String numbrToothToCompare in listToothGroup) {
+        //
+        // check if Tooth Exist
+        //
+        if (numbrToothToCompare == numberTooth) {
+          //
+          //  check which Product Type is choosen  To chose The tooth image
+          //
+          //
+
+          if (toothHistoryLogEntities.pfmLaser > 0) {
+            //
+
+            //
+            return functionToothimageOrColor(
+                numberTooth: numberTooth, typeProductToChoseColor: 'PFM laser');
+          } else
+          //
+
+          if (toothHistoryLogEntities.inlayAndOnlay > 0) {
+            //
+
+            //
+            return functionToothimageOrColor(
+                numberTooth: numberTooth,
+                typeProductToChoseColor: 'Inlay&onlay');
+          } else
+          //
+
+          if (toothHistoryLogEntities.eMaxPress > 0) {
+            //
+
+            //
+            return functionToothimageOrColor(
+                numberTooth: numberTooth,
+                typeProductToChoseColor: 'e-max press');
+          } else
+          //
+
+          if (toothHistoryLogEntities.zicronFullAnatomy > 0) {
+            //
+
+            //
+            return functionToothimageOrColor(
+                numberTooth: numberTooth,
+                typeProductToChoseColor: 'Zircon full anatomy');
+          } else
+          //
+
+          if (toothHistoryLogEntities.zicronLayered > 0) {
+            //
+
+            //
+            return functionToothimageOrColor(
+                numberTooth: numberTooth,
+                typeProductToChoseColor: 'Zircon layered');
+          } else
+          //
+
+          if (toothHistoryLogEntities.zicronFacingEMax > 0) {
+            //
+
+            //
+            return functionToothimageOrColor(
+                numberTooth: numberTooth,
+                typeProductToChoseColor: 'Zircon facing e-max');
+          } else
+          //
+
+          if (toothHistoryLogEntities.zicronPrettauAnterior > 0) {
+            //
+
+            //
+            return functionToothimageOrColor(
+                numberTooth: numberTooth,
+                typeProductToChoseColor: 'Zircon prettau anterior');
+          } else
+          //
+
+          if (toothHistoryLogEntities.eMaxSuprem > 0) {
+            //
+
+            //
+            return functionToothimageOrColor(
+                numberTooth: numberTooth,
+                typeProductToChoseColor: 'e-max suprem');
+          }
+        } // end (If) to Check if Tooth exist
+        //
+        //  If Tooth Dont exist then show the white one
+      } // end (For) of Compare the sended Tooth
+    } // end Main For
+    //
+    //
+    //
+    return functionToothimageOrColor(
+        numberTooth: numberTooth, typeProductToChoseColor: '');
+    //
+    // return AppImages.profileNavBotomIconPurple;
+  } // end method changeImageToothAccordingToProductType
 
   // Filter Orders according to State
   //
@@ -647,72 +921,63 @@ class CreateNewRequestController extends GetxController
 
   // List Order Scrn
 
-  String translateStateOrderToArabic(String stateEnglish) {
+  //
+  changeVitaClassicalText(String newValue) {
     //
 
     //
-    switch (stateEnglish) {
+    _vitaClassicalText = newValue;
+    //
+    if (newValue == 'افراغ الحقل') {
       //
-      case "Registered and Approved":
-        return 'تم الموافقة';
-
-      //
-      case "On The Way":
-        return 'في الطريق';
-
-      //
-      case "Ready for Packaging":
-        return 'جاهز للتغليف';
-
-      //
-      case "In Production":
-        return 'قيد الإنتاج';
-
-      //
-      case "Re-Postponed":
-        return 'إعادة التأجيل';
-
-      //
-      case "Postponed":
-        return 'تاجيل';
-
-      //
-      case "Case finished and Packaging":
-        return 'حالة الانتهاء والتعبئة والتغليف';
-
-      //
-      //
-      case "Finished Delivered":
-        return 'الانتهاء من التسليم';
-
-      //
-      //
-      case "Pending approval":
-        return 'معلق الطلب';
-
-      //
-      case "Remake Case":
-        return 'طبعة جديدة';
-
-      //
-      //
-      // case :
-      //   return ;
-
-      //
-      // case 'مسجلة ومعتمدة':
-      //   return AppColors.greenColor;
-      // //
-
-      // case 'مرفوض':
-      //   return AppColors.redCancel;
-
-      default:
-        return stateEnglish;
-
-      // End Switch
+      _vitaClassicalText = null;
     }
+    //
+    update();
+
+    // end Method change Vita Classical Text
   }
+
+  //
+  changeNDShadeGuideText(String newValue) {
+    //
+
+    //
+    _ndShadeGuideText = newValue;
+    //
+    if (newValue == 'افراغ الحقل') {
+      //
+      _ndShadeGuideText = null;
+    }
+    //
+    update();
+
+    // end Method change Vita Classical Text
+  }
+
+  //
+  changeVita3DMasterText(String newValue) {
+    //
+    _vita3DMasterText = newValue;
+    //
+    if (newValue == 'افراغ الحقل') {
+      //
+      _vita3DMasterText = null;
+    }
+    //
+    update();
+
+    // end Method change Vita 3D Master Text
+  }
+
+  //
+  changeSelectedTypeProductMethod(String newValue) {
+    //
+    _selectedtypeProduct = newValue;
+    //
+    update();
+  }
+  //
 
   changeStateOrderDivsion(int index) {
     //
@@ -732,6 +997,8 @@ class CreateNewRequestController extends GetxController
 
     //
   }
+
+  //
 
   void changeGenderTextMethod(String newGender) {
     //
@@ -759,12 +1026,17 @@ class CreateNewRequestController extends GetxController
   //
   bool checkAllFieldsFilled() {
     //
+    //
 
     if (patientNameController.text.isEmpty ||
         patientNameController.text == '' ||
+        noteController.text.isEmpty ||
+        noteController.text == '' ||
         ageController.text.isEmpty ||
         ageController.text == '' ||
-        _genderTextBackend == '') {
+        _genderTextBackend == '' ||
+        (_vitaClassicalText == null && _vita3DMasterText == null) ||
+        (_vitaClassicalText != null && _vita3DMasterText != null)) {
       //
 
       if (patientNameController.text.isEmpty ||
@@ -794,6 +1066,38 @@ class CreateNewRequestController extends GetxController
         //  Error Message  Age is required
         //
         _errorMessage = 'عمر المريض مطلوب';
+        //
+        update();
+        //
+        return false;
+      } else if (noteController.text.isEmpty || noteController.text == '') {
+        //
+        //
+        //  Error Message  Age is required
+        //
+        _errorMessage = 'حقل الملاحظات مطلوب';
+        //
+        update();
+        //
+        return false;
+      } else if (_vitaClassicalText == null && _vita3DMasterText == null) {
+        //
+        //
+        //  Error Message  Age is required
+        //
+        _errorMessage =
+            'لا يمكن ان يكون حقل الـ Vit 3D Master وحقل الـ Vita Classical  كلامهما فارغان';
+        //
+        update();
+        //
+        return false;
+      } else if (_vitaClassicalText != null && _vita3DMasterText != null) {
+        //
+        //
+        //  Error Message  Age is required
+        //
+        _errorMessage =
+            'يجب اختيار حقل واحد اما الـ Vita 3D Master  او حقل الـ Vita Classical';
         //
         update();
         //
@@ -839,13 +1143,13 @@ class CreateNewRequestController extends GetxController
       //
 
       final afterAdded =
-          toothHistoryLogEntities.teethGroupNames.contains(toothNumber);
+          toothHistoryLogEntities.teethGroupNames!.contains(toothNumber);
 
       //
       //
       if (afterAdded) {
         //
-        if (toothHistoryLogEntities.teethGroupNames.length == 1) {
+        if (toothHistoryLogEntities.teethGroupNames!.length == 1) {
           //
           //
           return 'after&&lastOne';
@@ -875,12 +1179,6 @@ class CreateNewRequestController extends GetxController
     //
 
     //
-    print('\n');
-    print('Controller The _listSelectedTeeth is $_listSelectedTeeth');
-    print('\n');
-    print('Controller The _teethGroupNamesList is $_teethGroupNamesList');
-    print('\n');
-    print('\n');
     //
     update();
     // end method remove tooth from selected list
@@ -896,21 +1194,23 @@ class CreateNewRequestController extends GetxController
       //
 
       final isRemoved = _listToothHistoryLogEntitiesControlr[i]
-          .teethGroupNames
+          .teethGroupNames!
           .remove(numberTooth);
       //
       String toothGroupStringEdtied = '';
       //
       int x = 0;
       for (String tooth
-          in _listToothHistoryLogEntitiesControlr[i].teethGroupNames) {
+          in _listToothHistoryLogEntitiesControlr[i].teethGroupNames!) {
         //
         toothGroupStringEdtied = toothGroupStringEdtied + tooth;
 
         //
-        if (_listToothHistoryLogEntitiesControlr[i].teethGroupNames[x] !=
-            _listToothHistoryLogEntitiesControlr[i].teethGroupNames[
-                _listToothHistoryLogEntitiesControlr[i].teethGroupNames.length -
+        if (_listToothHistoryLogEntitiesControlr[i].teethGroupNames![x] !=
+            _listToothHistoryLogEntitiesControlr[i].teethGroupNames![
+                _listToothHistoryLogEntitiesControlr[i]
+                        .teethGroupNames!
+                        .length -
                     1]) {
           //
           // ignore: prefer_interpolation_to_compose_strings
@@ -923,6 +1223,7 @@ class CreateNewRequestController extends GetxController
       }
       //
       _listToothHistoryLogEntitiesControlr[i] = ToothHistoryLogEntities(
+        ndShadeGuide: _ndShadeGuideText,
         teethGroupNames:
             _listToothHistoryLogEntitiesControlr[i].teethGroupNames,
         teethGroupNamesString: toothGroupStringEdtied,
@@ -965,12 +1266,6 @@ class CreateNewRequestController extends GetxController
 
       //
       //
-      print('\n');
-      print('\n');
-      print(
-          'Controller The _listToothHistoryLogEntitiesControlr item is ${_listToothHistoryLogEntitiesControlr[i].teethGroupNames}');
-      print('\n');
-      print('\n');
 
       //
       update();
@@ -980,15 +1275,6 @@ class CreateNewRequestController extends GetxController
     }
 
     //
-    print('\n');
-    print('\n');
-    print(
-        'Controller The _listToothHistoryLogEntitiesControlr is $_listToothHistoryLogEntitiesControlr');
-    print('\n');
-    print(
-        'Controller The _listToothHistoryLogEntitiesControlr lenght  is ${_listToothHistoryLogEntitiesControlr.length}');
-    print('\n');
-    print('\n');
 
     // end method remove tooth from toothListHistory
   }
@@ -1056,9 +1342,9 @@ class CreateNewRequestController extends GetxController
           in _listToothHistoryLogEntitiesControlr) {
         //
 
-        for (int i = 0; i < toothHistoryLogEntities.teethGroupNames.length;) {
+        for (int i = 0; i < toothHistoryLogEntities.teethGroupNames!.length;) {
           //
-          if (toothHistoryLogEntities.teethGroupNames[i] == nubmrTooth) {
+          if (toothHistoryLogEntities.teethGroupNames![i] == nubmrTooth) {
             //
 
             //
@@ -1102,6 +1388,11 @@ class CreateNewRequestController extends GetxController
   changeValuesDivsionTeeth(String division) {
     //
     //
+    print('\n');
+    print('\n');
+    print('The Value of Division is $division');
+    print('\n');
+    print('\n');
 
     if (division == 'PFM laser') {
       //
@@ -1202,11 +1493,20 @@ class CreateNewRequestController extends GetxController
 
   bool checkBottomSheetInformationFilled() {
     //
+    int totalDivision = _pfmLaser +
+        _inlayAndOnlay +
+        _eMaxPress +
+        _zicronFullAnatomy +
+        _zicronLayered +
+        _zicronFacingEMax +
+        _zicronPrettauAnterior +
+        _eMaxSuprem;
 
     if (toothDescriptionController.text.isEmpty ||
         toothDescriptionController.text.trim() == '' ||
         _productTypeText == '' ||
         _toothStatusTextBackend == '' ||
+        totalDivision > 1 ||
         (_pfmLaser == 0 &&
             _tempoary == 0 &&
             _inlayAndOnlay == 0 &&
@@ -1260,6 +1560,15 @@ class CreateNewRequestController extends GetxController
         // Error check Message Division
         //
         _errorMessageBotomSheet = 'يجب اختيار احد الاقسام';
+        update();
+        return false;
+      } else
+      //
+      if (totalDivision > 1) {
+        //
+        // Error check Message Division
+        //
+        _errorMessageBotomSheet = 'لا يمكنك اختيار اكثر من قسم';
         update();
         return false;
       }
@@ -1329,6 +1638,7 @@ class CreateNewRequestController extends GetxController
     ToothHistoryLogEntities toothHistoryLogEntities = ToothHistoryLogEntities(
       teethGroupNamesString: toothGroupString,
       teethGroupNames: _teethGroupNamesList,
+      ndShadeGuide: _ndShadeGuideText,
       toothDescription: toothDescriptionController.text.trim(),
       toothStatus: _toothStatusTextBackend,
       productType: _productTypeText,
@@ -1376,6 +1686,7 @@ class CreateNewRequestController extends GetxController
     // End Method Add To List TeethHistor
     // ----------------------------------
   }
+
   //  Methods Deals with Backend
   // ===========================================================================
 
@@ -1384,16 +1695,30 @@ class CreateNewRequestController extends GetxController
     change(state, status: RxStatus.loading());
 
     //
+    servicesClass.sharedPrefs.reload();
+
+    //
     String? sidTokenShared =
         servicesClass.sharedPrefs.getString(NameKeySharedPreferns.userSid);
 
     //
     String? dentistNameShared = servicesClass.sharedPrefs
-        .getString(NameKeySharedPreferns.nameCustomerSessionUser);
+        .getString(NameKeySharedPreferns.doctorFullName);
 
     if (sidTokenShared == null || dentistNameShared == null) {
       //
+      print('\n');
+      print('\n');
+      // GetUtils.isUsername('d');
+      print(
+          'Add Order  Controller sidTokenShared == null = $sidTokenShared || dentistNameShared == null  == $dentistNameShared');
+      print('\n');
+      print('\n');
       //  Change State to Error And show there is error with expire of Register
+      //
+      //
+      _errorMessageAddOrder = 'يوجد خطأ ، قم بتسجيل الدخول من جديد';
+      change(state, status: RxStatus.error(_errorMessageAddOrder));
       //
       return;
       //
@@ -1404,7 +1729,7 @@ class CreateNewRequestController extends GetxController
     //
 
     String dateTimeText = dateTime.toString();
-    // String dateTimeText = dateTime.toString().split(' ')[0];
+    dateTimeText = dateTime.toString().split(' ')[0];
 
     //
 
@@ -1420,6 +1745,9 @@ class CreateNewRequestController extends GetxController
     //
 
     AddOrderVertixEntities addOrderVertixEntities = AddOrderVertixEntities(
+      vita3DMaster: _vita3DMasterText,
+      vitaClassical: _vitaClassicalText,
+      noteOrder: noteController.text.trim(),
       dentistName: dentistNameShared,
       dateTime: dateTimeText,
       patientName: patientNameController.text.trim(),
@@ -1430,6 +1758,12 @@ class CreateNewRequestController extends GetxController
     );
 
     //
+    //
+    print('\n');
+    print('\n');
+    print('Add Order Controller Method');
+    print('\n');
+    print('\n');
 
     //
 
@@ -1448,6 +1782,14 @@ class CreateNewRequestController extends GetxController
         String message = mapFailureToMessage(failure);
 
         //
+        //
+        print('\n');
+        print('\n');
+        print('Add Order Failure is $message');
+        print('\n');
+        print('\n');
+
+        //
         _errorMessageAddOrder = message;
         //
         change(state, status: RxStatus.error(message));
@@ -1455,10 +1797,18 @@ class CreateNewRequestController extends GetxController
       },
       (success) {
         //
+        //
+        print('\n');
+        print('\n');
+        print('Add Order Success');
+        print('\n');
+        print('\n');
+        //
         //  handle Success
 
         //
         patientNameController.text = '';
+        noteController.text = '';
         _genderTextScrn = '';
         _genderTextBackend = '';
         ageController.text = '';
@@ -1471,6 +1821,9 @@ class CreateNewRequestController extends GetxController
         toothDescriptionController.text = '';
         _toothStatusTextBackend = '';
         _productTypeText = '';
+        _ndShadeGuideText = null;
+        _vita3DMasterText = null;
+        _vitaClassicalText = null;
         _pfmLaser = 0;
         _tempoary = 0;
         _inlayAndOnlay = 0;

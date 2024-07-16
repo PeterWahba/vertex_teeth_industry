@@ -6,7 +6,11 @@ class AddOrderVertixEntities extends Equatable {
 
   final String patientName;
   final String dentistName;
+  final String noteOrder;
   final String gender;
+  final String? vitaClassical;
+  final String? vita3DMaster;
+
   final String dateTime;
   final int age;
   final int isDigital;
@@ -15,7 +19,10 @@ class AddOrderVertixEntities extends Equatable {
   const AddOrderVertixEntities({
     required this.patientName,
     required this.dentistName,
+    required this.noteOrder,
     required this.dateTime,
+    required this.vita3DMaster,
+    required this.vitaClassical,
     required this.gender,
     required this.age,
     required this.isDigital,
@@ -26,9 +33,12 @@ class AddOrderVertixEntities extends Equatable {
         patientName,
         dentistName,
         gender,
+        noteOrder,
         dateTime,
         age,
         isDigital,
+        vita3DMaster,
+        vita3DMaster,
         listToothHistoryLogEntities,
       ];
 

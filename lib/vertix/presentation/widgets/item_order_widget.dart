@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../core/theme/colors_app.dart';
 import '../../../core/utils/fonts_path_class.dart';
 import '../../../core/utils/images_path_class.dart';
-import '../../../core/utils/methods_utls.dart';
+import '../../../core/functions/methods_utls.dart';
 
 class ItemOrderWidgetClass extends StatelessWidget {
   const ItemOrderWidgetClass(
@@ -61,6 +61,7 @@ class ItemOrderWidgetClass extends StatelessWidget {
           // Column
           //
           Container(
+            // color: Colors.blue,
             margin: EdgeInsets.only(top: 21.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,7 +80,8 @@ class ItemOrderWidgetClass extends StatelessWidget {
                   height: 7.h,
                 ),
                 //
-                SizedBox(
+                Container(
+                  // color: Colors.amber,
                   height: 16.h,
                   child: buildTextListOrderItem(
                     textM: 'الاسم: $namePatien',

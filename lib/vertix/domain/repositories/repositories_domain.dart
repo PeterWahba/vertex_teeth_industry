@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/add_order_vertix_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/details_order_vertex_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/details_payment_entry_entities.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/faq_question_entities.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/payment_entry_user_entities.dart';
 //
@@ -19,6 +21,13 @@ abstract class RepositoriesDomain {
   Future<Either<Failure, List<OrderVertixEntities>>> getAllVertixOrder({
     required String sidToekn,
     // required String userPassWord,
+  });
+
+  //
+  //  Get All Order Vertix
+  Future<Either<Failure, DetailsOrderVertexEntities>> getDetailsOrderVertex({
+    required String sidToekn,
+    required String idOrder,
   });
 
   //
@@ -60,6 +69,13 @@ abstract class RepositoriesDomain {
   //  get total Money Unpaid of User
   Future<Either<Failure, double>> getTotalMoneyUnpaidOfUser({
     required String sidToekn,
+  });
+
+  //
+  //  get total Money Unpaid of User
+  Future<Either<Failure, DetailesPaymentEntryEntities>> getDetailsPaymentEntry({
+    required String sidToekn,
+    required String idNamePayment,
   });
 
   // ====================

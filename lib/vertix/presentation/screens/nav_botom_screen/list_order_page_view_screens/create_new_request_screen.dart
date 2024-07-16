@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -11,6 +12,7 @@ import '../../../../../core/theme/colors_app.dart';
 import '../../../../../core/utils/fonts_path_class.dart';
 import '../../../../../core/utils/images_path_class.dart';
 import '../../../../../core/utils/text_string_app.dart';
+import '../../../widgets/add_order_details_patient.dart/custom_widget_dialog_list.dart';
 import '../../../widgets/custom_textfield_outline.dart';
 
 class CreateNewRequestScreenOri extends StatelessWidget {
@@ -188,11 +190,11 @@ class CreateNewRequestScreenOri extends StatelessWidget {
                 // keyboardType: TextInputType.text,
                 controllerTextField:
                     _createNewRequestController.patientNameController,
+                focusNodetextField:
+                    _createNewRequestController.patientFocusNode,
               ),
 
               // //
-              // buildTextAndFieldTextFormField(
-              //     titleField: AppStringtext.dateAddOrderPahseOneScrn),
 
               //
               GetBuilder<CreateNewRequestController>(builder: (_) {
@@ -203,7 +205,10 @@ class CreateNewRequestScreenOri extends StatelessWidget {
                   initText: _createNewRequestController.genderTextScrn,
                   onTapInkWell: () {
                     //
-                    FocusScope.of(context).unfocus();
+                    // FocusScope.of(context).unfocus();
+                    _createNewRequestController.patientFocusNode.unfocus();
+                    _createNewRequestController.ageFocusNode.unfocus();
+                    _createNewRequestController.noteFocusNode.unfocus();
                     //
                     //
                     // Show Dialog to chose gender
@@ -223,11 +228,89 @@ class CreateNewRequestScreenOri extends StatelessWidget {
                 titleField: AppStringtext.ageAddOrderPahseOneScrn,
                 keyboardType: TextInputType.number,
                 controllerTextField: _createNewRequestController.ageController,
+                focusNodetextField: _createNewRequestController.ageFocusNode,
                 inputFormattersCustomMethod: <TextInputFormatter>[
                   FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                 ],
-                botomPading: 0,
+                // botomPading: 0,
               ),
+
+              //
+
+              //
+              buildTextAndFieldTextFormField(
+                titleField: AppStringtext.noteAddOrderPahseOneScrn,
+                // keyboardType: TextInputType.text,
+                controllerTextField: _createNewRequestController.noteController,
+                focusNodetextField: _createNewRequestController.noteFocusNode,
+                // botomPading: 0,
+              ),
+
+              //
+              //
+              GetBuilder<CreateNewRequestController>(builder: (_) {
+                return buildTextAndFieldTextFormField(
+                  titleField: AppStringtext.vita3DMasterOrderPahseOneScrn,
+                  keyboardType: TextInputType.text,
+                  aligmentTitleText: Alignment.centerLeft,
+                  isReadOnly: '',
+                  initText: _createNewRequestController.vita3DMasterText,
+                  onTapInkWell: () {
+                    //
+                    // FocusScope.of(context).unfocus();
+                    _createNewRequestController.patientFocusNode.unfocus();
+                    _createNewRequestController.ageFocusNode.unfocus();
+                    _createNewRequestController.noteFocusNode.unfocus();
+                    //
+                    //
+                    // Show Dialog to chose gender
+                    //
+                    //
+                    buildDialogChoseMaleFemale(
+                        isList: '',
+                        listStringCont:
+                            _createNewRequestController.listVita3DMaster,
+                        chosenText:
+                            _createNewRequestController.vita3DMasterText,
+                        onTapInkWellCont:
+                            _createNewRequestController.changeVita3DMasterText);
+                    //
+                  },
+                );
+              }),
+
+              //
+              //
+              GetBuilder<CreateNewRequestController>(builder: (_) {
+                return buildTextAndFieldTextFormField(
+                  titleField: AppStringtext.vitaClassicalOrderPahseOneScrn,
+                  keyboardType: TextInputType.text,
+                  aligmentTitleText: Alignment.centerLeft,
+                  isReadOnly: '',
+                  botomPading: 0,
+                  initText: _createNewRequestController.vitaClassicalText,
+                  onTapInkWell: () {
+                    //
+                    // FocusScope.of(context).unfocus();
+                    _createNewRequestController.patientFocusNode.unfocus();
+                    _createNewRequestController.ageFocusNode.unfocus();
+                    _createNewRequestController.noteFocusNode.unfocus();
+                    //
+                    //
+                    // Show Dialog to chose gender
+                    //
+                    buildDialogChoseMaleFemale(
+                        isList: '',
+                        listStringCont:
+                            _createNewRequestController.listVitaClassical,
+                        chosenText:
+                            _createNewRequestController.vitaClassicalText,
+                        onTapInkWellCont: _createNewRequestController
+                            .changeVitaClassicalText);
+                    //
+                  },
+                );
+              }),
 
               //
               //
@@ -281,37 +364,51 @@ class CreateNewRequestScreenOri extends StatelessWidget {
 
               // Spacing
               // ========================
-              SizedBox(
-                height: 76.h,
-              ),
+              Container(
+                  // color: Colors.amber,
+                  // height: 50.h,
+                  ),
 
               // Show Error Message
               //
               GetBuilder<CreateNewRequestController>(
                 builder: (context) {
                   return Container(
+                    height: 40.h,
+                    // color: Colors.amber,
                     margin: EdgeInsets.only(
                         bottom: _createNewRequestController.errorMessage != ''
                             ? 25.h
-                            : 0.h),
-                    child: Center(
-                      child: AnimatedCrossFade(
-                        firstChild: Text(
-                          _createNewRequestController.errorMessage,
-                          style: TextStyle(
-                            fontFamily: AppFonts.almaraiBold,
-                            color: AppColors.redCancel,
-                            fontSize: 16.sp,
-                          ),
+                            : 0.h,
+                        left: 20.w,
+                        right: 20.w),
+                    //
+                    alignment: Alignment.center,
+                    child:
+                        //  Center(
+
+                        //   child:
+                        AnimatedCrossFade(
+                      firstChild: Text(
+                        _createNewRequestController.errorMessage,
+                        maxLines: 10,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          height: 1.3,
+                          fontFamily: AppFonts.almaraiBold,
+                          color: AppColors.redCancel,
+                          fontSize: 16.sp,
                         ),
-                        secondChild: Container(),
-                        duration: const Duration(milliseconds: 200),
-                        crossFadeState:
-                            _createNewRequestController.errorMessage != ''
-                                ? CrossFadeState.showFirst
-                                : CrossFadeState.showSecond,
                       ),
+                      secondChild: Container(),
+                      duration: const Duration(milliseconds: 200),
+                      crossFadeState:
+                          _createNewRequestController.errorMessage != ''
+                              ? CrossFadeState.showFirst
+                              : CrossFadeState.showSecond,
                     ),
+                    // ),
                   );
                 },
               ),
@@ -365,9 +462,9 @@ class CreateNewRequestScreenOri extends StatelessWidget {
               // Spacing
               // ========================
               Container(
-                  // color: Colors.amber,
-                  // height: 400.h,
-                  ),
+                // color: Colors.amber,
+                height: 30.h,
+              ),
 
               //
 
@@ -388,8 +485,10 @@ class CreateNewRequestScreenOri extends StatelessWidget {
     double botomPading = 15,
     String? isReadOnly,
     String? initText,
+    AlignmentGeometry aligmentTitleText = Alignment.centerRight,
     List<TextInputFormatter>? inputFormattersCustomMethod,
     TextEditingController? controllerTextField,
+    FocusNode? focusNodetextField,
     TextInputType? keyboardType,
   }) {
     //
@@ -400,14 +499,40 @@ class CreateNewRequestScreenOri extends StatelessWidget {
         children: [
           //
           //
-          SizedBox(
-            height: 20.h,
-            child: Text(
-              titleField,
-              style: TextStyle(
-                  fontSize: 16.sp,
-                  fontFamily: AppFonts.almaraiRegular,
-                  color: Colors.black),
+          Align(
+            alignment: aligmentTitleText,
+            child: SizedBox(
+              height: 20.h,
+              child: Text.rich(
+                textAlign: TextAlign.start,
+                TextSpan(
+                  style: TextStyle(
+                    fontFamily: AppFonts.almaraiRegular,
+                    fontSize: 16.sp,
+                    color: AppColors.textblackLight,
+                  ),
+                  children: [
+                    //
+                    aligmentTitleText == Alignment.centerRight
+                        ? const TextSpan()
+                        : const TextSpan(
+                            text: '   *   ',
+                            style: TextStyle(color: AppColors.redCancel),
+                          ),
+
+                    TextSpan(
+                      text: titleField,
+                    ),
+                  ],
+                ),
+              ),
+              //  Text(
+              //   titleField,
+              //   style: TextStyle(
+              //       fontSize: 16.sp,
+              //       fontFamily: AppFonts.almaraiRegular,
+              //       color: Colors.black),
+              // ),
             ),
           ),
 
@@ -449,6 +574,7 @@ class CreateNewRequestScreenOri extends StatelessWidget {
                   : CustomTextfieldOutLineProduct(
                       inputFormattersCustom: inputFormattersCustomMethod,
                       hintText: '',
+                      focusNodeC: focusNodetextField,
                       showPrefix: false,
                       showSuffix: false,
                       contentPaddingField: 0,
@@ -466,7 +592,12 @@ class CreateNewRequestScreenOri extends StatelessWidget {
     // End Method Text && TExtFormField
   }
 
-  void buildDialogChoseMaleFemale() {
+  void buildDialogChoseMaleFemale({
+    String? isList,
+    List<String>? listStringCont,
+    String? chosenText,
+    void Function(String value)? onTapInkWellCont,
+  }) {
     //
     Get.defaultDialog(
         //
@@ -481,57 +612,65 @@ class CreateNewRequestScreenOri extends StatelessWidget {
         //
         content: SizedBox(
           // color: Colors.red,
-          height: 90.h,
+          height: isList != null ? 180.h : 90.h,
           width: 350.w,
           child: GetBuilder<CreateNewRequestController>(builder: (context) {
-            return Column(
-              children: [
-                // Divider
-                const Divider(
-                  height: 0,
-                  color: AppColors.textblackLight,
-                ),
+            return isList != null
+                ? CustomWidgetDialogListAddOrderPhaseTwoPatientDetails(
+                    listString: listStringCont!,
+                    chosenText: chosenText ?? '',
+                    onTapInkWell: onTapInkWellCont,
+                  )
+                : Column(
+                    children: [
+                      // Divider
+                      const Divider(
+                        height: 0,
+                        color: AppColors.textblackLight,
+                      ),
 
-                // ---------
-                buildFieldMaleFemaleSection(
-                  colorMainSection:
-                      _createNewRequestController.genderTextScrn == 'ذكر'
-                          ? AppColors.purpleMainColor
-                          : null,
-                  colorTextSection:
-                      _createNewRequestController.genderTextScrn == 'ذكر'
-                          ? AppColors.backGroundAndTextWhite
-                          : AppColors.textblackLight,
-                  textSection: 'ذكر',
-                  onTapMethod: () {
-                    //
-                    _createNewRequestController.changeGenderTextMethod('ذكر');
-                    //
-                    Get.back();
-                    //
-                  },
-                ),
-                // ---------
-                buildFieldMaleFemaleSection(
-                  colorMainSection:
-                      _createNewRequestController.genderTextScrn == 'انثى'
-                          ? AppColors.purpleMainColor
-                          : null,
-                  colorTextSection:
-                      _createNewRequestController.genderTextScrn == 'انثى'
-                          ? AppColors.backGroundAndTextWhite
-                          : AppColors.textblackLight,
-                  textSection: 'انثى',
-                  onTapMethod: () {
-                    //
-                    _createNewRequestController.changeGenderTextMethod('انثى');
-                    //
-                    Get.back();
-                    //
-                  },
-                ),
-              ],
-            );
+                      // ---------
+                      buildFieldMaleFemaleSection(
+                        colorMainSection:
+                            _createNewRequestController.genderTextScrn == 'ذكر'
+                                ? AppColors.purpleMainColor
+                                : null,
+                        colorTextSection:
+                            _createNewRequestController.genderTextScrn == 'ذكر'
+                                ? AppColors.backGroundAndTextWhite
+                                : AppColors.textblackLight,
+                        textSection: 'ذكر',
+                        onTapMethod: () {
+                          //
+                          _createNewRequestController
+                              .changeGenderTextMethod('ذكر');
+                          //
+                          Get.back();
+                          //
+                        },
+                      ),
+                      // ---------
+                      buildFieldMaleFemaleSection(
+                        colorMainSection:
+                            _createNewRequestController.genderTextScrn == 'انثى'
+                                ? AppColors.purpleMainColor
+                                : null,
+                        colorTextSection:
+                            _createNewRequestController.genderTextScrn == 'انثى'
+                                ? AppColors.backGroundAndTextWhite
+                                : AppColors.textblackLight,
+                        textSection: 'انثى',
+                        onTapMethod: () {
+                          //
+                          _createNewRequestController
+                              .changeGenderTextMethod('انثى');
+                          //
+                          Get.back();
+                          //
+                        },
+                      ),
+                    ],
+                  );
           }),
         )
         // End Dialog

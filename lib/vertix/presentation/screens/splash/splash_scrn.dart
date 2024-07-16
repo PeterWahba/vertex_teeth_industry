@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:vertex_teeth_industry/core/theme/colors_app.dart';
 
 import '../../../../core/pages/pages_name.dart';
 import '../../../../core/utils/fonts_path_class.dart';
@@ -35,7 +37,7 @@ class _SplashCustomScreenState extends State<SplashCustomScreen> {
       SystemUiOverlay.top,
     ]);
 
-    Timer(const Duration(milliseconds: 2500), () {
+    Timer(const Duration(milliseconds: 2700), () {
       setState(() {
         //
         // Move To Page OnBoarding
@@ -72,7 +74,7 @@ class _SplashCustomScreenState extends State<SplashCustomScreen> {
             //
 
             SizedBox(
-              height: 344.h,
+              height: 300.h,
             ),
 
             SlideFadeTransition(
@@ -83,10 +85,10 @@ class _SplashCustomScreenState extends State<SplashCustomScreen> {
               offset: -2.5,
               direction: Direction.vertical,
               child: SizedBox(
-                height: 123.h,
-                width: 129.w,
-                child: SvgPicture.asset(AppImages.imageLogoSVG),
-                // child: Image.asset(AppImages.imageLogoPNG),
+                height: 200.h,
+                width: 220.w,
+                // child: SvgPicture.asset(AppImages.imageLogoSVG),
+                child: Image.asset(AppImages.imageLoadingVertix),
               ),
             ),
 
@@ -103,17 +105,42 @@ class _SplashCustomScreenState extends State<SplashCustomScreen> {
               animationDuration: const Duration(milliseconds: 1200),
               offset: 2.5,
               direction: Direction.horizontal,
-              child: Text(
-                'Powred By MicroNext ',
-                style: TextStyle(
-                    fontSize: 18.sp,
-                    fontFamily: AppFonts.almaraiBold,
-                    color: Colors.black),
+              child:
+                  //  AnimatedTextKit(
+                  //   isRepeatingAnimation: true,
+                  //   pause: const Duration(milliseconds: 200),
+                  //   animatedTexts: [
+                  //     ColorizeAnimatedText(
+                  //       'Powred By MicroNext ',
+                  //       colors: [
+                  //         AppColors.textblackLight,
+                  //         AppColors.silverColor,
+                  //         AppColors.silverColor,
+                  //         AppColors.textblackLight,
+                  //       ],
+                  //       textStyle: TextStyle(
+                  //         fontSize: 22.sp,
+                  //         fontFamily: AppFonts.almaraiBold,
+                  //         // color: Colors.black,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // )
+                  Shimmer.fromColors(
+                baseColor: AppColors.textblackLight,
+                highlightColor: AppColors.purpleMainColor,
+                child: Text(
+                  'Powred By MicroNext ',
+                  style: TextStyle(
+                      fontSize: 18.sp,
+                      fontFamily: AppFonts.almaraiBold,
+                      color: Colors.black),
+                ),
               ),
             ),
 
             SizedBox(
-              height: 53.h,
+              height: 150.h,
             )
 
             //

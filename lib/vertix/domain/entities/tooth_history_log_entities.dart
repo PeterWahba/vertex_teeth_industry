@@ -2,11 +2,12 @@ import 'package:equatable/equatable.dart';
 
 class ToothHistoryLogEntities extends Equatable {
   //
-  final List<String> teethGroupNames;
+  final List<String>? teethGroupNames;
   final String teethGroupNamesString;
   final String toothDescription;
   final String toothStatus;
   final String productType;
+  final String? ndShadeGuide;
   final int pfmLaser;
   final int tempoary;
   final int inlayAndOnlay;
@@ -19,6 +20,7 @@ class ToothHistoryLogEntities extends Equatable {
 
   const ToothHistoryLogEntities({
     required this.teethGroupNames,
+    required this.ndShadeGuide,
     required this.teethGroupNamesString,
     required this.toothDescription,
     required this.toothStatus,
@@ -38,6 +40,7 @@ class ToothHistoryLogEntities extends Equatable {
   List<Object?> get props => [
         teethGroupNames,
         toothDescription,
+        ndShadeGuide,
         toothStatus,
         teethGroupNamesString,
         productType,

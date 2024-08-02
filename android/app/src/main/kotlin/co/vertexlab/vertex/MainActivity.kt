@@ -1,4 +1,4 @@
-package com.vertex_teeth_industry_micro_next
+package co.vertexlab.vertex
 
 import io.flutter.embedding.android.FlutterActivity
 

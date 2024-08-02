@@ -367,77 +367,73 @@ class PaymentEntryUserScreen extends StatelessWidget {
                   ),
                   //
 
-                  Container(
-                    // color: Colors.amber,
-                    child: Row(
-                      children: [
-                        //
-                        listPayment[numberIndex].isOffer == 0
-                            ? Container()
-                            : Container(
-                                height: 23.68.h,
-                                // width: 30,
-                                // height: 20,
-                                // color: Colors.red,
-                                decoration: BoxDecoration(
-                                  color: AppColors.greenIsPaidColor,
-                                  borderRadius: BorderRadius.circular(6.r),
-                                ),
-                                //
-                                margin: EdgeInsets.only(bottom: 5.h),
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 8.w, vertical: 0.h),
+                  Row(
+                    children: [
+                      //
+                      listPayment[numberIndex].isOffer == 0
+                          ? Container()
+                          : Container(
+                              height: 23.68.h,
+                              // width: 30,
+                              // height: 20,
+                              // color: Colors.red,
+                              decoration: BoxDecoration(
+                                color: AppColors.greenIsPaidColor,
+                                borderRadius: BorderRadius.circular(6.r),
+                              ),
+                              //
+                              margin: EdgeInsets.only(bottom: 5.h),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 8.w, vertical: 0.h),
 
-                                //
-                                alignment: Alignment.center,
-                                child: Text(
-                                  'خصم شركة',
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                    fontFamily: AppFonts.almaraiBold,
-                                    color:
-                                        AppColors.whiteItemListOrderBackground,
-                                  ),
+                              //
+                              alignment: Alignment.center,
+                              child: Text(
+                                'خصم شركة',
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontFamily: AppFonts.almaraiBold,
+                                  color: AppColors.whiteItemListOrderBackground,
                                 ),
                               ),
-                        const Spacer(),
-                        Container(
-                          height: 23.68.h,
-                          width: listPayment[numberIndex]
-                                          .paidAmountMoneyTotal
-                                          .toString()
-                                          .length
-                                          .toDouble() *
-                                      8 >
-                                  190
-                              ? 190.w
-                              : listPayment[numberIndex]
-                                      .paidAmountMoneyTotal
-                                      .toString()
-                                      .length
-                                      .toDouble() *
-                                  10,
-                          margin: EdgeInsets.only(bottom: 5.h, left: 10.w),
-                          padding: EdgeInsets.symmetric(horizontal: 4.w),
-                          decoration: BoxDecoration(
-                            color: AppColors.purpleMainColor,
-                            borderRadius: BorderRadius.circular(6.r),
-                          ),
-                          //
-                          alignment: Alignment.center,
-                          child: Text(
-                            '${MethodsClassUTls.formatNumber(number: listPayment[numberIndex].paidAmountMoneyTotal)} د.ع',
-                            // '1000,000,000,0000,000,000,000,000,000,000,000,000',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 12.sp,
-                              fontFamily: AppFonts.almaraiBold,
-                              color: AppColors.almostWhiteDidntSaveBtn,
                             ),
+                      const Spacer(),
+                      Container(
+                        height: 23.68.h,
+                        width: listPayment[numberIndex]
+                                        .paidAmountMoneyTotal
+                                        .toString()
+                                        .length
+                                        .toDouble() *
+                                    8 >
+                                190
+                            ? 190.w
+                            : listPayment[numberIndex]
+                                    .paidAmountMoneyTotal
+                                    .toString()
+                                    .length
+                                    .toDouble() *
+                                10,
+                        margin: EdgeInsets.only(bottom: 5.h, left: 10.w),
+                        padding: EdgeInsets.symmetric(horizontal: 4.w),
+                        decoration: BoxDecoration(
+                          color: AppColors.purpleMainColor,
+                          borderRadius: BorderRadius.circular(6.r),
+                        ),
+                        //
+                        alignment: Alignment.center,
+                        child: Text(
+                          '${MethodsClassUTls.formatNumber(number: listPayment[numberIndex].paidAmountMoneyTotal)} د.ع',
+                          // '1000,000,000,0000,000,000,000,000,000,000,000,000',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontFamily: AppFonts.almaraiBold,
+                            color: AppColors.almostWhiteDidntSaveBtn,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   //
                 ],

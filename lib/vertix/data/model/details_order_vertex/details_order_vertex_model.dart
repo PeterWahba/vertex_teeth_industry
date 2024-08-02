@@ -6,7 +6,10 @@ import '../../../domain/entities/details_order_vertex_entities.dart';
 class DetailsOrderVertexModel extends DetailsOrderVertexEntities {
   const DetailsOrderVertexModel({
     required super.patientName,
+    required super.vita3DMaster,
+    required super.vitaClassical,
     required super.gender,
+    required super.idOrder,
     required super.rejectedReason,
     required super.orderState,
     required super.postingDate,
@@ -38,6 +41,9 @@ class DetailsOrderVertexModel extends DetailsOrderVertexEntities {
 
     //
     return DetailsOrderVertexModel(
+      idOrder: json['name'],
+      vita3DMaster: json['vita_3d_master'],
+      vitaClassical: json['vita_classical'],
       patientName: json['patient_name'],
       rejectedReason: json['case_rejected_reason'],
       orderState: json['order_status'],

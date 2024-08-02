@@ -112,22 +112,12 @@ class DetailsPaymentEntryItemController extends GetxController
         //
         change(state, status: RxStatus.error(message));
         //
-        print('\n');
-        print('\n');
-        print('Failure Details Payment entry is $message');
-        print('\n');
-        print('\n');
         // end Falure
       },
 
       (success) {
         // Handle Success
         //
-        print('\n');
-        print('\n');
-        print('Success Details Payment entry');
-        print('\n');
-        print('\n');
         _detailesPaymentEntryEntities = success;
         //
         change(state, status: RxStatus.success());

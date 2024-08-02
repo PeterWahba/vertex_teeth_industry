@@ -80,7 +80,7 @@ class ItemOrderWidgetClass extends StatelessWidget {
                   height: 7.h,
                 ),
                 //
-                Container(
+                SizedBox(
                   // color: Colors.amber,
                   height: 16.h,
                   child: buildTextListOrderItem(

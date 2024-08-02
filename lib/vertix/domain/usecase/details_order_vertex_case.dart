@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/faq_question_entities.dart';
 
 import '../../../core/error/failures.dart';
 import '../entities/details_order_vertex_entities.dart';
@@ -17,6 +16,9 @@ class GetDetailsOrderVertexUseCase {
     required String sidToekn,
     required String idOrder,
   }) {
+    //
+    //
+
     //
     return repositoriesDomain.getDetailsOrderVertex(
       sidToekn: sidToekn,

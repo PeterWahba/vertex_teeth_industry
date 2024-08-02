@@ -14,6 +14,7 @@ import '../../../../../core/utils/fonts_path_class.dart';
 import '../../../../../core/utils/text_string_app.dart';
 import '../../../../../core/functions/methods_widgets.dart';
 import '../../../widgets/custom_textfield_outline.dart';
+import '../../../widgets/lit_order_and_add_teeth/custom_division_add_details_order.dart';
 
 class AddedTeeethsScreen extends StatelessWidget {
   AddedTeeethsScreen({
@@ -81,13 +82,6 @@ class AddedTeeethsScreen extends StatelessWidget {
                           }
                         : () async {
                             //
-                            // _navBottomController.changeCurrnentIndexListOrderScreen(1);
-                            //
-                            print('\n');
-                            print('\n');
-                            print('Add Order Screen 1');
-                            print('\n');
-                            print('\n');
                             //
                             Get.dialog(
                               barrierDismissible: false,
@@ -100,22 +94,11 @@ class AddedTeeethsScreen extends StatelessWidget {
                             );
 
                             //
-                            print('\n');
-                            print('\n');
-                            print('Add Order Screen 2');
-                            print('\n');
-                            print('\n');
 
                             await _createNewRequestController
                                 .addOrderVertixMethod();
 
                             //
-
-                            print('\n');
-                            print('\n');
-                            print('Add Order Screen 2');
-                            print('\n');
-                            print('\n');
 
                             //
                             if (!_createNewRequestController.status.isLoading) {
@@ -1054,11 +1037,6 @@ class AddedTeeethsScreen extends StatelessWidget {
                     }
                   : () {
                       //
-                      // Get.bottomSheet(
-
-                      //   Container(
-                      //   height: 1500.h,
-                      //   color: Colors.amber,
                       // ));
                       buildMethodBottomSheet(contextM: context);
                       //
@@ -1136,13 +1114,6 @@ class AddedTeeethsScreen extends StatelessWidget {
             //
             String typeOperator = _createNewRequestController
                 .checkIFToothExistinLists(numberImage);
-
-            //
-            print('\n');
-            print('\n');
-            print('Screen The typeOperator is $typeOperator');
-            print('\n');
-            print('\n');
 
             //
             if (typeOperator == '') {
@@ -1373,247 +1344,101 @@ class AddedTeeethsScreen extends StatelessWidget {
                 margin: EdgeInsets.only(right: 22.w, left: 32.w),
                 width: double.infinity,
                 child: GetBuilder<CreateNewRequestController>(builder: (_) {
-                  return Wrap(
-                    alignment: WrapAlignment.start,
-                    direction: Axis.horizontal,
-                    children: [
+                  //
+                  return CustomDivisionAddDetailsOrder(
+                    isSelectedPFMLaser: _createNewRequestController.pfmLaser,
+                    changingMethodPFMLaser: () {
                       //
-                      buildItemBottomSgeetDivisions(
-                        widthItem: 107.84,
-                        widthItemText: 81.45,
-                        // isActive: _createNewRequestController
-                        //     .isDepartmentToothActive('PFM laser'),
-                        isSelected: _createNewRequestController.pfmLaser,
-                        changingMethod: () {
-                          //
-                          String value = 'PFM laser';
-                          _createNewRequestController
-                              .changeValuesDivsionTeeth(value);
-                          //
-                          // _createNewRequestController
-                          //     .changeSelectedTypeProductMethod(value);
-                        },
-                        textItem: 'PFM laser',
-                        spaceBetweenCheckAndText: 10.33,
-                        marginRight: 16.06,
-                        marginTop: 19,
-                      ),
+                      String value = 'PFM laser';
+                      _createNewRequestController
+                          .changeValuesDivsionTeeth(value);
                       //
-                      buildItemBottomSgeetDivisions(
-                        isSelected: _createNewRequestController.tempoary,
-                        // isActive: true,
-                        changingMethod: () {
-                          //
-                          String value = 'Temporary';
-                          _createNewRequestController
-                              .changeValuesDivsionTeeth(value);
-                          //
-                          // _createNewRequestController
-                          //     .changeSelectedTypeProductMethod(value);
-                        },
-                        widthItem: 113.58,
-                        widthItemText: 87.19,
-                        textItem: 'Temporary',
-                        spaceBetweenCheckAndText: 10.33,
-                        marginRight: 16.06,
-                        marginTop: 19,
-                      ),
+                    },
+                    //
+                    isSelectedTempoary: _createNewRequestController.tempoary,
 
+                    //
+                    changingMethodTempoary: () {
                       //
+                      String value = 'Temporary';
+                      _createNewRequestController
+                          .changeValuesDivsionTeeth(value);
                       //
-                      buildItemBottomSgeetDivisions(
-                        isSelected: _createNewRequestController.inlayAndOnlay,
-                        // isActive: _createNewRequestController
-                        //     .isDepartmentToothActive('Inlay&onlay'),
-                        changingMethod: () {
-                          //
-                          String value = 'Inlay&onlay';
-                          //
-                          _createNewRequestController
-                              .changeValuesDivsionTeeth(value);
+                    },
 
-                          //
-                          // _createNewRequestController
-                          //     .changeSelectedTypeProductMethod(value);
+                    isSelectedInlayAndOnlay:
+                        _createNewRequestController.inlayAndOnlay,
+                    //
+                    changingMethodInlayAndOnlay: () {
+                      String value = 'Inlay&onlay';
+                      _createNewRequestController
+                          .changeValuesDivsionTeeth(value);
+                    },
 
-                          //
-                        },
-                        widthItem: 120.46,
-                        widthItemText: 94.07,
-                        textItem: 'Inlay&onlay',
-                        spaceBetweenCheckAndText: 10.33,
-                        marginTop: 19,
-                      ),
+                    isSelectedEMaxPress: _createNewRequestController.eMaxPress,
 
+                    changingMethodEMaxPress: () {
+                      String value = 'e-max press';
                       //
+                      _createNewRequestController
+                          .changeValuesDivsionTeeth(value);
                       //
-                      //
-                      buildItemBottomSgeetDivisions(
-                        isSelected: _createNewRequestController.eMaxPress,
-                        // isActive: _createNewRequestController
-                        //     .isDepartmentToothActive('e-max press'),
-                        changingMethod: () {
-                          //
-                          String value = 'e-max press';
-                          //
-                          _createNewRequestController
-                              .changeValuesDivsionTeeth(value);
-                          //
-                          //
-                          // _createNewRequestController
-                          //     .changeSelectedTypeProductMethod(value);
+                    },
 
-                          //
-                        },
-                        widthItem: 113.58,
-                        widthItemText: 87.19,
-                        textItem: 'e-max press',
-                        marginRight: 9.42,
-                        spaceBetweenCheckAndText: 10.33,
-                        marginTop: 30,
-                      ),
+                    isSelectedZicronFullAnatomy:
+                        _createNewRequestController.zicronFullAnatomy,
+                    changingMethodZicronFullAnatomy: () {
+                      //
+                      String value = 'Zircon full anatomy';
+                      _createNewRequestController
+                          .changeValuesDivsionTeeth(value);
+                    },
 
-                      //
-                      //
-                      //
-                      buildItemBottomSgeetDivisions(
-                        isSelected:
-                            _createNewRequestController.zicronFullAnatomy,
-                        // isActive: _createNewRequestController
-                        //     .isDepartmentToothActive('Zircon full anatomy'),
-                        changingMethod: () {
-                          //
-                          String value = 'Zircon full anatomy';
-                          _createNewRequestController
-                              .changeValuesDivsionTeeth(value);
+                    isSelectedZicronLayered:
+                        _createNewRequestController.zicronLayered,
 
-                          //
-                          // _createNewRequestController
-                          //     .changeSelectedTypeProductMethod(value);
-                        },
-                        widthItem: 113.58,
-                        widthItemText: 87.19,
-                        textItem: 'Zircon full anatomy',
-                        spaceBetweenCheckAndText: 10.33,
-                        marginRight: 16.96,
-                        marginTop: 30,
-                      ),
-
+                    changingMethodZicronLayered: () {
                       //
-                      buildItemBottomSgeetDivisions(
-                        isSelected: _createNewRequestController.zicronLayered,
-                        // isActive: _createNewRequestController
-                        //     .isDepartmentToothActive('Zircon layered'),
-                        changingMethod: () {
-                          //
-                          String value = 'Zircon layered';
-                          //
-                          _createNewRequestController
-                              .changeValuesDivsionTeeth(value);
-
-                          //
-                          // _createNewRequestController
-                          //     .changeSelectedTypeProductMethod(value);
-                          //
-                        },
-                        widthItem: 120.46,
-                        widthItemText: 94.07,
-                        textItem: 'Zircon layered',
-                        spaceBetweenCheckAndText: 10.33,
-                        marginTop: 30,
-                      ),
-
+                      String value = 'Zircon layered';
                       //
+                      _createNewRequestController
+                          .changeValuesDivsionTeeth(value);
+                    },
 
+                    isSelectedZicronFacingEMax:
+                        _createNewRequestController.zicronFacingEMax,
+                    changingMethodZicronFacingEMax: () {
                       //
-                      buildItemBottomSgeetDivisions(
-                        isSelected:
-                            _createNewRequestController.zicronFacingEMax,
-                        // isActive: _createNewRequestController
-                        //     .isDepartmentToothActive('Zircon facing e-max'),
-                        changingMethod: () {
-                          //
-                          String value = 'Zircon facing e-max';
-                          //
-                          _createNewRequestController
-                              .changeValuesDivsionTeeth(value);
-                          //
-                          //
-                          // _createNewRequestController
-                          //     .changeSelectedTypeProductMethod(value);
-                          //
-                        },
-                        widthItem: 107.84,
-                        widthItemText: 81.45,
-                        textItem: 'Zircon facing e-max',
-                        spaceBetweenCheckAndText: 10.33,
-                        marginRight: 16.16,
-                        marginTop: 30,
-                      ),
+                      String value = 'Zircon facing e-max';
+                      //
+                      _createNewRequestController
+                          .changeValuesDivsionTeeth(value);
+                      //
+                    },
 
-                      //
-                      //
+                    isSelectedZicronPrettauAnterior:
+                        _createNewRequestController.zicronPrettauAnterior,
 
+                    changingMethodZicronPrettauAnterior: () {
                       //
-                      buildItemBottomSgeetDivisions(
-                        isSelected:
-                            _createNewRequestController.zicronPrettauAnterior,
-                        // isActive: _createNewRequestController
-                        //     .isDepartmentToothActive('Zircon prettau anterior'),
-                        changingMethod: () {
-                          //
-                          String value = 'Zircon prettau anterior';
-                          //
-                          _createNewRequestController
-                              .changeValuesDivsionTeeth(value);
+                      String value = 'Zircon prettau anterior';
+                      //
+                      _createNewRequestController
+                          .changeValuesDivsionTeeth(value);
+                    },
 
-                          //
-                          //
-                          // _createNewRequestController
-                          //     .changeSelectedTypeProductMethod(value);
-                          //
-                        },
-                        widthItem: 107.84,
-                        widthItemText: 81.45,
-                        textItem: 'Zircon prettau anterior',
-                        spaceBetweenCheckAndText: 10.33,
-                        marginRight: 16.16,
-                        marginTop: 30,
-                      ),
-
+                    isSelectedEMaxSuprem:
+                        _createNewRequestController.eMaxSuprem,
+                    changingMethodEMaxSuprem: () {
                       //
-                      buildItemBottomSgeetDivisions(
-                        isSelected: _createNewRequestController.eMaxSuprem,
-                        // isActive: _createNewRequestController
-                        //     .isDepartmentToothActive('e-max suprem'),
-                        changingMethod: () {
-                          //
-                          String value = 'e-max suprem';
-                          //
-                          _createNewRequestController
-                              .changeValuesDivsionTeeth(value);
-                          //
-                          //
-                          // _createNewRequestController
-                          //     .changeSelectedTypeProductMethod(value);
-                          //
-                        },
-                        widthItem: 120.46,
-                        widthItemText: 94.07,
-                        textItem: 'e-max suprem',
-                        spaceBetweenCheckAndText: 10.33,
-                        // marginRight: 16.16,
-                        marginTop: 30,
-                      ),
-
+                      String value = 'e-max suprem';
                       //
+                      _createNewRequestController
+                          .changeValuesDivsionTeeth(value);
                       //
-
-                      //
-
-                      //
-                    ],
+                    },
                   );
+                  //  _createNewRequestController.zicronLayered
                 }),
               ),
             ),
@@ -1802,83 +1627,6 @@ class AddedTeeethsScreen extends StatelessWidget {
       ),
     );
     // End Method Text && TExtFormField
-  }
-
-  buildItemBottomSgeetDivisions({
-    required double widthItem,
-    required double widthItemText,
-    required int isSelected,
-    // required bool isActive,
-    required void Function() changingMethod,
-    required double spaceBetweenCheckAndText,
-    double marginRight = 0,
-    double marginTop = 0,
-    double marginBotom = 0,
-    required String textItem,
-  }) {
-    //
-    return Container(
-      margin: EdgeInsets.only(right: marginRight.w, top: marginTop.h),
-      width: widthItem.w,
-      child: Row(
-        // mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            // color: Colors.red,
-            width: 16.06.w,
-            height: 14.h,
-            // padding: EdgeInsets.symmetric(vertical: 8),
-
-            child:
-                // Transform.scale(
-                //   scale: 0.8,
-                //   child:
-                GetBuilder<CreateNewRequestController>(builder: (_) {
-              return Checkbox(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(2.r),
-                  ),
-                  value: isSelected == 1 ? true : false,
-                  splashRadius: 30.r,
-                  onChanged:
-                      //  isActive
-                      //     ?
-                      (value) {
-                    //
-                    //
-
-                    //
-                    changingMethod();
-                    //
-                  }
-                  // : null,
-                  );
-            }),
-            // ),
-          ),
-
-          //
-          SizedBox(
-            width: spaceBetweenCheckAndText.w,
-          ),
-          //
-          SizedBox(
-            // width: 87.w,
-            width: widthItemText.w,
-            child: Text(
-              textItem,
-              maxLines: 7,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  fontSize: 16.sp, fontFamily: AppFonts.almaraiRegular),
-            ),
-          )
-        ],
-      ),
-    );
-    // End Method Item Bottom Sheet Divisions
   }
 
   //

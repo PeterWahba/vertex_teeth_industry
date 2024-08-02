@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vertex_teeth_industry/core/error/methods.dart';
-import 'package:vertex_teeth_industry/core/functions/methods_utls.dart';
-import 'package:vertex_teeth_industry/core/utils/images_path_class.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/details_order_vertex_entities.dart';
 import 'package:vertex_teeth_industry/vertix/domain/entities/tooth_history_log_entities.dart';
 import 'package:vertex_teeth_industry/vertix/domain/usecase/details_order_vertex_case.dart';
+import 'package:vertex_teeth_industry/vertix/domain/usecase/reject_order_with_mesg_case.dart';
 
 import '../../../../core/utils/setting_sevices.dart';
 import '../../../../core/utils/string_shared_prefs.dart';
@@ -13,9 +13,14 @@ class DetailsOrderVertexController extends GetxController
     with StateMixin<DetailsOrderVertexController> {
   //
   final GetDetailsOrderVertexUseCase getDetailsOrderVertexUseCase;
+  //
+  final RejectOrderWithMessagUseCase rejectOrderWithMessagUseCase;
 
   //
-  DetailsOrderVertexController({required this.getDetailsOrderVertexUseCase});
+  DetailsOrderVertexController({
+    required this.getDetailsOrderVertexUseCase,
+    required this.rejectOrderWithMessagUseCase,
+  });
 
   //
   @override
@@ -24,7 +29,20 @@ class DetailsOrderVertexController extends GetxController
     super.onInit();
     //
     change(state, status: RxStatus.loading());
+    //
+    messageRejectController = TextEditingController();
   }
+
+  //
+  @override
+  void dispose() {
+    super.dispose();
+    //
+    messageRejectController.dispose();
+  }
+
+  //
+  late TextEditingController messageRejectController;
 
   //
   // Services
@@ -44,6 +62,9 @@ class DetailsOrderVertexController extends GetxController
       'يوجد خطأ في عملية تسجيل الدخول ، قم بتسجيل  من جديد';
 
   //
+  String _idOrder = '';
+
+  //
 
   List<ToothHistoryLogEntities> _listToothHistoryLog = [];
 
@@ -57,6 +78,9 @@ class DetailsOrderVertexController extends GetxController
   // ===========================================================================
   DetailsOrderVertexEntities? get detailsOrderVertexEntities =>
       _detailsOrderVertexEntities;
+
+  //
+  String get idOrderCont => _idOrder;
 
   //
   // Methods Deals with Screen
@@ -74,12 +98,6 @@ class DetailsOrderVertexController extends GetxController
           functionToothimageOrColor}) {
     //
     //
-    print('\n');
-    print('\n');
-    print(
-        'The Teeth _listToothHistoryLog Length  is ${_listToothHistoryLog.length}');
-    print('\n');
-    print('\n');
 
     for (ToothHistoryLogEntities toothHistoryLogEntities
         in _listToothHistoryLog) {
@@ -87,12 +105,6 @@ class DetailsOrderVertexController extends GetxController
       List<String> listToothGroup =
           toothHistoryLogEntities.teethGroupNamesString.split(',');
       //
-      print('\n');
-      print('\n');
-      print(
-          'The Tooth is $numberTooth The Teeth Group Name is $listToothGroup');
-      print('\n');
-      print('\n');
       //
       //
       //
@@ -247,16 +259,21 @@ class DetailsOrderVertexController extends GetxController
       (success) {
         //
         _detailsOrderVertexEntities = success;
+
+        //
+        // print('\n');
+        // print(
+        //     'The controller of Details Order is $_detailsOrderVertexEntities');
+        // print('\n');
+        // print(
+        //     'The controller of Details Order Of ND Shade Guide is ${_detailsOrderVertexEntities?.ndShadeGuide ?? 'Null'}');
+        // print('\n');
         //
         _listToothHistoryLog = success.listToothHistoryLogEntites;
         //
+        _idOrder = success.idOrder;
 
         //
-        print('\n');
-        print('\n');
-        print('The Tooth History Log is ${success.listToothHistoryLogEntites}');
-        print('\n');
-        print('\n');
         //
         change(state, status: RxStatus.success());
         //
@@ -264,6 +281,81 @@ class DetailsOrderVertexController extends GetxController
     );
 
     // end Method get Details Order Vertex
+  }
+
+  //
+  // Reject Order With Message
+  //
+
+  Future<void> rejectOrderWithMessageMethod() async {
+    //
+    //
+    change(state, status: RxStatus.loading());
+
+    String? sidTokenShared =
+        servicesClass.sharedPrefs.getString(NameKeySharedPreferns.userSid);
+    //
+    //
+    if (sidTokenShared == null) {
+      //
+      change(state, status: RxStatus.error(_errorSidToken));
+
+      //
+      return;
+      // end IF SID Token is Null
+    }
+
+    //
+    if (_idOrder == '') {
+      //
+      change(state, status: RxStatus.error('UnExpected Error'));
+
+      //
+      return;
+    }
+
+    //
+    if (messageRejectController.text.isEmpty ||
+        messageRejectController.text == '') {
+      //
+      change(state, status: RxStatus.error('يجب ملئ حقل الرسالة اولا'));
+      //
+      return;
+
+      //
+    }
+
+    final relst = await rejectOrderWithMessagUseCase.call(
+        sidToekn: sidTokenShared,
+        idOrder: _idOrder,
+        messageReject: messageRejectController.text);
+
+    //
+    relst.fold(
+      (failure) {
+        //
+        String mesage = mapFailureToMessage(failure);
+        //
+        change(state, status: RxStatus.error(mesage));
+
+        //
+      }, //end Failure
+      (success) {
+        //
+
+        //
+        messageRejectController.text = '';
+
+        //
+        print('\n');
+        print('Success add rejected message');
+        print('\n');
+        //
+        change(state, status: RxStatus.success());
+
+        //
+      }, // end Success
+    );
   }
 
   // end Class Controller

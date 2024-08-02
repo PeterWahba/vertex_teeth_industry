@@ -14,6 +14,10 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
     this.initText,
     this.widgetPrefixIcon,
     this.focusNodeC,
+    this.topPaddingContent,
+    this.botomPaddingContent,
+    this.leftPaddingContent,
+    this.rightPaddingContent,
     this.inputFormattersCustom,
     this.keyboardType,
     this.maxLines,
@@ -45,6 +49,10 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
   final FocusNode? focusNodeC;
   final bool showPassWordText;
   final double? widthField;
+  final double? topPaddingContent;
+  final double? rightPaddingContent;
+  final double? leftPaddingContent;
+  final double? botomPaddingContent;
   final Widget? widgetPrefixIcon;
   final double? heightStyleText;
   final double? hieghtTextField;
@@ -124,7 +132,11 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
               : widgetPrefixIcon,
           contentPadding:
               //  EdgeInsets.all(contentPaddingField),
-              EdgeInsets.only(left: 0, top: 0, bottom: 0, right: 10.w),
+              EdgeInsets.only(
+                  left: leftPaddingContent ?? 0,
+                  top: topPaddingContent ?? 0,
+                  bottom: botomPaddingContent ?? 0,
+                  right: rightPaddingContent ?? 10.w),
           suffixIcon: showSuffix
               ? InkWell(
                   radius: 15,
@@ -142,6 +154,7 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
                   ),
                 )
               : null,
+
           hintStyle: TextStyle(
               fontFamily: AppFonts.almaraiRegular,
               fontSize: 16.sp,

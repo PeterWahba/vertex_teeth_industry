@@ -36,6 +36,13 @@ abstract class ERPnextDataSource {
   });
 
   //
+  Future<Unit> rejectOrderVertextWithMessageDataSource({
+    required String sidToken,
+    required String idOrder,
+    required String message,
+  });
+
+  //
 
   Future<List<FAQQuestionEntities>> getAllFAQQuestionData(
       {required String sidToken});
@@ -260,8 +267,7 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
 
     //
     //
-    String url =
-        'https://vertex.micronext.net/api/resource/Vertex%20Order?sid=$sidToekn';
+    String url = '$baseURL/api/resource/Vertex%20Order?sid=$sidToekn';
 
     //
     //
@@ -278,6 +284,8 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
     final res = await http.post(Uri.parse(url), body: jsonEncodedData);
 
     //
+    //
+
     //
     if (res.statusCode == 200) {
       //
@@ -628,7 +636,9 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
         // '$baseURL/api/method/vertex_app.vertex_app.doctype.vertex_app_faq.vertex_app_faq.get_vertex_app_faq?sid=$sidToken';
         '$baseURL/api/method/vertex_app.overrides.payment_entry.get_payment_entry_detail?sid=$sidToken&payment_entry=$idNamePayment';
 
+    //]
     //
+
     // List<DetailesPaymentEntryEntities> listDetailsPaymentEntry = [];
     //
     var response = await http.get(Uri.parse(url));
@@ -637,6 +647,8 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
     if (response.statusCode == 200) {
       //
       final extractedData = json.decode(response.body);
+      //
+      //
 
       //
       if (extractedData != null) {
@@ -644,6 +656,7 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
         //
 
         final listExracted = extractedData['message'];
+        //
 
         if (listExracted != null) {
           //
@@ -709,11 +722,6 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
 
         final listExracted = extractedData['message'];
         //
-        print('\n');
-        print('\n');
-        print('Details Order Vertex is $listExracted');
-        print('\n');
-        print('\n');
 
         if (listExracted != null) {
           //
@@ -722,7 +730,6 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
           final reslt = DetailsOrderVertexModel.fromJson(json: listExracted);
           // End For Ech
           // });
-          //
 
           //
 
@@ -754,5 +761,121 @@ class ERPnextDataSourceImple implements ERPnextDataSource {
     }
     // End Method Get Details Order Vertex  Method
   }
+
+  // @override
+  // Future<Unit> rejectOrderVertextWithMessageDataSource(
+  //     {required String sidToken,
+  //     required String idOrder,
+  //     required String message}) async {
+  //   //
+  //   //
+
+  //   //
+  //   //  https://vertex.micronext.net/api/method/vertex_app.vertex_app.doctype.vertex_order.vertex_order.update_order_case_rejected
+  //   //
+  //   //
+  //   print('\n');
+  //   print('\n');
+  //   print('The Reject Order With Message');
+  //   print('\n');
+  //   print('\n');
+  //   //
+  //   //
+  //   String url =
+  //       'https://vertex.micronext.net/api/method/vertex_app.vertex_app.doctype.vertex_order.vertex_order.update_order_case_rejected?sid=$sidToken';
+  //   // '$baseURL/api/method/vertex_app.vertex_app.doctype.vertex_order.vertex_order.update_order_case_rejected?sid=$sidToken';
+
+  //   //
+  //   //
+
+  //   final jsonData = {
+  //     'self': idOrder,
+  //     'case_rejected_reason': message,
+  //   };
+  //   //
+
+  //   //
+  //   //
+  //   final jsonEncodedData = json.encode(jsonData);
+  //   //
+  //   //
+  //   //
+  //   // await http.p
+  //   final res = await http.post(Uri.parse(url), body: jsonEncodedData);
+
+  //   //
+  //   print('\n');
+  //   print('\n');
+  //   print('The Json Code is $jsonEncodedData');
+  //   print('\n');
+  //   print('\n');
+
+  //   //
+  //   //
+  //   if (res.statusCode == 200) {
+  //     //
+  //     return Future.value(unit);
+  //     //
+  //   } else if (res.statusCode == 500) {
+  //     //
+  //     //
+  //     //
+
+  //     print('\n');
+  //     print('\n');
+  //     print('The Error of 500 is ${res.body}');
+  //     print('\n');
+  //     print('\n');
+
+  //     //
+  //     throw ServerException();
+  //     //
+  //   } else {
+  //     //
+  //     //
+
+  //     print('\n');
+  //     print('\n');
+  //     print('The Error of UnKnown is ${res.body}');
+  //     print('\n');
+  //     print('\n');
+
+  //     //
+  //     throw UnKnownException();
+  //     //
+  //   }
+  //   //
+  // } // End Method Reject Order with Message
+
+  // ============================================================================
+  @override
+  Future<Unit> rejectOrderVertextWithMessageDataSource(
+      {required String sidToken,
+      required String idOrder,
+      required String message}) async {
+    String url =
+        // 'https://vertex.micronext.net/api/method/vertex_app.vertex_app.doctype.vertex_order.vertex_order.update_order_case_rejected?sid=$sidToken';
+        '$baseURL/api/method/vertex_app.vertex_app.doctype.vertex_order.vertex_order.update_order_case_rejected?sid=$sidToken';
+
+    final Map<String, String> headers = {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    };
+
+    final Map<String, String> body = {
+      'self': idOrder,
+      'case_rejected_reason': message,
+    };
+
+    final res = await http.put(Uri.parse(url), headers: headers, body: body);
+
+    if (res.statusCode == 200) {
+      return Future.value(unit);
+    } else if (res.statusCode == 500) {
+      throw ServerException();
+    } else {
+      throw UnKnownException();
+    }
+  }
+
   // End Class DataSource
 }

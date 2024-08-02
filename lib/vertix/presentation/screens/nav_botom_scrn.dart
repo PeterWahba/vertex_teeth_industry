@@ -13,7 +13,6 @@ import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_scre
 import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/payment_entry_nav_botom.dart';
 
 import 'nav_botom_screen/profiles_nav_botom_scren.dart';
-import 'nav_botom_screen/paymentEntry/walet_payment_nav_botom_scrn.dart';
 
 class NavBottomScreen extends StatelessWidget {
   NavBottomScreen({super.key});
@@ -47,6 +46,13 @@ class NavBottomScreen extends StatelessWidget {
               onTap: (value) {
                 //
                 _bottomController.newIndexSetter(value);
+                //
+                if (value == 3) {
+                  _bottomController.changeIsHomeScrn(1);
+                } else if (value == 2) {
+                  //
+                  _bottomController.changeIsHomeScrn(0);
+                }
                 //
               },
               // backgroundColor: Colors.blue,

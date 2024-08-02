@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:get/get.dart';
 
 class NavBottomController extends GetxController {
@@ -28,14 +26,14 @@ class NavBottomController extends GetxController {
 
   // Boolen
 
-  bool _isHomeScrn = false;
+  int _isHomeScrn = 1;
 
   // Get Variables
   // ===========================================================================
 
   // Boolen
   // ===============
-  bool get isHomeScrn => _isHomeScrn;
+  int get isHomeScrn => _isHomeScrn;
 
   int get currentIndex => _currentIndex;
 
@@ -60,7 +58,7 @@ class NavBottomController extends GetxController {
 
   //
 
-  changeIsHomeScrn(bool newValue) {
+  changeIsHomeScrn(int newValue) {
     //
     _isHomeScrn = newValue;
     //

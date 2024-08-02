@@ -18,6 +18,7 @@ import '../../../domain/usecase/get_images_baner_ads_case.dart';
 import '../../../domain/usecase/get_payment_entry_case.dart';
 import '../../../domain/usecase/get_session_user_case.dart';
 import '../../../domain/usecase/get_total_money_unpaidd_user.dart';
+import '../../../domain/usecase/reject_order_with_mesg_case.dart';
 import '../../controller/nav_botom_controlr/detalis_payment_entry_item_contrlr.dart';
 import '../../controller/nav_botom_controlr/home_controllr.dart';
 import '../../controller/nav_botom_controlr/payment_entry_conrtolr.dart';
@@ -45,6 +46,7 @@ class NavBotomBinding implements Bindings {
     Get.lazyPut<DetailsOrderVertexController>(
       () => DetailsOrderVertexController(
         getDetailsOrderVertexUseCase: Get.find(),
+        rejectOrderWithMessagUseCase: Get.find(),
       ),
     );
     //
@@ -82,6 +84,13 @@ class NavBotomBinding implements Bindings {
         getOrderVertixUseCase: Get.find(),
       ),
     );
+    //
+
+    //
+    // Use Case  Reject Order  Vertex
+
+    Get.lazyPut<RejectOrderWithMessagUseCase>(
+        () => RejectOrderWithMessagUseCase(repositoriesDomain: Get.find()));
     //
 
     //

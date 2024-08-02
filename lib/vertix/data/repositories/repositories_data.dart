@@ -356,6 +356,12 @@ class RepositoriesDataImp implements RepositoriesDomain {
     }
 
     try {
+      //
+      print('\n');
+      print('\n');
+      print('The Details Order Implement  ');
+      print('\n');
+      print('\n');
       final reslt = await eRPnextDataSource.getDetailsPaymentEntryDataSource(
         sidToken: sidToekn,
         idNamePayment: idNamePayment,
@@ -420,6 +426,50 @@ class RepositoriesDataImp implements RepositoriesDomain {
     }
 
     //  End Get  Details  Order Vertex Method
+  }
+
+  @override
+  Future<Either<Failure, Unit>> rejectOrderVertextWithMessage(
+      {required String sidToekn,
+      required String idOrder,
+      required String messageReject}) async {
+    //
+    //
+
+    if (!await netWorkInfo.isConnected) {
+      //
+
+      return left(OffLineFailer());
+    }
+
+    try {
+      //
+
+      //
+
+      final reslt =
+          await eRPnextDataSource.rejectOrderVertextWithMessageDataSource(
+        sidToken: sidToekn,
+        idOrder: idOrder,
+        message: messageReject,
+      );
+
+      //
+      return right(reslt);
+
+      // End Try
+    } on UnKnownException {
+      //
+
+      return left(UnKnownFailre());
+      //
+    } on ServerException {
+      //
+
+      return left(ServerFailre());
+      //
+    }
+    //
   }
 
   //

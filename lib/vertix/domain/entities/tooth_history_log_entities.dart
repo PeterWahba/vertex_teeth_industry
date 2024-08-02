@@ -4,6 +4,7 @@ class ToothHistoryLogEntities extends Equatable {
   //
   final List<String>? teethGroupNames;
   final String teethGroupNamesString;
+
   final String toothDescription;
   final String toothStatus;
   final String productType;

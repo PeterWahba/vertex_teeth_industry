@@ -31,6 +31,14 @@ abstract class RepositoriesDomain {
   });
 
   //
+  //  Get All Order Vertix
+  Future<Either<Failure, Unit>> rejectOrderVertextWithMessage({
+    required String sidToekn,
+    required String idOrder,
+    required String messageReject,
+  });
+
+  //
   //  Get All  Faq Question
   Future<Either<Failure, List<FAQQuestionEntities>>> getAllFAqQuestion({
     required String sidToekn,

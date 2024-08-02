@@ -14,7 +14,6 @@ import 'package:vertex_teeth_industry/vertix/presentation/controller/list_order_
 import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
 
 import '../../../../../core/functions/methods_utls.dart';
-import '../../../../../core/functions/methods_widgets.dart';
 import '../../../controller/nav_botom_controlr/home_controllr.dart';
 import '../../../widgets/custom_textfield_outline.dart';
 import '../../../widgets/error_state.dart';
@@ -462,7 +461,7 @@ class HomeScreen extends StatelessWidget {
               //
               onTap: () {
                 //
-                _navBottomController.changeIsHomeScrn(true);
+                // _navBottomController.changeIsHomeScrn(true);
                 //
                 _detailsOrderVertexController
                     .getDetailsOrderVertexMethod(itemOrder.idOrder);

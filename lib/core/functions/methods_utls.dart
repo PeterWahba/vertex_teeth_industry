@@ -61,25 +61,45 @@ class MethodsClassUTls {
       case "Registered and Approved":
         return 'تم الموافقة';
 
-      //
-      case "On The Way":
-        return 'في الطريق';
+      // //
+      // case "On The Way":
+      //   return 'في الطريق';
+
+      // //
+      // case "Ready for Packaging":
+      //   return 'جاهز للتغليف';
 
       //
       case "Ready for Packaging":
-        return 'جاهز للتغليف';
+        return 'تم الموافقة';
+
+      //
+      case "Case finished and Packaged":
+        return 'تم الموافقة';
+
+      // //
+      // case "In Production":
+      //   return 'قيد الإنتاج';
 
       //
       case "In Production":
-        return 'قيد الإنتاج';
+        return 'تم الموافقة';
+
+      //
+      // case "Re-Postponed":
+      //   return 'إعادة التأجيل';
 
       //
       case "Re-Postponed":
-        return 'إعادة التأجيل';
+        return 'تم الموافقة';
+
+      //
+      // case "Postponed":
+      //   return 'تاجيل';
 
       //
       case "Postponed":
-        return 'تاجيل';
+        return 'تم الموافقة';
 
       //
       case "Case finished and Packaging":
@@ -96,8 +116,20 @@ class MethodsClassUTls {
         return 'معلق الطلب';
 
       //
+      // case "Remake Case":
+      //   return 'طبعة جديدة';
+
+      //
       case "Remake Case":
-        return 'طبعة جديدة';
+        return 'الانتهاء من التسليم';
+
+      //
+      case "Cancelled":
+        return 'مرفوض';
+
+      //
+      case "Case Rejected":
+        return 'مرفوض';
 
       //
       //
@@ -122,6 +154,8 @@ class MethodsClassUTls {
   // Colors
   static Color colorItemListOrder(String stateorder) {
     //
+
+    //
     switch (stateorder) {
       //
       case 'الكل':
@@ -138,8 +172,9 @@ class MethodsClassUTls {
       case "Registered and Approved":
         return AppColors.skyColor;
       //
-      // case "Registered and Approved":
-      //   return AppColors.greenColor;
+      case "Case finished and Packaged":
+        return AppColors.skyColor;
+      //
       // //
       case 'مرفوض':
         return AppColors.redCancel;
@@ -148,7 +183,7 @@ class MethodsClassUTls {
         return AppColors.yellowColor;
       //
       case "Remake Case":
-        return AppColors.yellowColor;
+        return AppColors.greenColor;
       //
       case 'الانتهاء من التسليم':
         return AppColors.greenColor;
@@ -170,35 +205,35 @@ class MethodsClassUTls {
 
       //
       case "Postponed":
-        return AppColors.redCancel;
+        return AppColors.skyColor;
 
       //
       case 'في الطريق':
         return AppColors.blueColor;
 
       //
-      case "On The Way":
-        return AppColors.blueColor;
+      // case "On The Way":
+      //   return AppColors.blueColor;
 
       //
       case 'جاهز للتغليف':
         return AppColors.greyStateColor;
       //
       case "Ready for Packaging":
-        return AppColors.greyStateColor;
+        return AppColors.skyColor;
       //
       case 'قيد الإنتاج':
         return AppColors.blueColor;
       //
       case "In Production":
-        return AppColors.blueColor;
+        return AppColors.skyColor;
       //
       case 'إعادة التأجيل':
         return AppColors.orangeColor;
 
       //
       case "Re-Postponed":
-        return AppColors.orangeColor;
+        return AppColors.skyColor;
 
       //
       case 'Finished Delivered':
@@ -233,7 +268,7 @@ class MethodsClassUTls {
       //
 
       default:
-        return AppColors.backGroundAndTextWhite;
+        return AppColors.textblackLight;
 
       // End Switch
     }

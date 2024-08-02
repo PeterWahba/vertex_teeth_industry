@@ -326,6 +326,7 @@ class CreateNewRequestController extends GetxController
   String _productTypeText = '';
   //
 
+  // ignore: unused_field
   String _selectedtypeProduct = '';
 
   //
@@ -524,12 +525,6 @@ class CreateNewRequestController extends GetxController
           functionToothimageOrColor}) {
     //
     //
-    print('\n');
-    print('\n');
-    print(
-        'The Teeth _listToothHistoryLog Length  is ${_listToothHistoryLogEntitiesControlr.length}');
-    print('\n');
-    print('\n');
 
     for (ToothHistoryLogEntities toothHistoryLogEntities
         in _listToothHistoryLogEntitiesControlr) {
@@ -537,12 +532,6 @@ class CreateNewRequestController extends GetxController
       List<String> listToothGroup =
           toothHistoryLogEntities.teethGroupNamesString.split(',');
       //
-      print('\n');
-      print('\n');
-      print(
-          'The Tooth is $numberTooth The Teeth Group Name is $listToothGroup');
-      print('\n');
-      print('\n');
       //
       //
       //
@@ -660,12 +649,20 @@ class CreateNewRequestController extends GetxController
   Future<void> searchInsideListOrderVertixOriginal(
       {required String? letterIdName, required String? stateOrder}) async {
     //
+
+    //
+
     //
     String statusOrderM = stateOrder ?? '';
     //
     if (stateOrder != null) {
       //
       _stateOrderFilter = stateOrder;
+      //
+
+      //
+
+      // end StateOrder != null
     }
     //
     if (stateOrder == null) {
@@ -717,8 +714,62 @@ class CreateNewRequestController extends GetxController
       //
       for (OrderVertixEntities orderVertixEntities
           in _listOrderVertixEntities) {
+        //  Change State of Order
+
+        String orderStateEntities = orderVertixEntities.orderState;
         //
-        if (orderVertixEntities.orderState == statusOrderM) {
+        /*
+    Registered and Approved
+
+In Production
+
+Ready for Packaging
+
+Case finished and Packagedt
+
+Postponed
+
+Re-Postponed
+    */
+
+        /*
+    Delivered and Finished
+
+Remake Case
+    */
+
+        /*
+    
+    Case Recjeted
+
+Cancelled
+    */
+
+        if (orderStateEntities == 'In Production') {
+          // 'Registered and Approved'
+          orderStateEntities = 'Registered and Approved';
+        } else if (orderStateEntities == 'Ready for Packaging') {
+          // 'Registered and Approved'
+          orderStateEntities = 'Registered and Approved';
+        } else if (orderStateEntities == 'Case finished and Packaged') {
+          // 'Registered and Approved'
+          orderStateEntities = 'Registered and Approved';
+        } else if (orderStateEntities == 'Postponed') {
+          // 'Registered and Approved'
+          orderStateEntities = 'Registered and Approved';
+        } else if (orderStateEntities == 'Re-Postponed') {
+          // 'Registered and Approved'
+          orderStateEntities = 'Registered and Approved';
+        } else if (orderStateEntities == 'Remake Case') {
+          //
+          orderStateEntities = "Finished Delivered";
+        } else if (orderStateEntities == 'Cancelled') {
+          //
+          orderStateEntities = "Case Rejected";
+        }
+
+        //
+        if (orderStateEntities == statusOrderM) {
           //
           //
           //
@@ -851,7 +902,59 @@ class CreateNewRequestController extends GetxController
       for (OrderVertixEntities orderVertixEntitiesHomePage
           in _listOrderVertixEntitiesHomePage) {
         //
-        if (orderVertixEntitiesHomePage.orderState == statusOrderHomePageM) {
+        String orderStateEntities = orderVertixEntitiesHomePage.orderState;
+        //
+        /*
+    Registered and Approved
+
+In Production
+
+Ready for Packaging
+
+Case finished and Packagedt
+
+Postponed
+
+Re-Postponed
+    */
+
+        /*
+    Delivered and Finished
+
+Remake Case
+    */
+
+        /*
+    
+    Case Recjeted
+
+Cancelled
+    */
+
+        if (orderStateEntities == 'In Production') {
+          // 'Registered and Approved'
+          orderStateEntities = 'Registered and Approved';
+        } else if (orderStateEntities == 'Ready for Packaging') {
+          // 'Registered and Approved'
+          orderStateEntities = 'Registered and Approved';
+        } else if (orderStateEntities == 'Case finished and Packaged') {
+          // 'Registered and Approved'
+          orderStateEntities = 'Registered and Approved';
+        } else if (orderStateEntities == 'Postponed') {
+          // 'Registered and Approved'
+          orderStateEntities = 'Registered and Approved';
+        } else if (orderStateEntities == 'Re-Postponed') {
+          // 'Registered and Approved'
+          orderStateEntities = 'Registered and Approved';
+        } else if (orderStateEntities == 'Remake Case') {
+          //
+          orderStateEntities = "Finished Delivered";
+        } else if (orderStateEntities == 'Cancelled') {
+          //
+          orderStateEntities = "Case Rejected";
+        }
+        //
+        if (orderStateEntities == statusOrderHomePageM) {
           //
           //
           //
@@ -1388,11 +1491,6 @@ class CreateNewRequestController extends GetxController
   changeValuesDivsionTeeth(String division) {
     //
     //
-    print('\n');
-    print('\n');
-    print('The Value of Division is $division');
-    print('\n');
-    print('\n');
 
     if (division == 'PFM laser') {
       //
@@ -1707,13 +1805,6 @@ class CreateNewRequestController extends GetxController
 
     if (sidTokenShared == null || dentistNameShared == null) {
       //
-      print('\n');
-      print('\n');
-      // GetUtils.isUsername('d');
-      print(
-          'Add Order  Controller sidTokenShared == null = $sidTokenShared || dentistNameShared == null  == $dentistNameShared');
-      print('\n');
-      print('\n');
       //  Change State to Error And show there is error with expire of Register
       //
       //
@@ -1759,11 +1850,6 @@ class CreateNewRequestController extends GetxController
 
     //
     //
-    print('\n');
-    print('\n');
-    print('Add Order Controller Method');
-    print('\n');
-    print('\n');
 
     //
 
@@ -1783,11 +1869,6 @@ class CreateNewRequestController extends GetxController
 
         //
         //
-        print('\n');
-        print('\n');
-        print('Add Order Failure is $message');
-        print('\n');
-        print('\n');
 
         //
         _errorMessageAddOrder = message;
@@ -1798,11 +1879,6 @@ class CreateNewRequestController extends GetxController
       (success) {
         //
         //
-        print('\n');
-        print('\n');
-        print('Add Order Success');
-        print('\n');
-        print('\n');
         //
         //  handle Success
 

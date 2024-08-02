@@ -146,6 +146,10 @@ class AppStringtext {
   static const rejectReasonDetailsOrderVertexScrn = 'سبب الرفض';
   //
 
+  static const rejectReasonTitleDetailsOrderVertexScrn =
+      'يرجى كتابة سبب رفض الطلب في \n الحقل ادناه';
+  //
+
   static const hintTextRejectReasonDetailsOrderVertexScrn =
       'يرجى كتابة سبب الرفض';
   //

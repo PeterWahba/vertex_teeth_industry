@@ -3,10 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:vertex_teeth_industry/core/functions/methods_utls.dart';
-import 'package:vertex_teeth_industry/core/theme/colors_app.dart';
 import 'package:vertex_teeth_industry/vertix/presentation/controller/list_order_controller/details_order_vertex_controlr.dart';
-
-import '../../../core/utils/images_path_class.dart';
 
 class CustomDetailsOrderVertexTeethSelectedOrder extends StatelessWidget {
   CustomDetailsOrderVertexTeethSelectedOrder({super.key});

@@ -11,7 +11,6 @@ import '../../../../../core/utils/fonts_path_class.dart';
 import '../../../../../core/utils/images_path_class.dart';
 import '../../../../../core/functions/methods_utls.dart';
 import '../../../../../core/utils/text_string_app.dart';
-import '../../../../../core/functions/methods_widgets.dart';
 import '../../../controller/nav_botom_controlr/nav_botom_controlr.dart';
 import '../../../widgets/custom_textfield_outline.dart';
 import '../../../widgets/error_state.dart';

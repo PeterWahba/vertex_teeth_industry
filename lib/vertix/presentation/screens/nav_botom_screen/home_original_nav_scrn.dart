@@ -4,6 +4,7 @@ import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_c
 
 import 'home_nav_scrns/home_screen.dart';
 import 'list_order_page_view_screens/details_order_vertex_scrn.dart';
+import 'list_order_page_view_screens/reject_order_msg_scrn.dart';
 
 class HomeOriginNavBotomScreen extends StatelessWidget {
   HomeOriginNavBotomScreen({super.key});
@@ -57,6 +58,9 @@ class HomeOriginNavBotomScreen extends StatelessWidget {
       //
       case 1:
         return DetailsOrderVertexScreen();
+      //
+      case 2:
+        return RejectOrderMessageScreen();
       //
 
       default:

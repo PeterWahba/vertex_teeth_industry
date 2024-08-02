@@ -14,6 +14,7 @@ import '../../../../../core/utils/images_path_class.dart';
 import '../../../../../core/utils/text_string_app.dart';
 import '../../../widgets/custom_details_order_vertex_teeth_selected_order.dart';
 import '../../../widgets/custom_textfield_outline.dart';
+import '../../../widgets/lit_order_and_add_teeth/custom_division_add_details_order.dart';
 import '../../../widgets/shimmer/loading_details_order_vertex.dart';
 
 class DetailsOrderVertexScreen extends StatelessWidget {
@@ -68,11 +69,26 @@ class DetailsOrderVertexScreen extends StatelessWidget {
                         //
                         onTap: () {
                           //
-                          if (_navBottomController.isHomeScrn) {
+                          print('\n');
+                          print('Come Back  Btn of Details Order');
+                          print('\n');
+                          //
+                          if (_navBottomController.isHomeScrn == 1) {
+                            //
+                            print('\n');
+                            print(
+                                'Come Back  Btn of Details Order To Home Screen');
+                            print('\n');
                             //
                             _navBottomController
                                 .changeCurrnentIndexHomeScreen(0);
                           } else {
+                            //
+                            print('\n');
+                            print(
+                                'Come Back  Btn of Details Order To List Order Screen');
+                            print('\n');
+                            //
                             _navBottomController
                                 .changeCurrnentIndexListOrderScreen(0);
                           }
@@ -126,10 +142,12 @@ class DetailsOrderVertexScreen extends StatelessWidget {
     double botomPading = 15,
     double rightPading = 41,
     double leftPading = 41,
+    double? widthTitle,
     double widthFieldWithInitValue = double.infinity,
     double heightFieldWithInitValue = 48,
     String? isReadOnly,
     String? initText,
+    AlignmentGeometry alignmentTitle = Alignment.centerRight,
     List<TextInputFormatter>? inputFormattersCustomMethod,
     TextEditingController? controllerTextField,
     TextInputType? keyboardType,
@@ -143,14 +161,21 @@ class DetailsOrderVertexScreen extends StatelessWidget {
         children: [
           //
           //
-          SizedBox(
-            height: 20.h,
-            child: Text(
-              titleField,
-              style: TextStyle(
-                  fontSize: 16.sp,
-                  fontFamily: AppFonts.almaraiRegular,
-                  color: Colors.black),
+          Container(
+            alignment: alignmentTitle,
+            // color: Colors.amber,
+            width: widthTitle,
+            // width: double.infinity,
+            child: SizedBox(
+              height: 20.h,
+              // width: 70.w,
+              child: Text(
+                titleField,
+                style: TextStyle(
+                    fontSize: 16.sp,
+                    fontFamily: AppFonts.almaraiRegular,
+                    color: Colors.black),
+              ),
             ),
           ),
 
@@ -171,8 +196,8 @@ class DetailsOrderVertexScreen extends StatelessWidget {
               child: isReadOnly != null
                   ? Container(
                       height: heightFieldWithInitValue.h,
-                      padding:
-                          EdgeInsets.only(right: 10.w, left: 10.w, top: 10.h),
+                      padding: EdgeInsets.only(
+                          right: 10.w, left: 10.w, top: 10.h, bottom: 5.h),
                       width: widthFieldWithInitValue.w,
                       alignment: Alignment.topRight,
                       decoration: BoxDecoration(
@@ -353,7 +378,7 @@ class DetailsOrderVertexScreen extends StatelessWidget {
               // SizedBox(
               //   width: 10.w,
               // ),
-              Spacer(),
+              const Spacer(),
 
               //
 
@@ -416,8 +441,6 @@ class DetailsOrderVertexScreen extends StatelessWidget {
         ),
 
         // //
-        // buildTextAndFieldTextFormField(
-        //     titleField: AppStringtext.dateAddOrderPahseOneScrn),
 
         //
 
@@ -505,7 +528,7 @@ class DetailsOrderVertexScreen extends StatelessWidget {
                   'None',
               onTapInkWell: () {
                 //
-                FocusScope.of(context).unfocus();
+                // FocusScope.of(context).unfocus();
                 //
                 //
                 // Show Dialog to chose gender
@@ -521,15 +544,12 @@ class DetailsOrderVertexScreen extends StatelessWidget {
             ),
             //
             //
-            Container(
-              // margin: EdgeInsets.only(right: 41.w),
-              child: Text(
-                AppStringtext.isFileDigitalAddOrderPahseOneScrn,
-                style: TextStyle(
-                  color: AppColors.textblackLight,
-                  fontSize: 16.sp,
-                  fontFamily: AppFonts.almaraiRegular,
-                ),
+            Text(
+              AppStringtext.isFileDigitalAddOrderPahseOneScrn,
+              style: TextStyle(
+                color: AppColors.textblackLight,
+                fontSize: 16.sp,
+                fontFamily: AppFonts.almaraiRegular,
               ),
             ),
 
@@ -565,12 +585,110 @@ class DetailsOrderVertexScreen extends StatelessWidget {
         buildTextAndFieldTextFormField(
           titleField: AppStringtext.noteAddOrderPahseOneScrn,
           isReadOnly: '',
-          heightFieldWithInitValue: 150,
+          heightFieldWithInitValue:
+              _detailsOrderVertexController.detailsOrderVertexEntities?.notes ==
+                      null
+                  ? 60
+                  : _detailsOrderVertexController
+                                  .detailsOrderVertexEntities?.notes !=
+                              null &&
+                          _detailsOrderVertexController
+                                  .detailsOrderVertexEntities!.notes!.length <
+                              100
+                      ? 100
+                      : 150,
+          // heightFieldWithInitValue:
+          //     'dlskljksnls.fjnklbds,.sjbh.vd,,.vb,.jhbv.djd.hjbdhj.dbv,bdhmns.djhvb.vbjhsjknsdjkbv,jhsbdhj'
+          //                     .length *
+          //                 1 <
+          //             100
+          //         ? 100
+          //         : 150,
           initText:
+              // 'dlskljksnls.fjnklbds,.sjbh.vd,jvhdbvdbv,.vb,.jhbv.djd.hjbdhj.dbv,bdhmns.djhvb.vbjhsjknsdjkbv,jhsbdhj',
               _detailsOrderVertexController.detailsOrderVertexEntities?.notes ??
                   'لا يوجد ملاحظات',
           botomPading: 0,
+          leftPading: 22,
         ),
+
+        //
+        SizedBox(
+          height: 19.h,
+        ),
+        //
+        //
+
+        Row(
+          children: [
+            //
+            buildTextAndFieldTextFormField(
+              titleField: AppStringtext.vitaClassicalOrderPahseOneScrn,
+              alignmentTitle: Alignment.centerLeft,
+              keyboardType: TextInputType.text,
+              widthFieldWithInitValue: 173.w,
+              widthTitle: 173.w,
+              leftPading: 0,
+              isReadOnly: '',
+              initText: _detailsOrderVertexController
+                      .detailsOrderVertexEntities?.vitaClassical ??
+                  'لا يوجد',
+              onTapInkWell: () {
+                //
+                // FocusScope.of(context).unfocus();
+                //
+                //
+                // Show Dialog to chose gender
+                //
+                // buildDialogChoseMaleFemale();
+                //
+              },
+            ),
+
+            //
+            SizedBox(
+              width: 19.w,
+            ),
+            //
+            buildTextAndFieldTextFormField(
+              titleField: AppStringtext.vita3DMasterOrderPahseOneScrn,
+              alignmentTitle: Alignment.centerLeft,
+              keyboardType: TextInputType.text,
+              widthTitle: 173.w,
+              widthFieldWithInitValue: 173.w,
+              leftPading: 0,
+              rightPading: 0,
+              isReadOnly: '',
+              initText: _detailsOrderVertexController
+                      .detailsOrderVertexEntities?.vita3DMaster ??
+                  'لا يوجد',
+              onTapInkWell: () {
+                //
+                // FocusScope.of(context).unfocus();
+                //
+                //
+                // Show Dialog to chose gender
+                //
+                // buildDialogChoseMaleFemale();
+                //
+              },
+            ),
+
+            //
+          ], //end Row children
+        ),
+
+        //
+        //
+        // buildTextAndFieldTextFormField(
+        //     titleField: AppStringtext.nDShadeGuideFieldAddTeethScrn,
+        //     alignmentTitle: Alignment.centerLeft,
+        //     // keyboardType: TextInputType.text,
+        //     leftPading: 22,
+        //     isReadOnly: '',
+        //     initText: _detailsOrderVertexController
+        //             .detailsOrderVertexEntities?.ndShadeGuide ??
+        //         'لا يوجد'),
         //
         SizedBox(
           height: 30.h,
@@ -589,7 +707,7 @@ class DetailsOrderVertexScreen extends StatelessWidget {
                   fontFamily: AppFonts.almaraiBold,
                   color: AppColors.textblackLight,
                 ),
-                children: [
+                children: const [
                   //
                   TextSpan(
                       text: AppStringtext.detailsTextDetailsOrderVertexScrn),
@@ -601,6 +719,62 @@ class DetailsOrderVertexScreen extends StatelessWidget {
               ),
             ),
           ),
+        ),
+
+        //
+        SizedBox(
+          height: 20.h,
+        ),
+        //
+        Divider(
+          color: Colors.black,
+          height: 2.h,
+        ),
+        //
+        // Here write The division
+        Directionality(
+          textDirection: TextDirection.ltr,
+          child: CustomDivisionAddDetailsOrder(
+            isSelectedPFMLaser: 1,
+            isSelectedEMaxPress: 1,
+            isSelectedEMaxSuprem: 1,
+            isSelectedInlayAndOnlay: 1,
+            isSelectedTempoary: 1,
+            isSelectedZicronFacingEMax: 1,
+            isSelectedZicronFullAnatomy: 1,
+            isSelectedZicronLayered: 1,
+            isSelectedZicronPrettauAnterior: 1,
+            changingMethodEMaxPress: () {},
+            changingMethodEMaxSuprem: () {},
+            changingMethodInlayAndOnlay: () {},
+            changingMethodPFMLaser: () {},
+            changingMethodTempoary: () {},
+            changingMethodZicronFacingEMax: () {},
+            changingMethodZicronFullAnatomy: () {},
+            changingMethodZicronLayered: () {},
+            changingMethodZicronPrettauAnterior: () {},
+            //
+            //
+            activeColorEMaxPress: AppColors.eMaxPress,
+            activeColorEMaxSuprem: AppColors.eMaxSuprem,
+            activeColorInlayAndOnlay: AppColors.inlayAndonlay,
+            activeColorPFMLaser: AppColors.pfmLaser,
+            activeColorTempoary: AppColors.temporary,
+            activeColorZicronFacingEMax: AppColors.zirconfacingEmax,
+            activeColorZicronLayered: AppColors.zirconLayered,
+            activeColorZicronPrettauAnterior: AppColors.zirconPrettauAnterior,
+            activeColorisSelectedZicronFullAnatomy: AppColors.zirconFullAnatomy,
+          ),
+        ),
+        //
+        SizedBox(
+          height: 13.h,
+        ),
+        //
+        //
+        Divider(
+          color: Colors.black,
+          height: 2.h,
         ),
         //
         SizedBox(
@@ -632,19 +806,29 @@ class DetailsOrderVertexScreen extends StatelessWidget {
                     onTap: () {
                       //
                       //
-                      Get.defaultDialog(
-                          title:
-                              AppStringtext.rejectReasonDetailsOrderVertexScrn,
-                          titleStyle: TextStyle(
-                              fontSize: 18.sp,
-                              fontFamily: AppFonts.almaraiBold),
-                          content: CustomTextfieldOutLineProduct(
-                              showSuffix: false,
-                              showPrefix: false,
-                              hintText: AppStringtext
-                                  .hintTextRejectReasonDetailsOrderVertexScrn)
-                          //
-                          );
+                      // _navBottomController
+                      //     .changeCurrnentIndexListOrderScreen(4);
+                      if (_navBottomController.isHomeScrn == 1) {
+                        //
+                        _navBottomController.changeCurrnentIndexHomeScreen(2);
+                      } else {
+                        _navBottomController
+                            .changeCurrnentIndexListOrderScreen(4);
+                      }
+                      //
+                      // Get.defaultDialog(
+                      //     title:
+                      //         AppStringtext.rejectReasonDetailsOrderVertexScrn,
+                      //     titleStyle: TextStyle(
+                      //         fontSize: 18.sp,
+                      //         fontFamily: AppFonts.almaraiBold),
+                      //     content: const CustomTextfieldOutLineProduct(
+                      //         showSuffix: false,
+                      //         showPrefix: false,
+                      //         hintText: AppStringtext
+                      //             .hintTextRejectReasonDetailsOrderVertexScrn)
+                      //     //
+                      //     );
                     },
                     //
                     splashColor: Colors.transparent,

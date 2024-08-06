@@ -1,18 +1,18 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
-import 'package:vertex_teeth_industry/vertix/data/model/add_order_vertix_model.dart';
-import 'package:vertex_teeth_industry/vertix/data/model/details_order_vertex/details_order_vertex_model.dart';
-import 'package:vertex_teeth_industry/vertix/data/model/details_payment_entry_model.dart';
-import 'package:vertex_teeth_industry/vertix/data/model/faq_question_model.dart';
-import 'package:vertex_teeth_industry/vertix/data/model/order_vertix_model.dart';
-import 'package:vertex_teeth_industry/vertix/data/model/payment_entry_user_model.dart';
-import 'package:vertex_teeth_industry/vertix/data/model/tooth_history_log_model.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/details_order_vertex_entities.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/details_payment_entry_entities.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/faq_question_entities.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/order_vertix_entities.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/payment_entry_user_entities.dart';
+import 'package:vertix/vertix/data/model/add_order_vertix_model.dart';
+import 'package:vertix/vertix/data/model/details_order_vertex/details_order_vertex_model.dart';
+import 'package:vertix/vertix/data/model/details_payment_entry_model.dart';
+import 'package:vertix/vertix/data/model/faq_question_model.dart';
+import 'package:vertix/vertix/data/model/order_vertix_model.dart';
+import 'package:vertix/vertix/data/model/payment_entry_user_model.dart';
+import 'package:vertix/vertix/data/model/tooth_history_log_model.dart';
+import 'package:vertix/vertix/domain/entities/details_order_vertex_entities.dart';
+import 'package:vertix/vertix/domain/entities/details_payment_entry_entities.dart';
+import 'package:vertix/vertix/domain/entities/faq_question_entities.dart';
+import 'package:vertix/vertix/domain/entities/order_vertix_entities.dart';
+import 'package:vertix/vertix/domain/entities/payment_entry_user_entities.dart';
 
 import '../../../core/error/exceptions.dart';
 import '../../domain/entities/user_register_entites.dart';

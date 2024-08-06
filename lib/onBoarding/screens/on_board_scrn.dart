@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:vertex_teeth_industry/core/pages/pages_name.dart';
-import 'package:vertex_teeth_industry/core/theme/colors_app.dart';
-import 'package:vertex_teeth_industry/core/utils/fonts_path_class.dart';
-import 'package:vertex_teeth_industry/core/utils/images_path_class.dart';
-import 'package:vertex_teeth_industry/core/utils/text_string_app.dart';
-import 'package:vertex_teeth_industry/onBoarding/controller/on_board_controllr.dart';
+import 'package:vertix/core/pages/pages_name.dart';
+import 'package:vertix/core/theme/colors_app.dart';
+import 'package:vertix/core/utils/fonts_path_class.dart';
+import 'package:vertix/core/utils/images_path_class.dart';
+import 'package:vertix/core/utils/text_string_app.dart';
+import 'package:vertix/onBoarding/controller/on_board_controllr.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../../core/functions/material_btn_class.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
+import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
 
 import 'paymentEntry/details_payment_entry_scrn.dart';
 import 'paymentEntry/walet_payment_nav_botom_scrn.dart';

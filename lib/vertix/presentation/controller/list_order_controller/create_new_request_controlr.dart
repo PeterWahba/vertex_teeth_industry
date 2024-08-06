@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vertex_teeth_industry/core/error/methods.dart';
-import 'package:vertex_teeth_industry/core/utils/string_shared_prefs.dart';
-import 'package:vertex_teeth_industry/vertix/domain/usecase/add_order_vertix_case.dart';
-import 'package:vertex_teeth_industry/vertix/domain/usecase/get_oder_vertix_case.dart';
+import 'package:vertix/core/error/methods.dart';
+import 'package:vertix/core/utils/string_shared_prefs.dart';
+import 'package:vertix/vertix/domain/usecase/add_order_vertix_case.dart';
+import 'package:vertix/vertix/domain/usecase/get_oder_vertix_case.dart';
 
 import '../../../../core/utils/setting_sevices.dart';
 import '../../../domain/entities/add_order_vertix_entities.dart';

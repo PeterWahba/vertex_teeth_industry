@@ -1,4 +1,4 @@
-import 'package:vertex_teeth_industry/vertix/domain/entities/details_payment_entry_entities.dart';
+import 'package:vertix/vertix/domain/entities/details_payment_entry_entities.dart';
 
 class DetailsPaymentEntryModel extends DetailesPaymentEntryEntities {
   //

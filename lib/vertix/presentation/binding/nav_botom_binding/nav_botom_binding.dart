@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:vertex_teeth_industry/vertix/domain/usecase/get_oder_vertix_case.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/controller/list_order_controller/create_new_request_controlr.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/controller/list_order_controller/details_order_vertex_controlr.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/profile_usr_controlr.dart';
+import 'package:vertix/vertix/domain/usecase/get_oder_vertix_case.dart';
+import 'package:vertix/vertix/presentation/controller/list_order_controller/create_new_request_controlr.dart';
+import 'package:vertix/vertix/presentation/controller/list_order_controller/details_order_vertex_controlr.dart';
+import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
+import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/profile_usr_controlr.dart';
 
 import '../../../../core/network/network_info.dart';
 import '../../../data/datasource/erps_next_data_source.dart';

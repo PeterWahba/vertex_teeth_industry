@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/add_order_vertix_entities.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/details_order_vertex_entities.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/details_payment_entry_entities.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/faq_question_entities.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/payment_entry_user_entities.dart';
+import 'package:vertix/vertix/domain/entities/add_order_vertix_entities.dart';
+import 'package:vertix/vertix/domain/entities/details_order_vertex_entities.dart';
+import 'package:vertix/vertix/domain/entities/details_payment_entry_entities.dart';
+import 'package:vertix/vertix/domain/entities/faq_question_entities.dart';
+import 'package:vertix/vertix/domain/entities/payment_entry_user_entities.dart';
 //
 import '../../../core/error/failures.dart';
 import '../entities/order_vertix_entities.dart';

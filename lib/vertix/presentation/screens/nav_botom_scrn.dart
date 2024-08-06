@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:vertex_teeth_industry/core/theme/colors_app.dart';
-import 'package:vertex_teeth_industry/core/utils/fonts_path_class.dart';
-import 'package:vertex_teeth_industry/core/utils/images_path_class.dart';
-import 'package:vertex_teeth_industry/core/utils/text_string_app.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/home_nav_scrns/home_screen.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/home_original_nav_scrn.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/list_order_nav_botom_screen.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/payment_entry_nav_botom.dart';
+import 'package:vertix/core/theme/colors_app.dart';
+import 'package:vertix/core/utils/fonts_path_class.dart';
+import 'package:vertix/core/utils/images_path_class.dart';
+import 'package:vertix/core/utils/text_string_app.dart';
+import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
+import 'package:vertix/vertix/presentation/screens/nav_botom_screen/home_nav_scrns/home_screen.dart';
+import 'package:vertix/vertix/presentation/screens/nav_botom_screen/home_original_nav_scrn.dart';
+import 'package:vertix/vertix/presentation/screens/nav_botom_screen/list_order_nav_botom_screen.dart';
+import 'package:vertix/vertix/presentation/screens/nav_botom_screen/payment_entry_nav_botom.dart';
 
 import 'nav_botom_screen/profiles_nav_botom_scren.dart';
 

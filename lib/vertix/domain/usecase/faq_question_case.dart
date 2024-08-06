@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/faq_question_entities.dart';
+import 'package:vertix/vertix/domain/entities/faq_question_entities.dart';
 
 import '../../../core/error/failures.dart';
 import '../repositories/repositories_domain.dart';

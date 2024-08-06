@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:vertex_teeth_industry/core/utils/fonts_path_class.dart';
-import 'package:vertex_teeth_industry/core/utils/text_string_app.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/profile_usr_controlr.dart';
+import 'package:vertix/core/utils/fonts_path_class.dart';
+import 'package:vertix/core/utils/text_string_app.dart';
+import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
+import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/profile_usr_controlr.dart';
 
 import '../../../../../core/theme/colors_app.dart';
 import '../../../../../core/utils/images_path_class.dart';

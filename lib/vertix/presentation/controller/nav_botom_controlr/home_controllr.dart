@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:vertex_teeth_industry/core/error/failure_text.dart';
-import 'package:vertex_teeth_industry/core/error/methods.dart';
-import 'package:vertex_teeth_industry/core/utils/string_shared_prefs.dart';
-import 'package:vertex_teeth_industry/vertix/domain/usecase/get_images_baner_ads_case.dart';
-import 'package:vertex_teeth_industry/vertix/domain/usecase/get_session_user_case.dart';
+import 'package:vertix/core/error/failure_text.dart';
+import 'package:vertix/core/error/methods.dart';
+import 'package:vertix/core/utils/string_shared_prefs.dart';
+import 'package:vertix/vertix/domain/usecase/get_images_baner_ads_case.dart';
+import 'package:vertix/vertix/domain/usecase/get_session_user_case.dart';
 
 import '../../../../core/utils/setting_sevices.dart';
 

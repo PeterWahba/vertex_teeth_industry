@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vertex_teeth_industry/core/error/methods.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/details_order_vertex_entities.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/tooth_history_log_entities.dart';
-import 'package:vertex_teeth_industry/vertix/domain/usecase/details_order_vertex_case.dart';
-import 'package:vertex_teeth_industry/vertix/domain/usecase/reject_order_with_mesg_case.dart';
+import 'package:vertix/core/error/methods.dart';
+import 'package:vertix/vertix/domain/entities/details_order_vertex_entities.dart';
+import 'package:vertix/vertix/domain/entities/tooth_history_log_entities.dart';
+import 'package:vertix/vertix/domain/usecase/details_order_vertex_case.dart';
+import 'package:vertix/vertix/domain/usecase/reject_order_with_mesg_case.dart';
 
 import '../../../../core/utils/setting_sevices.dart';
 import '../../../../core/utils/string_shared_prefs.dart';

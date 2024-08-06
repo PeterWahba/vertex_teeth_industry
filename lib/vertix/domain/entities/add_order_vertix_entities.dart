@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:vertex_teeth_industry/vertix/domain/entities/tooth_history_log_entities.dart';
+import 'package:vertix/vertix/domain/entities/tooth_history_log_entities.dart';
 
 class AddOrderVertixEntities extends Equatable {
   //

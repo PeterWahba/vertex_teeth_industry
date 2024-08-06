@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:vertex_teeth_industry/core/utils/images_path_class.dart';
+import 'package:vertix/core/utils/images_path_class.dart';
 
 import '../theme/colors_app.dart';
 

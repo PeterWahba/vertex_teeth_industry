@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:vertex_teeth_industry/core/error/methods.dart';
-import 'package:vertex_teeth_industry/vertix/domain/usecase/faq_question_case.dart';
-import 'package:vertex_teeth_industry/vertix/domain/usecase/get_total_money_unpaidd_user.dart';
+import 'package:vertix/core/error/methods.dart';
+import 'package:vertix/vertix/domain/usecase/faq_question_case.dart';
+import 'package:vertix/vertix/domain/usecase/get_total_money_unpaidd_user.dart';
 
 import '../../../../core/utils/setting_sevices.dart';
 import '../../../../core/utils/string_shared_prefs.dart';

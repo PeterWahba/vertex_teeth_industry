@@ -1,4 +1,4 @@
-import 'package:vertex_teeth_industry/core/error/failure_text.dart';
+import 'package:vertix/core/error/failure_text.dart';
 
 import 'failures.dart';
 

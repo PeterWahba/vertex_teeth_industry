@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:vertex_teeth_industry/core/animation/dots_loading.dart';
-import 'package:vertex_teeth_industry/core/utils/text_string_app.dart';
-import 'package:vertex_teeth_industry/vertix/presentation/widgets/custom_textfield_outline.dart';
+import 'package:vertix/core/animation/dots_loading.dart';
+import 'package:vertix/core/utils/text_string_app.dart';
+import 'package:vertix/vertix/presentation/widgets/custom_textfield_outline.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../../../../../core/functions/methods_widgets.dart';

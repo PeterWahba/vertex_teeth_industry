@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:vertix/core/error/methods.dart';
-import 'package:vertix/core/utils/string_shared_prefs.dart';
-import 'package:vertix/vertix/domain/entities/details_payment_entry_entities.dart';
-import 'package:vertix/vertix/domain/usecase/get_details_payment_entry.dart';
+import 'package:vertex_teeth_industry/core/error/methods.dart';
+import 'package:vertex_teeth_industry/core/utils/string_shared_prefs.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/details_payment_entry_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/usecase/get_details_payment_entry.dart';
 
 import '../../../../core/utils/setting_sevices.dart';
 

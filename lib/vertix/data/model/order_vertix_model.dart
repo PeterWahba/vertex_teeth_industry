@@ -1,4 +1,4 @@
-import 'package:vertix/vertix/domain/entities/order_vertix_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/order_vertix_entities.dart';
 
 class OrderVertixModel extends OrderVertixEntities {
   //

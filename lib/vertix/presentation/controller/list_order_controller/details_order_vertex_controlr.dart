@@ -1,13 +1,18 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vertix/core/error/methods.dart';
-import 'package:vertix/vertix/domain/entities/details_order_vertex_entities.dart';
-import 'package:vertix/vertix/domain/entities/tooth_history_log_entities.dart';
-import 'package:vertix/vertix/domain/usecase/details_order_vertex_case.dart';
-import 'package:vertix/vertix/domain/usecase/reject_order_with_mesg_case.dart';
+import 'package:vertex_teeth_industry/core/error/methods.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/comment_entites.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/details_order_vertex_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/tooth_history_log_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/usecase/details_order_vertex_case.dart';
+import 'package:vertex_teeth_industry/vertix/domain/usecase/comments/get_comment_on_ordr_case.dart';
+import 'package:vertex_teeth_industry/vertix/domain/usecase/reject_order_with_mesg_case.dart';
 
 import '../../../../core/utils/setting_sevices.dart';
 import '../../../../core/utils/string_shared_prefs.dart';
+import '../../../domain/usecase/comments/add_comment_order_case.dart';
 
 class DetailsOrderVertexController extends GetxController
     with StateMixin<DetailsOrderVertexController> {
@@ -15,22 +20,41 @@ class DetailsOrderVertexController extends GetxController
   final GetDetailsOrderVertexUseCase getDetailsOrderVertexUseCase;
   //
   final RejectOrderWithMessagUseCase rejectOrderWithMessagUseCase;
+  final GetCommentOnOrdrUseCase getCommentOnOrdrUseCase;
+  final AddCommentOrderUseCase addCommentOrderUseCase;
 
   //
   DetailsOrderVertexController({
     required this.getDetailsOrderVertexUseCase,
     required this.rejectOrderWithMessagUseCase,
+    required this.getCommentOnOrdrUseCase,
+    required this.addCommentOrderUseCase,
   });
 
   //
   @override
-  void onInit() {
+  void onInit() async {
     //
     super.onInit();
     //
     change(state, status: RxStatus.loading());
     //
+    //
+    await servicesClass.sharedPrefs.reload();
+
+    //
     messageRejectController = TextEditingController();
+    commentController = TextEditingController();
+
+    await initSherdPrefsVariable();
+
+    //
+    if (_sidTokenShared == null) {
+      //
+      change(state, status: RxStatus.error(_errorSidToken));
+      //
+      // end IF SID Token is Null
+    }
   }
 
   //
@@ -39,10 +63,12 @@ class DetailsOrderVertexController extends GetxController
     super.dispose();
     //
     messageRejectController.dispose();
+    commentController.dispose();
   }
 
   //
   late TextEditingController messageRejectController;
+  late TextEditingController commentController;
 
   //
   // Services
@@ -61,10 +87,28 @@ class DetailsOrderVertexController extends GetxController
   final String _errorSidToken =
       'يوجد خطأ في عملية تسجيل الدخول ، قم بتسجيل  من جديد';
 
+  String _errorMesgeAddComent = '';
+  String _errorMesgeGetComent = '';
+
   //
   String _idOrder = '';
 
+  String? _sidTokenShared;
+  String? _emailSesionUsrShared;
+
+  // Boolen
+  // ---------------------------------------------------------------------------
+
+  bool _loadingGetComment = false;
+  bool _loadingAddComment = false;
+
+  // Entites
+  // ---------------------------------------------------------------------------
   //
+
+  // Comments
+
+  List<CommentOnOrderEntities> _listCommentsOnOrdr = [];
 
   List<ToothHistoryLogEntities> _listToothHistoryLog = [];
 
@@ -76,17 +120,87 @@ class DetailsOrderVertexController extends GetxController
   // ===========================================================================
   // ===========================================================================
   // ===========================================================================
+
+  // Get Entites
+  // ===========================================================================
+
+  //  Details Order
   DetailsOrderVertexEntities? get detailsOrderVertexEntities =>
       _detailsOrderVertexEntities;
 
+  // Comments
+  List<CommentOnOrderEntities> get listCommentsOnOrdr => _listCommentsOnOrdr;
+
   //
   String get idOrderCont => _idOrder;
+  String get errorMesgeAddComent => _errorMesgeAddComent;
+  String get errorMesgeGetComent => _errorMesgeGetComent;
+  String? get emailSesionUsrShared => _emailSesionUsrShared;
+
+  // Get Boolen
+  // ---------------------------------------------------------------------------
+
+  bool get loadingGetComment => _loadingGetComment;
+  bool get loadingAddComment => _loadingAddComment;
 
   //
   // Methods Deals with Screen
   // ===========================================================================
   // ===========================================================================
   // ===========================================================================
+
+  Future<void> initSherdPrefsVariable() async {
+    //
+    await servicesClass.sharedPrefs.reload();
+    //
+    _sidTokenShared =
+        servicesClass.sharedPrefs.getString(NameKeySharedPreferns.userSid);
+
+    _emailSesionUsrShared =
+        servicesClass.sharedPrefs.getString(NameKeySharedPreferns.emailUser);
+    //
+  }
+
+  Future<void> getDetailsAndCommentsOrderByID(String idOrder) async {
+    //
+    _idOrder = idOrder;
+    //
+    await getDetailsOrderVertexMethod(idOrder);
+    await getCommentsOnOrdrMethod(idOrder);
+  }
+
+  //
+  Future<void> checkBeforeAddComentMethod() async {
+    //
+    if (_idOrder != '') {
+      if (checkAddCommentOrdrField()) {
+        //
+        await addCommentToOrdermehod();
+      }
+    } else {
+      _errorMesgeAddComent = 'Problem with Id Order';
+      update();
+    }
+    // end method Check and Add Comment
+  }
+
+  //
+  bool checkAddCommentOrdrField() {
+    //
+    if (commentController.text.isEmpty || commentController.text == '') {
+      //
+      _errorMesgeAddComent = 'يجب اضافة نص اولا';
+      update();
+      return false;
+    } else {
+      //
+      _errorMesgeAddComent = '';
+      update();
+
+      return true;
+    }
+  }
+
   // Change Image Color According to ProductType
   //
   changeImageToothAccordingToProductType(
@@ -231,21 +345,11 @@ class DetailsOrderVertexController extends GetxController
     //
     change(state, status: RxStatus.loading());
 
-    String? sidTokenShared =
-        servicesClass.sharedPrefs.getString(NameKeySharedPreferns.userSid);
     //
-    //
-    if (sidTokenShared == null) {
-      //
-      change(state, status: RxStatus.error(_errorSidToken));
-      //
-      return;
-      // end IF SID Token is Null
-    }
 
     //
     final reslt = await getDetailsOrderVertexUseCase.call(
-        sidToekn: sidTokenShared, idOrder: idOrder);
+        sidToekn: _sidTokenShared!, idOrder: idOrder);
 
     //
     reslt.fold(
@@ -292,19 +396,6 @@ class DetailsOrderVertexController extends GetxController
     //
     change(state, status: RxStatus.loading());
 
-    String? sidTokenShared =
-        servicesClass.sharedPrefs.getString(NameKeySharedPreferns.userSid);
-    //
-    //
-    if (sidTokenShared == null) {
-      //
-      change(state, status: RxStatus.error(_errorSidToken));
-
-      //
-      return;
-      // end IF SID Token is Null
-    }
-
     //
     if (_idOrder == '') {
       //
@@ -326,7 +417,7 @@ class DetailsOrderVertexController extends GetxController
     }
 
     final relst = await rejectOrderWithMessagUseCase.call(
-        sidToekn: sidTokenShared,
+        sidToekn: _sidTokenShared!,
         idOrder: _idOrder,
         messageReject: messageRejectController.text);
 
@@ -347,9 +438,7 @@ class DetailsOrderVertexController extends GetxController
         messageRejectController.text = '';
 
         //
-        print('\n');
-        print('Success add rejected message');
-        print('\n');
+   
         //
         change(state, status: RxStatus.success());
 
@@ -358,5 +447,106 @@ class DetailsOrderVertexController extends GetxController
     );
   }
 
+  Future<void> getCommentsOnOrdrMethod(String idOrder) async {
+    //
+    // change(state, status: RxStatus.loading());
+    _loadingGetComment = true;
+    update();
+    //
+
+    //
+    final reslt = await getCommentOnOrdrUseCase.call(
+        sidToekn: _sidTokenShared!, idOrder: idOrder);
+
+    //
+    reslt.fold(
+      (failure) {
+        //
+        String message = mapFailureToMessage(failure);
+    
+
+        _errorMesgeGetComent = message;
+
+        //
+        // change(state, status: RxStatus.error(message));
+        //
+      }, //end Failure
+      (success) {
+        //
+        _listCommentsOnOrdr = success;
+        _errorMesgeGetComent = '';
+
+      
+
+        //
+        //
+        // change(state, status: RxStatus.success());
+        //
+      }, //end Succcess
+    );
+
+    _loadingGetComment = false;
+    update();
+
+    // end Method get Details Order Vertex
+  }
+  //  Add Comment To Order
+
+  Future<void> addCommentToOrdermehod() async {
+    //
+    //
+    //
+    _loadingAddComment = true;
+    _errorMesgeAddComent = '';
+    update();
+
+    //
+
+    //
+ 
+    final relst = await addCommentOrderUseCase.call(
+      sidToekn: _sidTokenShared!,
+      idOrdr: _idOrder,
+      commentText: commentController.text,
+    );
+
+    //
+    relst.fold(
+      (failure) {
+        //
+        String mesage = mapFailureToMessage(failure);
+        //
+   
+        _errorMesgeAddComent = mesage;
+        _loadingAddComment = false;
+
+        update();
+        //
+        // change(state, status: RxStatus.error(mesage));
+
+        //
+      }, //end Failure
+      (success) async {
+        //
+
+        //
+        commentController.text = '';
+        _loadingAddComment = false;
+        _errorMesgeAddComent = '';
+        update();
+
+        await getCommentsOnOrdrMethod(_idOrder);
+
+        //
+ 
+        //
+        // change(state, status: RxStatus.success());
+
+        //
+      }, // end Success
+    );
+
+    // end Method Add Comments To Order
+  }
   // end Class Controller
 }

@@ -14,6 +14,8 @@ class AppImages {
   //
   // static const testImage = 'images/proffile_image.png';
   //
+  static const whiteArrowRight = 'images/white_arrow.svg';
+  //
   static const backArrow = 'images/back_arrow.svg';
   //
   static const reloadIcon = 'images/reload_icon.svg';

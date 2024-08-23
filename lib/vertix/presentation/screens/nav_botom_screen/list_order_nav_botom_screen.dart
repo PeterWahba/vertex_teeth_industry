@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
-import 'package:vertix/vertix/presentation/screens/nav_botom_screen/list_order_page_view_screens/add_teeth_screen.dart';
-import 'package:vertix/vertix/presentation/screens/nav_botom_screen/list_order_page_view_screens/create_new_request_screen.dart';
-import 'package:vertix/vertix/presentation/screens/nav_botom_screen/list_order_page_view_screens/reject_order_msg_scrn.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/list_order_page_view_screens/add_teeth_screen.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/list_order_page_view_screens/create_new_request_screen.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/screens/nav_botom_screen/list_order_page_view_screens/reject_order_msg_scrn.dart';
 
 import 'list_order_page_view_screens/details_order_vertex_scrn.dart';
 import 'list_order_page_view_screens/list_order_page_view_screens.dart';

@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:vertix/core/theme/colors_app.dart';
+import 'package:vertex_teeth_industry/core/theme/colors_app.dart';
 
 import '../../../../core/pages/pages_name.dart';
 import '../../../../core/utils/fonts_path_class.dart';

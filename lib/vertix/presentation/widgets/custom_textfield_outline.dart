@@ -11,6 +11,7 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
   const CustomTextfieldOutLineProduct({
     super.key,
     this.onSavedFunction,
+    this.bordertextField = 8.0,
     this.initText,
     this.widgetPrefixIcon,
     this.focusNodeC,
@@ -44,6 +45,7 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
     this.hieghtTextField,
   });
   final bool showSuffix;
+  final double bordertextField;
   final bool? isEnabled;
   final bool showPrefix;
   final FocusNode? focusNodeC;
@@ -164,25 +166,26 @@ class CustomTextfieldOutLineProduct extends StatelessWidget {
           errorBorder: OutlineInputBorder(
             // gapPadding: 56,
 
-            borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
+            borderRadius: BorderRadius.all(Radius.circular(bordertextField.r)),
             borderSide: const BorderSide(color: AppColors.colorRed),
           ),
           errorStyle: const TextStyle(fontFamily: AppFonts.almaraiRegular),
           border: OutlineInputBorder(
             // gapPadding: 56,
-            borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
+            borderRadius: BorderRadius.all(Radius.circular(bordertextField.r)),
             borderSide: const BorderSide(color: AppColors.greyStrokTextField),
           ),
           disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
+            borderRadius: BorderRadius.all(Radius.circular(bordertextField.r)),
             borderSide: const BorderSide(color: AppColors.greyStrokTextField),
           ),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
+              borderRadius:
+                  BorderRadius.all(Radius.circular(bordertextField.r)),
               borderSide:
                   const BorderSide(color: AppColors.greyStrokTextField)),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
+            borderRadius: BorderRadius.all(Radius.circular(bordertextField.r)),
             borderSide: BorderSide(
                 color: isReadOnly == null
                     ? AppColors.purpleMainColor

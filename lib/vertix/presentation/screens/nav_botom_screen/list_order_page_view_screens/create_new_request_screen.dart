@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:vertix/vertix/presentation/controller/list_order_controller/create_new_request_controlr.dart';
-import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/list_order_controller/create_new_request_controlr.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../../../../../core/theme/colors_app.dart';
@@ -13,6 +13,7 @@ import '../../../../../core/utils/images_path_class.dart';
 import '../../../../../core/utils/text_string_app.dart';
 import '../../../widgets/add_order_details_patient.dart/custom_widget_dialog_list.dart';
 import '../../../widgets/custom_textfield_outline.dart';
+import '../../../widgets/error/error_check_fields.dart';
 
 class CreateNewRequestScreenOri extends StatelessWidget {
   CreateNewRequestScreenOri({super.key});
@@ -372,42 +373,8 @@ class CreateNewRequestScreenOri extends StatelessWidget {
               //
               GetBuilder<CreateNewRequestController>(
                 builder: (context) {
-                  return Container(
-                    height: 40.h,
-                    // color: Colors.amber,
-                    margin: EdgeInsets.only(
-                        bottom: _createNewRequestController.errorMessage != ''
-                            ? 25.h
-                            : 0.h,
-                        left: 20.w,
-                        right: 20.w),
-                    //
-                    alignment: Alignment.center,
-                    child:
-                        //  Center(
-
-                        //   child:
-                        AnimatedCrossFade(
-                      firstChild: Text(
-                        _createNewRequestController.errorMessage,
-                        maxLines: 10,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          height: 1.3,
-                          fontFamily: AppFonts.almaraiBold,
-                          color: AppColors.redCancel,
-                          fontSize: 16.sp,
-                        ),
-                      ),
-                      secondChild: Container(),
-                      duration: const Duration(milliseconds: 200),
-                      crossFadeState:
-                          _createNewRequestController.errorMessage != ''
-                              ? CrossFadeState.showFirst
-                              : CrossFadeState.showSecond,
-                    ),
-                    // ),
+                  return ErrorCheckFieldsWidgetCustom(
+                    errorCheckmsg: _createNewRequestController.errorMessage,
                   );
                 },
               ),

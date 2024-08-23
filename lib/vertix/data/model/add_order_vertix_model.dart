@@ -1,4 +1,4 @@
-import 'package:vertix/vertix/domain/entities/add_order_vertix_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/add_order_vertix_entities.dart';
 
 import 'tooth_history_log_model.dart';
 

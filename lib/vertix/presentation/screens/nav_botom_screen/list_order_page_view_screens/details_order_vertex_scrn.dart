@@ -3,9 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:vertix/core/functions/methods_utls.dart';
-import 'package:vertix/vertix/presentation/controller/list_order_controller/details_order_vertex_controlr.dart';
-import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
+import 'package:vertex_teeth_industry/core/animation/dots_loading.dart';
+import 'package:vertex_teeth_industry/core/functions/methods_utls.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/list_order_controller/details_order_vertex_controlr.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../../../../../core/theme/colors_app.dart';
@@ -14,7 +15,12 @@ import '../../../../../core/utils/images_path_class.dart';
 import '../../../../../core/utils/text_string_app.dart';
 import '../../../widgets/custom_details_order_vertex_teeth_selected_order.dart';
 import '../../../widgets/custom_textfield_outline.dart';
+import '../../../widgets/error/error_check_fields.dart';
+import '../../../widgets/error_state.dart';
 import '../../../widgets/lit_order_and_add_teeth/custom_division_add_details_order.dart';
+import '../../../widgets/lit_order_and_add_teeth/details_ordr/add_comment_text_field.dart';
+import '../../../widgets/lit_order_and_add_teeth/details_ordr/list_comment.dart';
+import '../../../widgets/lit_order_and_add_teeth/details_ordr/text_title_two_words.dart';
 import '../../../widgets/shimmer/loading_details_order_vertex.dart';
 
 class DetailsOrderVertexScreen extends StatelessWidget {
@@ -24,7 +30,7 @@ class DetailsOrderVertexScreen extends StatelessWidget {
   //
 
   //
-  final DetailsOrderVertexController _detailsOrderVertexController = Get.find();
+  final DetailsOrderVertexController _detlsOrdrContrlr = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -69,25 +75,17 @@ class DetailsOrderVertexScreen extends StatelessWidget {
                         //
                         onTap: () {
                           //
-                          print('\n');
-                          print('Come Back  Btn of Details Order');
-                          print('\n');
+                    
                           //
                           if (_navBottomController.isHomeScrn == 1) {
                             //
-                            print('\n');
-                            print(
-                                'Come Back  Btn of Details Order To Home Screen');
-                            print('\n');
+                    
                             //
                             _navBottomController
                                 .changeCurrnentIndexHomeScreen(0);
                           } else {
                             //
-                            print('\n');
-                            print(
-                                'Come Back  Btn of Details Order To List Order Screen');
-                            print('\n');
+                      
                             //
                             _navBottomController
                                 .changeCurrnentIndexListOrderScreen(0);
@@ -120,7 +118,7 @@ class DetailsOrderVertexScreen extends StatelessWidget {
 
               //
 
-              _detailsOrderVertexController.obx(
+              _detlsOrdrContrlr.obx(
                 (state) => buildMainWidget(context),
                 onLoading: LoadingDetailsOrderVertexItemScreen(
                   greyColorShimmer: AppColors.greyShimmer,
@@ -387,10 +385,9 @@ class DetailsOrderVertexScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 41.w, vertical: 2.h),
                 decoration: BoxDecoration(
                   // color: AppColors.purpleMainColor,
-                  color: MethodsClassUTls.colorItemListOrder(
-                      _detailsOrderVertexController
-                              .detailsOrderVertexEntities?.orderState ??
-                          'None'),
+                  color: MethodsClassUTls.colorItemListOrder(_detlsOrdrContrlr
+                          .detailsOrderVertexEntities?.orderState ??
+                      'None'),
                   borderRadius: BorderRadius.circular(8.r),
                 ),
                 child: Center(
@@ -398,7 +395,7 @@ class DetailsOrderVertexScreen extends StatelessWidget {
                     // 'Pending Approval',
 
                     MethodsClassUTls.translateStateOrderToArabic(
-                        _detailsOrderVertexController
+                        _detlsOrdrContrlr
                                 .detailsOrderVertexEntities?.orderState ??
                             'None'),
                     style: TextStyle(
@@ -434,8 +431,7 @@ class DetailsOrderVertexScreen extends StatelessWidget {
           keyboardType: TextInputType.text,
           leftPading: 22,
           isReadOnly: '',
-          initText: _detailsOrderVertexController
-                  .detailsOrderVertexEntities?.patientName ??
+          initText: _detlsOrdrContrlr.detailsOrderVertexEntities?.patientName ??
               'None',
           onTapInkWell: () {},
         ),
@@ -453,8 +449,7 @@ class DetailsOrderVertexScreen extends StatelessWidget {
               widthFieldWithInitValue: 173.w,
               leftPading: 0,
               isReadOnly: '',
-              initText: _detailsOrderVertexController
-                      .detailsOrderVertexEntities?.gender ??
+              initText: _detlsOrdrContrlr.detailsOrderVertexEntities?.gender ??
                   'None',
               onTapInkWell: () {
                 //
@@ -480,8 +475,7 @@ class DetailsOrderVertexScreen extends StatelessWidget {
               leftPading: 0,
               rightPading: 0,
               isReadOnly: '',
-              initText: _detailsOrderVertexController
-                      .detailsOrderVertexEntities?.age
+              initText: _detlsOrdrContrlr.detailsOrderVertexEntities?.age
                       .toString() ??
                   'None',
               onTapInkWell: () {
@@ -508,9 +502,9 @@ class DetailsOrderVertexScreen extends StatelessWidget {
             leftPading: 22,
             isReadOnly: '',
             initText: MethodsClassUTls.formatNumber(
-                number: _detailsOrderVertexController
-                        .detailsOrderVertexEntities?.totalAmount ??
-                    0)),
+                number:
+                    _detlsOrdrContrlr.detailsOrderVertexEntities?.totalAmount ??
+                        0)),
 
         //
         //
@@ -523,9 +517,9 @@ class DetailsOrderVertexScreen extends StatelessWidget {
               widthFieldWithInitValue: 173.w,
               leftPading: 0,
               isReadOnly: '',
-              initText: _detailsOrderVertexController
-                      .detailsOrderVertexEntities?.postingDate ??
-                  'None',
+              initText:
+                  _detlsOrdrContrlr.detailsOrderVertexEntities?.postingDate ??
+                      'None',
               onTapInkWell: () {
                 //
                 // FocusScope.of(context).unfocus();
@@ -563,14 +557,14 @@ class DetailsOrderVertexScreen extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(4.r),
                 ),
-                value: _detailsOrderVertexController
-                                .detailsOrderVertexEntities?.isDigital ==
-                            null ||
-                        _detailsOrderVertexController
-                                .detailsOrderVertexEntities!.isDigital ==
-                            0
-                    ? false
-                    : true,
+                value:
+                    _detlsOrdrContrlr.detailsOrderVertexEntities?.isDigital ==
+                                null ||
+                            _detlsOrdrContrlr
+                                    .detailsOrderVertexEntities!.isDigital ==
+                                0
+                        ? false
+                        : true,
 
                 onChanged: (val) {},
               ),
@@ -586,13 +580,11 @@ class DetailsOrderVertexScreen extends StatelessWidget {
           titleField: AppStringtext.noteAddOrderPahseOneScrn,
           isReadOnly: '',
           heightFieldWithInitValue:
-              _detailsOrderVertexController.detailsOrderVertexEntities?.notes ==
-                      null
+              _detlsOrdrContrlr.detailsOrderVertexEntities?.notes == null
                   ? 60
-                  : _detailsOrderVertexController
-                                  .detailsOrderVertexEntities?.notes !=
+                  : _detlsOrdrContrlr.detailsOrderVertexEntities?.notes !=
                               null &&
-                          _detailsOrderVertexController
+                          _detlsOrdrContrlr
                                   .detailsOrderVertexEntities!.notes!.length <
                               100
                       ? 100
@@ -606,7 +598,7 @@ class DetailsOrderVertexScreen extends StatelessWidget {
           //         : 150,
           initText:
               // 'dlskljksnls.fjnklbds,.sjbh.vd,jvhdbvdbv,.vb,.jhbv.djd.hjbdhj.dbv,bdhmns.djhvb.vbjhsjknsdjkbv,jhsbdhj',
-              _detailsOrderVertexController.detailsOrderVertexEntities?.notes ??
+              _detlsOrdrContrlr.detailsOrderVertexEntities?.notes ??
                   'لا يوجد ملاحظات',
           botomPading: 0,
           leftPading: 22,
@@ -630,9 +622,9 @@ class DetailsOrderVertexScreen extends StatelessWidget {
               widthTitle: 173.w,
               leftPading: 0,
               isReadOnly: '',
-              initText: _detailsOrderVertexController
-                      .detailsOrderVertexEntities?.vitaClassical ??
-                  'لا يوجد',
+              initText:
+                  _detlsOrdrContrlr.detailsOrderVertexEntities?.vitaClassical ??
+                      'لا يوجد',
               onTapInkWell: () {
                 //
                 // FocusScope.of(context).unfocus();
@@ -659,9 +651,9 @@ class DetailsOrderVertexScreen extends StatelessWidget {
               leftPading: 0,
               rightPading: 0,
               isReadOnly: '',
-              initText: _detailsOrderVertexController
-                      .detailsOrderVertexEntities?.vita3DMaster ??
-                  'لا يوجد',
+              initText:
+                  _detlsOrdrContrlr.detailsOrderVertexEntities?.vita3DMaster ??
+                      'لا يوجد',
               onTapInkWell: () {
                 //
                 // FocusScope.of(context).unfocus();
@@ -686,7 +678,7 @@ class DetailsOrderVertexScreen extends StatelessWidget {
         //     // keyboardType: TextInputType.text,
         //     leftPading: 22,
         //     isReadOnly: '',
-        //     initText: _detailsOrderVertexController
+        //     initText: _detlsOrdrContrlr
         //             .detailsOrderVertexEntities?.ndShadeGuide ??
         //         'لا يوجد'),
         //
@@ -695,32 +687,10 @@ class DetailsOrderVertexScreen extends StatelessWidget {
         ),
         //
         //
-        Padding(
-          padding: EdgeInsets.only(right: 41.w),
-          child: Align(
-            alignment: Alignment.centerRight,
-            //
-            child: Text.rich(
-              TextSpan(
-                style: TextStyle(
-                  fontSize: 20.sp,
-                  fontFamily: AppFonts.almaraiBold,
-                  color: AppColors.textblackLight,
-                ),
-                children: const [
-                  //
-                  TextSpan(
-                      text: AppStringtext.detailsTextDetailsOrderVertexScrn),
-                  //
-                  TextSpan(
-                      text: AppStringtext.askDetailsOrderVertexScrn,
-                      style: TextStyle(color: AppColors.purpleMainColor)),
-                ],
-              ),
-            ),
-          ),
+        const TextTitleTwoWordsWidgetCustom(
+          firstWord: AppStringtext.detailsTextDetailsOrderVertexScrn,
+          secondtWord: AppStringtext.askDetailsOrderVertexScrn,
         ),
-
         //
         SizedBox(
           height: 20.h,
@@ -792,11 +762,8 @@ class DetailsOrderVertexScreen extends StatelessWidget {
         // ==================
         // 'Case Rejected'
 
-        _detailsOrderVertexController
-                        .detailsOrderVertexEntities?.rejectedReason ==
-                    null &&
-                _detailsOrderVertexController
-                        .detailsOrderVertexEntities?.orderState ==
+        _detlsOrdrContrlr.detailsOrderVertexEntities?.rejectedReason == null &&
+                _detlsOrdrContrlr.detailsOrderVertexEntities?.orderState ==
                     'Finished Delivered'
             ? Align(
                 alignment: AlignmentDirectional.centerStart,
@@ -862,10 +829,108 @@ class DetailsOrderVertexScreen extends StatelessWidget {
           height: 30.h,
         ),
 
+        Container(
+          height: 10,
+        ),
+
+        //
+
+        //
+        const TextTitleTwoWordsWidgetCustom(
+          firstWord: AppStringtext.commentTextDetailsOrderVertexScrn,
+          secondtWord: AppStringtext.askDetailsOrderVertexScrn,
+        ),
+
+        //
+        SizedBox(
+          height: 20.h,
+        ),
+        //
+        Divider(
+          color: Colors.black,
+          height: 2.h,
+        ),
+
+        // List Comments
+        sectionCommentMethod(),
+
+        //  Send Comment
+        //
+        SizedBox(
+          height: 30.h,
+        ),
+
+        // Show  Error of Check && Error of Add Comment
+        //
+
+        ErrorCheckFieldsWidgetCustom(
+          errorCheckmsg: _detlsOrdrContrlr.errorMesgeAddComent,
+        ),
+
+        AddCommentTextFieldWidgetCustom(
+          isLoading: _detlsOrdrContrlr.loadingAddComment,
+          controllr: _detlsOrdrContrlr.commentController,
+          onTapInkWell: _detlsOrdrContrlr.loadingAddComment
+              ? () {}
+              : () async {
+                  await _detlsOrdrContrlr.checkBeforeAddComentMethod();
+                },
+        ),
+
+        //
+        SizedBox(
+          height: 30.h,
+        ),
+
         // End Children Main Column
       ],
     );
-  } // end Main Widget Method
+    // end Main Widget Method
+  }
+
+  sectionCommentMethod() {
+    return GetBuilder<DetailsOrderVertexController>(builder: (_) {
+      return AnimatedContainer(
+        margin: EdgeInsets.only(top: 15.h),
+        duration: const Duration(milliseconds: 200),
+        child:
+            // variable Loading
+            _detlsOrdrContrlr.loadingGetComment
+                ?
+                //  show Loading
+                const StaggeredDotsWaveAnimation(
+                    size: 40, color: AppColors.purpleMainColor)
+                :
+                //  Variable Error Message
+                _detlsOrdrContrlr.errorMesgeGetComent != ''
+                    ?
+                    //  Error Widget
+                    ErrorStateWidgetClass(
+                        colorTexterror: AppColors.textblackLight,
+                        errorText: _detlsOrdrContrlr.errorMesgeGetComent,
+                        fontSizeError: 16.sp,
+                        onTapInkWell: () =>
+                            _detlsOrdrContrlr.getCommentsOnOrdrMethod(
+                                _detlsOrdrContrlr.idOrderCont),
+                      )
+                    :
+
+                    // Show Comment Widget
+                    GetBuilder<DetailsOrderVertexController>(builder: (_) {
+                        return ListCommentWidgetCustom(
+                          listComment: _detlsOrdrContrlr
+                              .listCommentsOnOrdr.reversed
+                              .toList(),
+                          emailSessionUsr:
+                              _detlsOrdrContrlr.emailSesionUsrShared ??
+                                  'No Email',
+                        );
+                      }),
+      );
+    });
+
+    // end Method Section Comment
+  }
 
   //
 } // End class

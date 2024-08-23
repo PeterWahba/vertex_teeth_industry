@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:vertix/core/utils/images_path_class.dart';
+import 'package:vertex_teeth_industry/core/utils/images_path_class.dart';
 
 import '../theme/colors_app.dart';
 
@@ -43,11 +43,7 @@ class MethodsClassUTls {
     );
 
     //
-    // print('\n');
-    // print('================================================');
-    // print('The Time ago is $reslt and index is $index ');
-    // print('==================================================');
-    // print('\n');
+
   }
 
   // String
@@ -74,16 +70,19 @@ class MethodsClassUTls {
         return 'تم الموافقة';
 
       //
+      // case "Case finished and Packaged":
+      //   return 'تم الموافقة';
+      //
       case "Case finished and Packaged":
-        return 'تم الموافقة';
+        return 'في الطريق';
 
       // //
-      // case "In Production":
-      //   return 'قيد الإنتاج';
+      case "In Production":
+        return 'قيد التصنيع';
 
       //
-      case "In Production":
-        return 'تم الموافقة';
+      // case "In Production":
+      //   return 'تم الموافقة';
 
       //
       // case "Re-Postponed":
@@ -102,8 +101,12 @@ class MethodsClassUTls {
         return 'تم الموافقة';
 
       //
-      case "Case finished and Packaging":
-        return 'حالة الانتهاء والتعبئة والتغليف';
+      // case "Case finished and Packaging":
+      //   return 'حالة الانتهاء والتعبئة والتغليف';
+
+      //
+      // case "Case finished and Packaged":
+      //   return '';
 
       //
       //
@@ -172,8 +175,11 @@ class MethodsClassUTls {
       case "Registered and Approved":
         return AppColors.skyColor;
       //
+      // case "Case finished and Packaged":
+      //   return AppColors.skyColor;
+
       case "Case finished and Packaged":
-        return AppColors.skyColor;
+        return AppColors.blueColor;
       //
       // //
       case 'مرفوض':
@@ -225,8 +231,14 @@ class MethodsClassUTls {
       case 'قيد الإنتاج':
         return AppColors.blueColor;
       //
+      // case "In Production":
+      //   return AppColors.skyColor;
+      //
+      case "قيد التصنيع":
+        return AppColors.inProductionColor;
+      //
       case "In Production":
-        return AppColors.skyColor;
+        return AppColors.inProductionColor;
       //
       case 'إعادة التأجيل':
         return AppColors.orangeColor;

@@ -1,18 +1,20 @@
 import 'package:get/get.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:vertix/vertix/domain/usecase/get_oder_vertix_case.dart';
-import 'package:vertix/vertix/presentation/controller/list_order_controller/create_new_request_controlr.dart';
-import 'package:vertix/vertix/presentation/controller/list_order_controller/details_order_vertex_controlr.dart';
-import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
-import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/profile_usr_controlr.dart';
+import 'package:vertex_teeth_industry/vertix/domain/usecase/get_oder_vertix_case.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/list_order_controller/create_new_request_controlr.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/list_order_controller/details_order_vertex_controlr.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/profile_usr_controlr.dart';
 
 import '../../../../core/network/network_info.dart';
 import '../../../data/datasource/erps_next_data_source.dart';
 import '../../../data/repositories/repositories_data.dart';
 import '../../../domain/repositories/repositories_domain.dart';
 import '../../../domain/usecase/add_order_vertix_case.dart';
+import '../../../domain/usecase/comments/add_comment_order_case.dart';
 import '../../../domain/usecase/details_order_vertex_case.dart';
 import '../../../domain/usecase/faq_question_case.dart';
+import '../../../domain/usecase/comments/get_comment_on_ordr_case.dart';
 import '../../../domain/usecase/get_details_payment_entry.dart';
 import '../../../domain/usecase/get_images_baner_ads_case.dart';
 import '../../../domain/usecase/get_payment_entry_case.dart';
@@ -47,6 +49,8 @@ class NavBotomBinding implements Bindings {
       () => DetailsOrderVertexController(
         getDetailsOrderVertexUseCase: Get.find(),
         rejectOrderWithMessagUseCase: Get.find(),
+        getCommentOnOrdrUseCase: Get.find(),
+        addCommentOrderUseCase: Get.find(),
       ),
     );
     //
@@ -84,6 +88,20 @@ class NavBotomBinding implements Bindings {
         getOrderVertixUseCase: Get.find(),
       ),
     );
+    //
+
+    //
+    // Use Case add Comments Order  Vertex
+
+    Get.lazyPut<AddCommentOrderUseCase>(
+        () => AddCommentOrderUseCase(repositoriesDomain: Get.find()));
+    //
+
+    //
+    // Use Case  Get Comments Order  Vertex
+
+    Get.lazyPut<GetCommentOnOrdrUseCase>(
+        () => GetCommentOnOrdrUseCase(repositoriesDomain: Get.find()));
     //
 
     //

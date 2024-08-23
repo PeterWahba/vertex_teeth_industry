@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:vertix/vertix/presentation/controller/register_contrlr/register_controller.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/register_contrlr/register_controller.dart';
 
 import '../../../../core/network/network_info.dart';
 import '../../../data/datasource/erps_next_data_source.dart';

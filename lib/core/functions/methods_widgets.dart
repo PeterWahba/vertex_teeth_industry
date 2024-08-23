@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:vertix/core/utils/fonts_path_class.dart';
+import 'package:vertex_teeth_industry/core/utils/fonts_path_class.dart';
 
 import '../theme/colors_app.dart';
 

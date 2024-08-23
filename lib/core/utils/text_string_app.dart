@@ -157,6 +157,9 @@ class AppStringtext {
   static const detailsTextDetailsOrderVertexScrn = 'تفاصيل ';
   //
 
+  static const commentTextDetailsOrderVertexScrn = 'تعليقات ';
+  //
+
   //  Add Teeth Screen
   //============================================================================
 

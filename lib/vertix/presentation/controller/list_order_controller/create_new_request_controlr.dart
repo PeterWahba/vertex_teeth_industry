@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vertix/core/error/methods.dart';
-import 'package:vertix/core/utils/string_shared_prefs.dart';
-import 'package:vertix/vertix/domain/usecase/add_order_vertix_case.dart';
-import 'package:vertix/vertix/domain/usecase/get_oder_vertix_case.dart';
+import 'package:vertex_teeth_industry/core/error/methods.dart';
+import 'package:vertex_teeth_industry/core/utils/string_shared_prefs.dart';
+import 'package:vertex_teeth_industry/vertix/domain/usecase/add_order_vertix_case.dart';
+import 'package:vertex_teeth_industry/vertix/domain/usecase/get_oder_vertix_case.dart';
 
 import '../../../../core/utils/setting_sevices.dart';
 import '../../../domain/entities/add_order_vertix_entities.dart';
@@ -158,14 +158,18 @@ class CreateNewRequestController extends GetxController
     // StateOrderFilterClass(
     //     stateArabic: 'حالة الانتهاء والتعبئة والتغليف',
     //     stateEnglish: "Case finished and Packaging"),
+    // //
+
+    StateOrderFilterClass(
+        stateArabic: 'في الطريق', stateEnglish: "Case finished and Packaged"),
 
     // //
     // StateOrderFilterClass(
     //     stateArabic: 'جاهز للتغليف', stateEnglish: "Ready for Packaging"),
 
     // //
-    // StateOrderFilterClass(
-    //     stateArabic: 'قيد الإنتاج', stateEnglish: "In Production"),
+    StateOrderFilterClass(
+        stateArabic: 'قيد التصنيع', stateEnglish: "In Production"),
 
     // //
 
@@ -747,13 +751,13 @@ Cancelled
 
         if (orderStateEntities == 'In Production') {
           // 'Registered and Approved'
-          orderStateEntities = 'Registered and Approved';
+          orderStateEntities = 'In Production';
         } else if (orderStateEntities == 'Ready for Packaging') {
           // 'Registered and Approved'
           orderStateEntities = 'Registered and Approved';
         } else if (orderStateEntities == 'Case finished and Packaged') {
           // 'Registered and Approved'
-          orderStateEntities = 'Registered and Approved';
+          orderStateEntities = 'Case finished and Packaged';
         } else if (orderStateEntities == 'Postponed') {
           // 'Registered and Approved'
           orderStateEntities = 'Registered and Approved';
@@ -933,13 +937,13 @@ Cancelled
 
         if (orderStateEntities == 'In Production') {
           // 'Registered and Approved'
-          orderStateEntities = 'Registered and Approved';
+          orderStateEntities = 'In Production';
         } else if (orderStateEntities == 'Ready for Packaging') {
           // 'Registered and Approved'
           orderStateEntities = 'Registered and Approved';
         } else if (orderStateEntities == 'Case finished and Packaged') {
           // 'Registered and Approved'
-          orderStateEntities = 'Registered and Approved';
+          orderStateEntities = 'Case finished and Packaged';
         } else if (orderStateEntities == 'Postponed') {
           // 'Registered and Approved'
           orderStateEntities = 'Registered and Approved';

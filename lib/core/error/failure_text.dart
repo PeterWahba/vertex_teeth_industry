@@ -50,3 +50,12 @@ const String DETAILS_PAYMENT_ENTRY_MESSAGE = 'لا يوجد تفاصيل لهذ�
 const String EMPTY_DETAILS_ORDER_VERTEX_MESSAGE = 'لا يوجد تفاصيل لهذا الطلب';
 //
 
+//
+// ignore: constant_identifier_names
+const String SESSION_EXPIRED_MESSAGE =
+    'انتهت صلاحية تسجيل الدخول ، يرجى اعادة تسجيل الدخول من جديد';
+//
+
+//
+// ignore: constant_identifier_names
+const String EMPTY_COMMENT_ON_ORDER_MESSAGE = 'لا توجد تعليقات';

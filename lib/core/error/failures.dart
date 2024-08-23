@@ -11,6 +11,12 @@ class OffLineFailer extends Failure {
 }
 
 //
+class SessionExpiredFailure extends Failure {
+  @override
+  List<Object?> get props => [];
+}
+
+//
 class UnKnownFailre extends Failure {
   @override
   List<Object?> get props => [];
@@ -72,6 +78,12 @@ class EmptyDetailspaymentEntryFailure extends Failure {
 
 //
 class EmptyDetailsOrderVertexFailure extends Failure {
+  @override
+  List<Object?> get props => [];
+}
+
+//
+class EmptyCommentsOnOrderFailure extends Failure {
   @override
   List<Object?> get props => [];
 }

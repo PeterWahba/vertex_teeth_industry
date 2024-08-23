@@ -1,5 +1,5 @@
-import 'package:vertix/vertix/data/model/tooth_history_log_model.dart';
-import 'package:vertix/vertix/domain/entities/tooth_history_log_entities.dart';
+import 'package:vertex_teeth_industry/vertix/data/model/tooth_history_log_model.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/tooth_history_log_entities.dart';
 
 import '../../../domain/entities/details_order_vertex_entities.dart';
 

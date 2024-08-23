@@ -5,6 +5,9 @@ class ServerException implements Exception {}
 class UnKnownException implements Exception {}
 
 //
+class SessionExpiredException implements Exception {}
+
+//
 class GetOrderVertixEmptyException implements Exception {}
 
 //
@@ -30,3 +33,6 @@ class EmptyDetailspaymentEntryException implements Exception {}
 
 //
 class EmptyDetailsOrderVertexException implements Exception {}
+
+//
+class EmptyCommentsOnOrderException implements Exception {}

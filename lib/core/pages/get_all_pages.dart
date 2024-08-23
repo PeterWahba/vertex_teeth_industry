@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:vertix/onBoarding/screens/on_board_scrn.dart';
+import 'package:vertex_teeth_industry/onBoarding/screens/on_board_scrn.dart';
 import '../../vertix/presentation/binding/nav_botom_binding/nav_botom_binding.dart';
 import '../../vertix/presentation/binding/register_binding/register_binding.dart';
 import '../../vertix/presentation/middle_where/auth_middle.dart';

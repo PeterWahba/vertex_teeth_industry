@@ -1,15 +1,16 @@
 import 'package:dartz/dartz.dart';
 
-import 'package:vertix/core/error/failures.dart';
-import 'package:vertix/vertix/data/model/add_order_vertix_model.dart';
-import 'package:vertix/vertix/domain/entities/add_order_vertix_entities.dart';
-import 'package:vertix/vertix/domain/entities/details_order_vertex_entities.dart';
-import 'package:vertix/vertix/domain/entities/details_payment_entry_entities.dart';
-import 'package:vertix/vertix/domain/entities/faq_question_entities.dart';
-import 'package:vertix/vertix/domain/entities/order_vertix_entities.dart';
-import 'package:vertix/vertix/domain/entities/payment_entry_user_entities.dart';
+import 'package:vertex_teeth_industry/core/error/failures.dart';
+import 'package:vertex_teeth_industry/vertix/data/model/add_order_vertix_model.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/add_order_vertix_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/comment_entites.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/details_order_vertex_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/details_payment_entry_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/faq_question_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/order_vertix_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/payment_entry_user_entities.dart';
 
-import 'package:vertix/vertix/domain/entities/user_register_entites.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/user_register_entites.dart';
 
 import '../../../core/error/exceptions.dart';
 import '../../../core/network/network_info.dart';
@@ -92,6 +93,11 @@ class RepositoriesDataImp implements RepositoriesDomain {
       //
 
       return left(ServerFailre());
+      //
+    } on SessionExpiredException {
+      //
+
+      return left(SessionExpiredFailure());
       //
     }
 
@@ -298,6 +304,11 @@ class RepositoriesDataImp implements RepositoriesDomain {
 
       return left(ServerFailre());
       //
+    } on SessionExpiredException {
+      //
+
+      return left(SessionExpiredFailure());
+      //
     }
 
     //  End Get  Customer Name Method
@@ -357,11 +368,7 @@ class RepositoriesDataImp implements RepositoriesDomain {
 
     try {
       //
-      print('\n');
-      print('\n');
-      print('The Details Order Implement  ');
-      print('\n');
-      print('\n');
+
       final reslt = await eRPnextDataSource.getDetailsPaymentEntryDataSource(
         sidToken: sidToekn,
         idNamePayment: idNamePayment,
@@ -470,6 +477,90 @@ class RepositoriesDataImp implements RepositoriesDomain {
       //
     }
     //
+  }
+
+  @override
+  Future<Either<Failure, List<CommentOnOrderEntities>>> getCommentOnOrdr(
+      {required String sidToekn, required String idOrder}) async {
+    //
+
+    //
+
+    if (!await netWorkInfo.isConnected) {
+      //
+
+      return left(OffLineFailer());
+    }
+
+    try {
+      final reslt = await eRPnextDataSource.getCommentsOnOrderDataSource(
+        sidToken: sidToekn,
+        idOrder: idOrder,
+      );
+      //
+      return right(reslt);
+    } on UnKnownException {
+      //
+
+      return left(UnKnownFailre());
+      //
+    } on EmptyCommentsOnOrderException {
+      //
+
+      return left(EmptyCommentsOnOrderFailure());
+      //
+    } on ServerException {
+      //
+
+      return left(ServerFailre());
+      //
+    }
+
+    //  End Get Comment   On  Order Vertex Method
+  }
+
+  @override
+  Future<Either<Failure, Unit>> addCommentOnOrdr({
+    required String sidToekn,
+    required String idOrder,
+    required String commentText,
+  }) async {
+    //
+    //
+
+    if (!await netWorkInfo.isConnected) {
+      //
+
+      return left(OffLineFailer());
+    }
+
+    try {
+      //
+
+      //
+
+      final reslt = await eRPnextDataSource.addCommentsOnOrderDataSource(
+        sidToken: sidToekn,
+        idOrder: idOrder,
+        commentText: commentText,
+      );
+
+      //
+      return right(reslt);
+
+      // End Try
+    } on UnKnownException {
+      //
+
+      return left(UnKnownFailre());
+      //
+    } on ServerException {
+      //
+
+      return left(ServerFailre());
+      //
+    }
+    // end Method Add Comments
   }
 
   //

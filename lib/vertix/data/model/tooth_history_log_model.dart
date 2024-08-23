@@ -1,4 +1,4 @@
-import 'package:vertix/vertix/domain/entities/tooth_history_log_entities.dart';
+import 'package:vertex_teeth_industry/vertix/domain/entities/tooth_history_log_entities.dart';
 
 class ToothHistoryLogModel extends ToothHistoryLogEntities {
   //

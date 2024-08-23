@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vertix/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
+import 'package:vertex_teeth_industry/vertix/presentation/controller/nav_botom_controlr/nav_botom_controlr.dart';
 
 import 'home_nav_scrns/home_screen.dart';
 import 'list_order_page_view_screens/details_order_vertex_scrn.dart';

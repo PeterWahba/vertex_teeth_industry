@@ -45,6 +45,8 @@ class AppColors {
   //
   static const silverColor = Color(0xFFC0C0C0);
   //
+  static const greyComment = Color(0xFFEBEAEA);
+  //
   static const almostWhiteDidntSaveBtn = Color(0xFFFFEDED);
   //
   static const whiteItemListOrderBackground = Color(0xFFF9F9F9);
@@ -69,6 +71,9 @@ class AppColors {
 
   static const dividerColor = Color(0xFFD5D5D5);
   //
+  //
+
+  static const inProductionColor = Color(0xFF007bff);
   //
 
   static const colorRed = Color(0xFFFD3C4A);

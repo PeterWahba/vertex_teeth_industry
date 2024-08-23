@@ -1,4 +1,4 @@
-import 'package:vertix/core/error/failure_text.dart';
+import 'package:vertex_teeth_industry/core/error/failure_text.dart';
 
 import 'failures.dart';
 
@@ -42,6 +42,12 @@ String mapFailureToMessage(Failure failure) {
     //
     case EmptyDetailsOrderVertexFailure:
       return EMPTY_DETAILS_ORDER_VERTEX_MESSAGE;
+    //
+    case SessionExpiredFailure:
+      return SESSION_EXPIRED_MESSAGE;
+    //
+    case EmptyCommentsOnOrderFailure:
+      return EMPTY_COMMENT_ON_ORDER_MESSAGE;
     //
     //
 
